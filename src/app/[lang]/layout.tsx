@@ -1,24 +1,31 @@
-import { AppConfig } from "@/utils/AppConfig";
+import type { Locales } from '@/i18n/config';
+import { supportedLocales } from '@/i18n/config';
+import { AppConfig } from '@/utils/AppConfig';
 
 // Root metadata
 // https://beta.nextjs.org/docs/api-reference/metadata
 export const metadata = {
-  title: "Unmanual",
+  title: 'Unmanual',
   openGraph: {
-    title: "Unmanual",
-    description: "Unmanual is a...",
+    title: 'Unmanual',
+    description: 'Unmanual is a...',
   },
 };
 
 // Root params
 export async function generateStaticParams() {
-  return [{ lang: "en-US" }, { lang: "de" }];
+  const localeParams = supportedLocales.map((locale: Locales) => {
+    return {
+      lang: locale,
+    };
+  });
+  return localeParams;
 }
 
 interface IRootLayoutProps {
   children: React.ReactNode;
   params: {
-    lang: string;
+    lang: Locales;
   };
 }
 
