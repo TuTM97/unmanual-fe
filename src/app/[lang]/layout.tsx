@@ -1,3 +1,5 @@
+'use client';
+
 import { Provider } from 'react-redux';
 
 import type { Locales } from '@/i18n/config';
@@ -7,13 +9,13 @@ import { AppConfig } from '@/utils/AppConfig';
 
 // Root metadata
 // https://beta.nextjs.org/docs/api-reference/metadata
-export const metadata = {
-  title: 'Unmanual',
-  openGraph: {
-    title: 'Unmanual',
-    description: 'Unmanual is a...',
-  },
-};
+// export const metadata = {
+//   title: 'Unmanual',
+//   openGraph: {
+//     title: 'Unmanual',
+//     description: 'Unmanual is a...',
+//   },
+// };
 
 // Root params
 export async function generateStaticParams() {
