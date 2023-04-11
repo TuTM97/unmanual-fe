@@ -1,7 +1,6 @@
 import {
   Uil500px,
   UilAirplay,
-  UilArrowGrowth,
   UilAt,
   UilBagAlt,
   UilBookAlt,
@@ -42,20 +41,33 @@ import {
   UilUsersAlt,
   UilWindowSection,
 } from '@iconscout/react-unicons';
+import UilEllipsisV from '@iconscout/react-unicons/icons/uil-ellipsis-v';
 import { Menu } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import UilEllipsisV from '@iconscout/react-unicons/icons/uil-ellipsis-v';
+import useLayout from '@/hooks/useLayout';
+import { useAppSelector } from '@/hooks/useRedux';
+
 import { NavTitle } from './Style';
-import { changeDirectionMode, changeLayoutMode, changeMenuMode } from '../redux/themeLayout/actionCreator';
 
-function MenuItems({ toggleCollapsed }) {
+interface IMenuItemsProps {
+  toggleCollapsed: () => void;
+}
+
+function MenuItems({ toggleCollapsed }: IMenuItemsProps) {
   const { t } = useTranslation();
+  const { changeDirectionMode, changeLayoutMode, changeMenuMode } = useLayout();
 
-  function getItem(label, key, icon, children, type) {
+  function getItem(
+    label?: any,
+    key?: any,
+    icon?: any,
+    children?: any,
+    type?: any
+  ) {
     return {
       key,
       icon,
@@ -65,9 +77,9 @@ function MenuItems({ toggleCollapsed }) {
     };
   }
 
-  const { topMenu } = useSelector((state) => {
+  const { topMenu } = useAppSelector((state) => {
     return {
-      topMenu: state.ChangeLayoutMode.topMenu,
+      topMenu: state.layout.topMenu,
     };
   });
 
@@ -81,11 +93,17 @@ function MenuItems({ toggleCollapsed }) {
   const mainPathSplit = mainPath.split('/');
 
   const [openKeys, setOpenKeys] = React.useState(
-    !topMenu ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`] : [],
+    !topMenu
+      ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`]
+      : []
   );
 
   const onOpenChange = (keys) => {
-    setOpenKeys(keys[keys.length - 1] !== 'recharts' ? [keys.length && keys[keys.length - 1]] : keys);
+    setOpenKeys(
+      keys[keys.length - 1] !== 'recharts'
+        ? [keys.length && keys[keys.length - 1]]
+        : keys
+    );
   };
 
   const onClick = (item) => {
@@ -130,28 +148,28 @@ function MenuItems({ toggleCollapsed }) {
           {t('demo')} {t('1')}
         </NavLink>,
         'demo-1',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/demo-2`}>
           {t('demo')} {t('2')}
         </NavLink>,
         'demo-2',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/demo-3`}>
           {t('demo')} {t('3')}
         </NavLink>,
         'demo-3',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/demo-4`}>
           {t('demo')} {t('4')}
         </NavLink>,
         'demo-4',
-        null,
+        null
       ),
     ]),
     getItem(t('layouts'), 'layout', !topMenu && <UilWindowSection />, [
@@ -167,7 +185,7 @@ function MenuItems({ toggleCollapsed }) {
           {t('light')} {t('mode')}
         </NavLink>,
         'light',
-        null,
+        null
       ),
       getItem(
         <NavLink
@@ -181,7 +199,7 @@ function MenuItems({ toggleCollapsed }) {
           {t('dark')} {t('mode')}
         </NavLink>,
         'dark',
-        null,
+        null
       ),
       getItem(
         <NavLink
@@ -194,7 +212,7 @@ function MenuItems({ toggleCollapsed }) {
           {t('top')} {t('menu')}
         </NavLink>,
         'topMenu',
-        null,
+        null
       ),
       getItem(
         <NavLink
@@ -207,7 +225,7 @@ function MenuItems({ toggleCollapsed }) {
           {t('side')} {t('menu')}
         </NavLink>,
         'sideMenu',
-        null,
+        null
       ),
       getItem(
         <NavLink
@@ -220,7 +238,7 @@ function MenuItems({ toggleCollapsed }) {
           RTL
         </NavLink>,
         'rtl',
-        null,
+        null
       ),
       getItem(
         <NavLink
@@ -233,19 +251,19 @@ function MenuItems({ toggleCollapsed }) {
           LTR
         </NavLink>,
         'ltr',
-        null,
+        null
       ),
     ]),
     getItem(
       !topMenu && (
-        <NavTitle className="flex text-[12px] font-medium uppercase text-light mt-[20px] dark:text-white87 p-0">
+        <NavTitle className="mt-[20px] flex p-0 text-[12px] font-medium uppercase text-light dark:text-white87">
           {t('application')}
         </NavTitle>
       ),
       'app-title',
       null,
       null,
-      'group',
+      'group'
     ),
     getItem(t('email'), 'email', !topMenu && <UilEnvelope />, [
       getItem(
@@ -253,106 +271,133 @@ function MenuItems({ toggleCollapsed }) {
           {t('inbox')}
         </NavLink>,
         'inbox',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/email/single/1585118055048`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/email/single/1585118055048`}
+        >
           {t('read')} {t('email')}
         </NavLink>,
         'single',
-        null,
+        null
       ),
     ]),
     getItem(
-      <NavLink onClick={toggleCollapsed} to={`${path}/main/chat/private/rofiq@gmail.com`}>
+      <NavLink
+        onClick={toggleCollapsed}
+        to={`${path}/main/chat/private/rofiq@gmail.com`}
+      >
         {t('chat')}
       </NavLink>,
       'chat',
       !topMenu && (
-        <NavLink className="menuItem-iocn" to={`${path}/main/chat/private/rofiq@gmail.com`}>
+        <NavLink
+          className="menuItem-iocn"
+          to={`${path}/main/chat/private/rofiq@gmail.com`}
+        >
           <UilChat />
         </NavLink>
-      ),
+      )
     ),
     getItem(t('eCommerce'), 'ecommerce', !topMenu && <UilShoppingCart />, [
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/products/grid`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/ecommerce/products/grid`}
+        >
           {t('products')}
         </NavLink>,
         'products',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/productDetails/1`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/ecommerce/productDetails/1`}
+        >
           {t('product')} {t('details')}
         </NavLink>,
         'productDetails',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/add-product`}>
           {t('product')} {t('add')}
         </NavLink>,
         'add-product',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/edit-product`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/ecommerce/edit-product`}
+        >
           {t('product')} {t('edit')}
         </NavLink>,
         'edit-product',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/cart`}>
           {t('cart')}
         </NavLink>,
         'cart',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/orders`}>
           {t('orders')}
         </NavLink>,
         'orsers',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/sellers`}>
           {t('sellers')}
         </NavLink>,
         'sellers',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/ecommerce/Invoice`}>
           {t('invoices')}
         </NavLink>,
         'Invoice',
-        null,
+        null
       ),
     ]),
     getItem(`${t('social')} ${t('app')}`, 'profile', !topMenu && <Uil500px />, [
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/profile/myProfile/overview`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/profile/myProfile/overview`}
+        >
           {t('my')} {t('profile')}
         </NavLink>,
         'myProfile',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/profile/myProfile/timeline`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/profile/myProfile/timeline`}
+        >
           {t('timeline')}
         </NavLink>,
         'profileTimeline',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/profile/myProfile/activity`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/profile/myProfile/activity`}
+        >
           {t('activity')}
         </NavLink>,
         'profileActivity',
-        null,
+        null
       ),
     ]),
     getItem(t('project'), 'project', !topMenu && <UilBagAlt />, [
@@ -361,28 +406,31 @@ function MenuItems({ toggleCollapsed }) {
           {t('project')} {t('grid')}
         </NavLink>,
         'projectGrid',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/project/view/list`}>
           {t('project')} {t('list')}
         </NavLink>,
         'projectList',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/project/create`}>
           {t('create')} {t('project')}
         </NavLink>,
         'ProjectCreate',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/project/projectDetails/1/tasklist`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/project/projectDetails/1/tasklist`}
+        >
           {t('project')} {t('details')}
         </NavLink>,
         'projectDetails',
-        null,
+        null
       ),
     ]),
     getItem(
@@ -394,7 +442,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/app/calendar/month`}>
           <UilCalendarAlt />
         </NavLink>
-      ),
+      )
     ),
     getItem(t('users'), 'users', !topMenu && <UilUsersAlt />, [
       getItem(
@@ -402,42 +450,42 @@ function MenuItems({ toggleCollapsed }) {
           {t('team')}
         </NavLink>,
         'team',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/users/grid`}>
           {t('users')} {t('grid')}
         </NavLink>,
         'user-grid',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/users/list`}>
           {t('users')} {t('list')}
         </NavLink>,
         'user-list',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/users/grid-style`}>
           {t('users')} {t('grid')} {t('style')}
         </NavLink>,
         'grid-style',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/users/add-user/info`}>
           {t('add')} {t('user')}
         </NavLink>,
         'addUser',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/users/dataTable`}>
           {t('users')} {t('table')}
         </NavLink>,
         'user-dataTable',
-        null,
+        null
       ),
     ]),
     getItem(t('contact'), 'contact', !topMenu && <UilAt />, [
@@ -446,21 +494,21 @@ function MenuItems({ toggleCollapsed }) {
           {t('contact')} {t('grid')}
         </NavLink>,
         'contact-grid',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/contact/list`}>
           {t('contact')} {t('list')}
         </NavLink>,
         'contact-list',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/contact/addNew`}>
           {t('contact')} {t('create')}
         </NavLink>,
         'addNew',
-        null,
+        null
       ),
     ]),
     getItem(
@@ -472,7 +520,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/app/note/all`}>
           <UilClipboardAlt />
         </NavLink>
-      ),
+      )
     ),
     getItem(
       <NavLink onClick={toggleCollapsed} to={`${path}/app/to-do`}>
@@ -483,7 +531,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/app/to-do`}>
           <UilCheckSquare />
         </NavLink>
-      ),
+      )
     ),
     // getItem(
     //   <NavLink onClick={toggleCollapsed} to={`${path}/app/kanban`}>
@@ -492,28 +540,33 @@ function MenuItems({ toggleCollapsed }) {
     //   'kanban',
     //   !topMenu && <UilExpandArrowsAlt />,
     // ),
-    getItem(`${t('import')} ${t('export')}`, 'importExport', !topMenu && <UilExchange />, [
-      getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/importExport/import`}>
-          {t('import')}
-        </NavLink>,
-        'import',
-        null,
-      ),
-      getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/importExport/export`}>
-          {t('export')}
-        </NavLink>,
-        'export',
-        null,
-      ),
-    ]),
+    getItem(
+      `${t('import')} ${t('export')}`,
+      'importExport',
+      !topMenu && <UilExchange />,
+      [
+        getItem(
+          <NavLink onClick={toggleCollapsed} to={`${path}/importExport/import`}>
+            {t('import')}
+          </NavLink>,
+          'import',
+          null
+        ),
+        getItem(
+          <NavLink onClick={toggleCollapsed} to={`${path}/importExport/export`}>
+            {t('export')}
+          </NavLink>,
+          'export',
+          null
+        ),
+      ]
+    ),
     getItem(
       <NavLink onClick={toggleCollapsed} to={`${path}/app/task/all`}>
         {t('task')}
       </NavLink>,
       'task',
-      !topMenu && <UilFile />,
+      !topMenu && <UilFile />
     ),
     getItem(t('support'), 'supports', !topMenu && <UilHeadphones />, [
       getItem(
@@ -521,72 +574,91 @@ function MenuItems({ toggleCollapsed }) {
           {t('support')}
         </NavLink>,
         'support',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/support/tickets/add`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/app/support/tickets/add`}
+        >
           {t('add')} {t('support')}
         </NavLink>,
         'add-support',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/support/ticketDetails/01`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/app/support/ticketDetails/01`}
+        >
           {t('view')} {t('support')}
         </NavLink>,
         'view-support',
-        null,
-      ),
-    ]),
-    getItem(`${t('learning')} ${t('app')}`, 'course', !topMenu && <UilBookReader />, [
-      getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/course`}>
-          {t('courses')}
-        </NavLink>,
-        'course-list',
-        null,
-      ),
-      getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/course/courseDetails/1`}>
-          {t('course')} {t('single')}
-        </NavLink>,
-        'single-course',
-        null,
-      ),
-    ]),
-    getItem(`${t('jobs')} ${t('search')}`, 'job-search', !topMenu && <UilHeadphones />, [
-      getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/jobs/grid`}>
-          {t('jobs')}
-        </NavLink>,
-        'jobs',
-        null,
-      ),
-      getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/jobDetails/1`}>
-          {t('jobs')} {t('details')}
-        </NavLink>,
-        'job-details',
-        null,
-      ),
-      getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/app/job/apply`}>
-          {t('job')} {t('apply')}
-        </NavLink>,
-        'job-apply',
-        null,
+        null
       ),
     ]),
     getItem(
+      `${t('learning')} ${t('app')}`,
+      'course',
+      !topMenu && <UilBookReader />,
+      [
+        getItem(
+          <NavLink onClick={toggleCollapsed} to={`${path}/app/course`}>
+            {t('courses')}
+          </NavLink>,
+          'course-list',
+          null
+        ),
+        getItem(
+          <NavLink
+            onClick={toggleCollapsed}
+            to={`${path}/app/course/courseDetails/1`}
+          >
+            {t('course')} {t('single')}
+          </NavLink>,
+          'single-course',
+          null
+        ),
+      ]
+    ),
+    getItem(
+      `${t('jobs')} ${t('search')}`,
+      'job-search',
+      !topMenu && <UilHeadphones />,
+      [
+        getItem(
+          <NavLink onClick={toggleCollapsed} to={`${path}/app/jobs/grid`}>
+            {t('jobs')}
+          </NavLink>,
+          'jobs',
+          null
+        ),
+        getItem(
+          <NavLink onClick={toggleCollapsed} to={`${path}/app/jobDetails/1`}>
+            {t('jobs')} {t('details')}
+          </NavLink>,
+          'job-details',
+          null
+        ),
+        getItem(
+          <NavLink onClick={toggleCollapsed} to={`${path}/app/job/apply`}>
+            {t('job')} {t('apply')}
+          </NavLink>,
+          'job-apply',
+          null
+        ),
+      ]
+    ),
+    getItem(
       !topMenu && (
-        <NavTitle className="flex text-[12px] font-medium uppercase text-light mt-[20px] dark:text-white87 p-0">
+        <NavTitle className="mt-[20px] flex p-0 text-[12px] font-medium uppercase text-light dark:text-white87">
           {t('crud')}
         </NavTitle>
       ),
       'CRUD-title',
       null,
       null,
-      'group',
+      'group'
     ),
     getItem(t('axios'), 'axios', !topMenu && <UilDatabase />, [
       getItem(
@@ -594,14 +666,14 @@ function MenuItems({ toggleCollapsed }) {
           {t('view')} {t('all')}
         </NavLink>,
         'axios-view',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/axios/crud/add`}>
           {t('add')} {t('new')}
         </NavLink>,
         'axios-add',
-        null,
+        null
       ),
     ]),
     getItem(t('firestore'), 'Firestore', !topMenu && <UilDatabase />, [
@@ -610,26 +682,26 @@ function MenuItems({ toggleCollapsed }) {
           {t('view')} {t('all')}
         </NavLink>,
         'fbView',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/firestore/fbAdd`}>
           {t('add')} {t('new')}
         </NavLink>,
         'fbAdd',
-        null,
+        null
       ),
     ]),
     getItem(
       !topMenu && (
-        <NavTitle className="flex text-[12px] font-medium uppercase text-light mt-[20px] dark:text-white87 p-0">
+        <NavTitle className="mt-[20px] flex p-0 text-[12px] font-medium uppercase text-light dark:text-white87">
           {t('features')}
         </NavTitle>
       ),
       'features-title',
       null,
       null,
-      'group',
+      'group'
     ),
     getItem(t('ui elements'), 'components', !topMenu && <UilLayerGroup />, [
       getItem(
@@ -637,323 +709,342 @@ function MenuItems({ toggleCollapsed }) {
           {t('alerts')}
         </NavLink>,
         'alerts',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/components/auto-complete`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/components/auto-complete`}
+        >
           {t('autocomplete')}
         </NavLink>,
         'auto-complete',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/avatar`}>
           {t('avatar')}
         </NavLink>,
         'avatar',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/badge`}>
           {t('badge')}
         </NavLink>,
         'badge',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/breadcrumb`}>
           {t('breadcrumb')}
         </NavLink>,
         'breadcrumb',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/button`}>
           {t('button')}
         </NavLink>,
         'button',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/calendar`}>
           {t('calendar')}
         </NavLink>,
         'calendar',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/cards`}>
           {t('cards')}
         </NavLink>,
         'cards',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/carousel`}>
           {t('carousel')}
         </NavLink>,
         'carousel',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/cascader`}>
           {t('casecader')}
         </NavLink>,
         'cascader',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/checkbox`}>
           {t('checkbox')}
         </NavLink>,
         'checkbox',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/collapse`}>
           {t('collapse')}
         </NavLink>,
         'callapse',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/comments`}>
           {t('comments')}
         </NavLink>,
         'comments',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/base`}>
           {t('dashboard')} {t('base')}
         </NavLink>,
         'base',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/components/date-picker`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/components/date-picker`}
+        >
           {t('datepicker')}
         </NavLink>,
         'date-picker',
-        null,
+        null
       ),
-      getItem(<NavLink to="/admin/components/drag">Drag & Drop</NavLink>, 'drag', null),
+      getItem(
+        <NavLink to="/admin/components/drag">Drag & Drop</NavLink>,
+        'drag',
+        null
+      ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/drawer`}>
           {t('drawer')}
         </NavLink>,
         'drawer',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/dropdown`}>
           {t('dropdown')}
         </NavLink>,
         'dropdown',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/empty`}>
           {t('empty')}
         </NavLink>,
         'empty',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/grid`}>
           {t('grid')}
         </NavLink>,
         '-dash-grid',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/input`}>
           {t('input')}
         </NavLink>,
         'input',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/list`}>
           {t('list')}
         </NavLink>,
         'dash-list',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/menu`}>
           {t('menu')}
         </NavLink>,
         'menu',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/message`}>
           {t('message')}
         </NavLink>,
         'message',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/modals`}>
           {t('modals')}
         </NavLink>,
         'modals',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/components/notification`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/components/notification`}
+        >
           {t('notification')}
         </NavLink>,
         'notifications',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/components/page-headers`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/components/page-headers`}
+        >
           {t('page')} {t('headers')}
         </NavLink>,
         'page-headers',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/pagination`}>
           {t('paginations')}
         </NavLink>,
         'paginations',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/confirm`}>
           {t('popconfirm')}
         </NavLink>,
         'popconfirme',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/popover`}>
           {t('popover')}
         </NavLink>,
         'popover',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/progress`}>
           {t('progress')}
         </NavLink>,
         'progress',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/radio`}>
           {t('radio')}
         </NavLink>,
         'radio',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/rate`}>
           {t('rate')}
         </NavLink>,
         'rate',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/result`}>
           {t('result')}
         </NavLink>,
         'result',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/select`}>
           {t('select')}
         </NavLink>,
         'select',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/skeleton`}>
           {t('skeleton')}
         </NavLink>,
         'skeleton',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/slider`}>
           {t('slider')}
         </NavLink>,
         'slider',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/spiner`}>
           {t('spinner')}
         </NavLink>,
         'spiner',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/statistic`}>
           {t('statistics')}
         </NavLink>,
         'statistics',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/steps`}>
           {t('steps')}
         </NavLink>,
         'steps',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/switch`}>
           {t('switch')}
         </NavLink>,
         'switch',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/tabs`}>
           {t('tabs')}
         </NavLink>,
         'tabs',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/tags`}>
           {t('tags')}
         </NavLink>,
         'tags',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/timeline`}>
           {t('timeline')}
         </NavLink>,
         'timeline',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/timepicker`}>
           {t('timepicker')}
         </NavLink>,
         'timepicker',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/components/tree-select`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/components/tree-select`}
+        >
           {t('treeselect')}
         </NavLink>,
         'treeselect',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/components/upload`}>
           {t('upload')}
         </NavLink>,
         'upload',
-        null,
+        null
       ),
     ]),
     getItem(t('charts'), 'charts', !topMenu && <UilChartBar />, [
@@ -962,14 +1053,14 @@ function MenuItems({ toggleCollapsed }) {
           {t('chart')} {t('js')}
         </NavLink>,
         'chartjs',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/charts/google-chart`}>
           {t('google')} {t('chart')}
         </NavLink>,
         'google-chart',
-        null,
+        null
       ),
       getItem(t('recharts'), 'recharts', !topMenu && <UilChartBar />, [
         getItem(
@@ -977,49 +1068,64 @@ function MenuItems({ toggleCollapsed }) {
             {t('bar')} {t('chart')}
           </NavLink>,
           'bar',
-          null,
+          null
         ),
         getItem(
-          <NavLink onClick={toggleCollapsed} to={`${path}/charts/recharts/area`}>
+          <NavLink
+            onClick={toggleCollapsed}
+            to={`${path}/charts/recharts/area`}
+          >
             {t('Area')} {t('chart')}
           </NavLink>,
           'area',
-          null,
+          null
         ),
         getItem(
-          <NavLink onClick={toggleCollapsed} to={`${path}/charts/recharts/composed`}>
+          <NavLink
+            onClick={toggleCollapsed}
+            to={`${path}/charts/recharts/composed`}
+          >
             {t('Composed')} {t('chart')}
           </NavLink>,
           'composed',
-          null,
+          null
         ),
         getItem(
-          <NavLink onClick={toggleCollapsed} to={`${path}/charts/recharts/line`}>
+          <NavLink
+            onClick={toggleCollapsed}
+            to={`${path}/charts/recharts/line`}
+          >
             {t('Line')} {t('chart')}
           </NavLink>,
           'line',
-          null,
+          null
         ),
         getItem(
           <NavLink onClick={toggleCollapsed} to={`${path}/charts/recharts/pie`}>
             {t('Pie')} {t('chart')}
           </NavLink>,
           'pie',
-          null,
+          null
         ),
         getItem(
-          <NavLink onClick={toggleCollapsed} to={`${path}/charts/recharts/radar`}>
+          <NavLink
+            onClick={toggleCollapsed}
+            to={`${path}/charts/recharts/radar`}
+          >
             {t('radar')} {t('chart')}
           </NavLink>,
           'radar',
-          null,
+          null
         ),
         getItem(
-          <NavLink onClick={toggleCollapsed} to={`${path}/charts/recharts/radial`}>
+          <NavLink
+            onClick={toggleCollapsed}
+            to={`${path}/charts/recharts/radial`}
+          >
             {t('radial')} {t('charts')}
           </NavLink>,
           'radial',
-          null,
+          null
         ),
       ]),
       getItem(
@@ -1027,7 +1133,7 @@ function MenuItems({ toggleCollapsed }) {
           {t('peity')} {t('charts')}
         </NavLink>,
         'peity',
-        null,
+        null
       ),
     ]),
     getItem(t('forms'), 'forms', !topMenu && <UilCompactDisc />, [
@@ -1036,28 +1142,37 @@ function MenuItems({ toggleCollapsed }) {
           {t('form')} {t('layouts')}
         </NavLink>,
         'form-layout',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/features/form-elements`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/features/form-elements`}
+        >
           {t('form')} {t('elements')}
         </NavLink>,
         'form-elements',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/features/form-components`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/features/form-components`}
+        >
           {t('form')} {t('components')}
         </NavLink>,
         'form-components',
-        null,
+        null
       ),
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/features/form-validation`}>
+        <NavLink
+          onClick={toggleCollapsed}
+          to={`${path}/features/form-validation`}
+        >
           {t('form')} {t('validation')}
         </NavLink>,
         'form-validation',
-        null,
+        null
       ),
     ]),
     getItem(t('table'), 'table', !topMenu && <UilTable />, [
@@ -1066,14 +1181,14 @@ function MenuItems({ toggleCollapsed }) {
           {t('basic')} {t('table')}
         </NavLink>,
         'basicTable',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/tables/dataTable`}>
           {t('data')} {t('table')}
         </NavLink>,
         'dataTable',
-        null,
+        null
       ),
     ]),
     getItem(t('widgets'), 'widgets', !topMenu && <UilServer />, [
@@ -1082,21 +1197,21 @@ function MenuItems({ toggleCollapsed }) {
           {t('chart')}
         </NavLink>,
         'chart',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/widgets/card`}>
           {t('card')}
         </NavLink>,
         'card',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/widgets/mixed`}>
           {t('mixed')}
         </NavLink>,
         'mixed',
-        null,
+        null
       ),
     ]),
     getItem(t('Wizards'), 'wizards', !topMenu && <UilSquareFull />, [
@@ -1105,42 +1220,42 @@ function MenuItems({ toggleCollapsed }) {
           {t('Wizard')} {t('1')}
         </NavLink>,
         'wizard-one',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/pages/wizards/two`}>
           {t('Wizard')} {t('2')}
         </NavLink>,
         'wizard-two',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/pages/wizards/three`}>
           {t('Wizard')} {t('3')}
         </NavLink>,
         'wizard-three',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/pages/wizards/four`}>
           {t('Wizard')} {t('4')}
         </NavLink>,
         'wizard-four',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/pages/wizards/five`}>
           {t('Wizard')} {t('5')}
         </NavLink>,
         'wizard-five',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/pages/wizards/six`}>
           {t('Wizard')} {t('6')}
         </NavLink>,
         'wizard-six',
-        null,
+        null
       ),
     ]),
     getItem(t('icons'), 'icons', !topMenu && <UilIcons />, [
@@ -1149,21 +1264,21 @@ function MenuItems({ toggleCollapsed }) {
           {t('unicon(svg)')}
         </NavLink>,
         'unicons',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/icons/font-awesome`}>
           {t('fontawesome')}
         </NavLink>,
         'font-awesome',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/icons/antd`}>
           {t('ant')} {t('design')} {t('icons')}
         </NavLink>,
         'antd',
-        null,
+        null
       ),
     ]),
     getItem(
@@ -1175,7 +1290,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/editor`}>
           <UilEdit />
         </NavLink>
-      ),
+      )
     ),
     getItem(t('maps'), 'maps', !topMenu && <UilMap />, [
       getItem(
@@ -1183,33 +1298,33 @@ function MenuItems({ toggleCollapsed }) {
           {t('google')} {t('maps')}
         </NavLink>,
         'google',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/maps/leaflet`}>
           {t('leaflet')} {t('map')}
         </NavLink>,
         'leaflet',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/maps/Vector`}>
           {t('simple')} {t('map')}
         </NavLink>,
         'vector',
-        null,
+        null
       ),
     ]),
     getItem(
       !topMenu && (
-        <NavTitle className="flex text-[12px] font-medium uppercase text-light mt-[20px] dark:text-white87 p-0">
+        <NavTitle className="mt-[20px] flex p-0 text-[12px] font-medium uppercase text-light dark:text-white87">
           {t('Pages')}
         </NavTitle>
       ),
       'page-title',
       null,
       null,
-      'group',
+      'group'
     ),
     getItem(
       <NavLink onClick={toggleCollapsed} to={`${path}/pages/settings`}>
@@ -1220,7 +1335,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/settings`}>
           <UilSetting />
         </NavLink>
-      ),
+      )
     ),
     getItem(t('gallery'), 'gallery', !topMenu && <UilImages />, [
       getItem(
@@ -1228,7 +1343,7 @@ function MenuItems({ toggleCollapsed }) {
           {t('gallery')} {t('1')}
         </NavLink>,
         'galllery-one',
-        null,
+        null
       ),
     ]),
     getItem(
@@ -1240,7 +1355,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/pricing`}>
           <UilUsdCircle />
         </NavLink>
-      ),
+      )
     ),
     getItem(
       <NavLink onClick={toggleCollapsed} to={`${path}/pages/banners`}>
@@ -1251,7 +1366,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/banners`}>
           <UilPresentation />
         </NavLink>
-      ),
+      )
     ),
     getItem(
       <NavLink onClick={toggleCollapsed} to={`${path}/pages/testimonials`}>
@@ -1262,7 +1377,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/testimonials`}>
           <UilBookOpen />
         </NavLink>
-      ),
+      )
     ),
     getItem(
       <NavLink onClick={toggleCollapsed} to={`${path}/pages/faq`}>
@@ -1273,7 +1388,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/faq`}>
           <UilQuestionCircle />
         </NavLink>
-      ),
+      )
     ),
     getItem(
       <NavLink onClick={toggleCollapsed} to={`${path}/pages/search`}>
@@ -1284,7 +1399,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/search`}>
           <UilSearch />
         </NavLink>
-      ),
+      )
     ),
     getItem(
       <NavLink onClick={toggleCollapsed} to={`${path}/pages/starter`}>
@@ -1295,7 +1410,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/starter`}>
           <UilCircle />
         </NavLink>
-      ),
+      )
     ),
     getItem(t('Knowledgebase'), 'knowledgebase', !topMenu && <UilBookAlt />, [
       getItem(
@@ -1303,21 +1418,21 @@ function MenuItems({ toggleCollapsed }) {
           {t('knowledge')} {t('base')}
         </NavLink>,
         'plugins',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/all-articles`}>
           {t('all')} {t('article')}
         </NavLink>,
         'all-articles',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/knowledgebaseSingle/1`}>
           {t('single')} {t('article')}
         </NavLink>,
         'knowledgebaseSingle',
-        null,
+        null
       ),
     ]),
     getItem(t('blog'), 'blog', !topMenu && <UilDocumentLayoutLeft />, [
@@ -1326,28 +1441,28 @@ function MenuItems({ toggleCollapsed }) {
           {t('blog')} {t('one')}
         </NavLink>,
         'blog-one',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/pages/blog/blogtwo`}>
           {t('blog')} {t('two')}
         </NavLink>,
         'blog-2',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/pages/blog/blogthree`}>
           {t('blog')} {t('three')}
         </NavLink>,
         'blog-3',
-        null,
+        null
       ),
       getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/pages/blog/details`}>
           {t('blog')} {t('details')}
         </NavLink>,
         'blog-details',
-        null,
+        null
       ),
     ]),
     getItem(
@@ -1355,7 +1470,7 @@ function MenuItems({ toggleCollapsed }) {
         {t('maintanance')}
       </NavLink>,
       'maintenance',
-      !topMenu && <UilAirplay />,
+      !topMenu && <UilAirplay />
     ),
     getItem(
       <NavLink onClick={toggleCollapsed} to={`${path}/pages/404`}>
@@ -1366,7 +1481,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/404`}>
           <UilExclamationOctagon />
         </NavLink>
-      ),
+      )
     ),
     getItem(
       <NavLink onClick={toggleCollapsed} to={`${path}/pages/comingSoon`}>
@@ -1377,7 +1492,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/comingSoon`}>
           <UilClock />
         </NavLink>
-      ),
+      )
     ),
     getItem(
       <NavLink onClick={toggleCollapsed} to={`${path}/pages/termCondition`}>
@@ -1388,7 +1503,7 @@ function MenuItems({ toggleCollapsed }) {
         <NavLink className="menuItem-iocn" to={`${path}/pages/termCondition`}>
           <UilFileShieldAlt />
         </NavLink>
-      ),
+      )
     ),
   ];
 
@@ -1402,12 +1517,20 @@ function MenuItems({ toggleCollapsed }) {
         !topMenu
           ? [
               `${
-                mainPathSplit.length === 1 ? 'home' : mainPathSplit.length === 2 ? mainPathSplit[1] : mainPathSplit[2]
+                mainPathSplit.length === 1
+                  ? 'home'
+                  : mainPathSplit.length === 2
+                  ? mainPathSplit[1]
+                  : mainPathSplit[2]
               }`,
             ]
           : []
       }
-      defaultOpenKeys={!topMenu ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`] : []}
+      defaultOpenKeys={
+        !topMenu
+          ? [`${mainPathSplit.length > 2 ? mainPathSplit[1] : 'dashboard'}`]
+          : []
+      }
       overflowedIndicator={<UilEllipsisV />}
       openKeys={openKeys}
       items={items}
