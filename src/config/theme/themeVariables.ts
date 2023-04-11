@@ -209,4 +209,4 @@ const darkTheme = {
   ...theme,
 };
 
-export { theme, darkTheme };
+export { darkTheme, theme };

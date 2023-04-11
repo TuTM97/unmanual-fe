@@ -8,16 +8,19 @@ const CustomizerWrap = Styled.div`
         top: 0;
         ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
         width: 350px;
-        transform: translateX(${({ theme }) => (theme.rtl ? '-350px' : '350px')});
+        transform: translateX(${({ theme }) =>
+          theme.rtl ? '-350px' : '350px'});
         height: 100%;
         overflow-y: auto;
-        background-color: ${({ theme }) => theme[theme.mainContent]['white-background']};
+        background-color: ${({ theme }) =>
+          theme[theme.mainContent]['white-background']};
         box-shadow: 0 0 30px #9299B810;
         z-index: 9998;
         transition: all .3s ease;
         @media only screen and (max-width: 479px){
             width: 280px;
-            transform: translateX(${({ theme }) => (theme.rtl ? '-280px' : '280px')});
+            transform: translateX(${({ theme }) =>
+              theme.rtl ? '-280px' : '280px'});
         }
         &.show{
             transform: translateX(0);
@@ -28,7 +31,8 @@ const CustomizerWrap = Styled.div`
         .hexadash-customizer__head{
             position: relative;
             padding: 18px 24px;
-            border-bottom: 1px solid color: ${({ theme }) => theme[theme.mainContent]['border-color-secondary']};
+            border-bottom: 1px solid color: ${({ theme }) =>
+              theme[theme.mainContent]['border-color-secondary']};
             text-align: left;
             .hexadash-customizer-close{
                 position: absolute;

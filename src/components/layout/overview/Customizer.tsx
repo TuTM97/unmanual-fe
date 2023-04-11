@@ -1,29 +1,31 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+// Components
+import Link from 'next/link';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import UilPen from '@iconscout/react-unicons/icons/uil-pen';
-import UilTimes from '@iconscout/react-unicons/icons/uil-times';
-import FontAwesome from 'react-fontawesome';
-import { useSelector, useDispatch } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-import { changeLayoutMode, changeMenuMode, changeDirectionMode } from '../../redux/themeLayout/actionCreator';
+import { FaCheckCircle } from 'react-icons/fa';
+import { HiPencil, HiX } from 'react-icons/hi';
+
+import useLayout from '@/hooks/useLayout';
+// Hooks
+import { useAppDispatch, useAppSelector } from '@/hooks/useRedux';
+
+// Types
 
 function Customizer() {
   const { t } = useTranslation();
-  const { rtl, layoutMode, topMenu } = useSelector((state) => {
-    return {
-      rtl: state.ChangeLayoutMode.rtlData,
-      layoutMode: state.ChangeLayoutMode.mode,
-      topMenu: state.ChangeLayoutMode.topMenu,
-    };
-  });
+  const { changeLayoutMode, changeMenuMode, changeDirectionMode } = useLayout();
+  const {
+    rtlData: rtl,
+    mode: layoutMode,
+    topMenu,
+  } = useAppSelector((state) => state.layout);
   const [state, setState] = useState({
     customizerAction: false,
   });
   const { customizerAction } = state;
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // open Customizer Function
   const showCustomizer = () => {
@@ -41,25 +43,25 @@ function Customizer() {
     document.body.classList.remove('dark');
     document.body.classList.remove('dark');
   };
-  const changeLayout = (mode) => {
+  const changeLayout = (mode: string) => {
     dispatch(changeLayoutMode(mode));
   };
-  const changeNavbar = (topMode) => {
+  const changeNavbar = (topMode: boolean) => {
     const html = document.querySelector('html');
     if (topMode) {
-      html.classList.add('hexadash-topmenu');
+      html?.classList.add('hexadash-topmenu');
     } else {
-      html.classList.remove('hexadash-topmenu');
+      html?.classList.remove('hexadash-topmenu');
     }
     dispatch(changeMenuMode(topMode));
   };
-  const changeLayoutDirection = (rtlMode) => {
+  const changeLayoutDirection = (rtlMode: boolean) => {
     if (rtlMode) {
       const html = document.querySelector('html');
-      html.setAttribute('dir', 'rtl');
+      html?.setAttribute('dir', 'rtl');
     } else {
       const html = document.querySelector('html');
-      html.setAttribute('dir', 'ltr');
+      html?.setAttribute('dir', 'ltr');
     }
     dispatch(changeDirectionMode(rtlMode));
   };
@@ -68,38 +70,41 @@ function Customizer() {
     <>
       <div>
         <Link
-          className="inline-flex items-center bg-normalBG hover:bg-primary/10 hover:text-primary dark:bg-[#282b37] dark:text-white60 min-h-[34px] sm:w-[34px] sm:justify-center px-4 sm:px-0 sm:mx-[10px] xl:mx-[12px] mx-[20px] rounded-2xl gap-[8px] dark:hover:bg-white60 group dark:hover:text-dark transition duration-300"
-          to="#"
+          className="group mx-[20px] inline-flex min-h-[34px] items-center gap-[8px] rounded-2xl bg-normalBG px-4 transition duration-300 hover:bg-primary/10 hover:text-primary dark:bg-[#282b37] dark:text-white60 dark:hover:bg-white60 dark:hover:text-dark xl:mx-[12px] sm:mx-[10px] sm:w-[34px] sm:justify-center sm:px-0"
+          href="#"
           onClick={() => {
             showCustomizer();
           }}
         >
-          <UilPen className="w-3.5 h-3.5 sm:mr-0 text-body group-hover:text-primary dark:text-white60 dark:group-hover:text-currentColor" />
+          <HiPencil className="h-3.5 w-3.5 text-body group-hover:text-primary dark:text-white60 dark:group-hover:text-currentColor sm:mr-0" />
           <span className="text-sm font-medium text-body group-hover:text-primary dark:text-white60 dark:group-hover:text-currentColor sm:hidden">
             {t('Customize')}...
           </span>
         </Link>
         <div
-          className={`fixed top-0 ltr:right-0 rtl:left-0 bg-white dark:bg-[#323541] w-[350px] sm:w-[300px] h-full translate-x-0 shadow-regular dark:shadow-[0_5px_30px_rgba(1,4,19,.60)] z-998 overflow-y-auto transition-all ${
+          className={`fixed top-0 z-998 h-full w-[350px] translate-x-0 overflow-y-auto bg-white shadow-regular transition-all ltr:right-0 rtl:left-0 dark:bg-[#323541] dark:shadow-[0_5px_30px_rgba(1,4,19,.60)] sm:w-[300px] ${
             customizerAction
               ? 'ltr:translate-x-[0] rtl:translate-x-[-0]'
               : 'ltr:translate-x-[350px] rtl:translate-x-[-350px]'
           }`}
         >
           <div className="h-full">
-            <div className="relative px-6 pt-12 pb-4">
-              <h4 className="mb-0.5 text-dark dark:text-white87 text-base font-semibold">{t('Customizer')}</h4>
+            <div className="relative px-6 pb-4 pt-12">
+              <h4 className="mb-0.5 text-base font-semibold text-dark dark:text-white87">
+                {t('Customizer')}
+              </h4>
               <span className="dark:text-white60">
-                {t('Customize')} {t('your')} {t('overview')} {t('page')} {t('layout')}
+                {t('Customize')} {t('your')} {t('overview')} {t('page')}{' '}
+                {t('layout')}
               </span>
               <Link
-                to="#"
+                href="#"
                 className="absolute top-7 ltr:right-4 rtl:left-4"
                 onClick={() => {
                   showCustomizer();
                 }}
               >
-                <UilTimes className="text-danger" />
+                <HiX className="text-danger" />
               </Link>
             </div>
             <div className="px-6 pb-6">
@@ -107,18 +112,22 @@ function Customizer() {
                 <h4 className="mb-8 text-base font-semibold text-dark dark:text-white87">
                   {t('layouts')} {t('type')}
                 </h4>
-                <ul className="flex -m-2.5">
+                <ul className="-m-2.5 flex">
                   <li className="relative m-2.5">
                     <Link
                       onClick={() => {
                         showCustomizer();
                         changeLayoutDirection(false);
                       }}
-                      to="#"
+                      href="#"
                     >
                       <img src={require('../../static/img/ltr.png')} alt="" />
-                      <FontAwesome
-                        className={!rtl ? 'block absolute top-4 right-4 text-success' : 'hidden'}
+                      <FaCheckCircle
+                        className={
+                          !rtl
+                            ? 'absolute right-4 top-4 block text-success'
+                            : 'hidden'
+                        }
                         name="check-circle"
                       />
                     </Link>
@@ -129,11 +138,15 @@ function Customizer() {
                         showCustomizer();
                         changeLayoutDirection(true);
                       }}
-                      to="#"
+                      href="#"
                     >
                       <img src={require(`../../static/img/rtl.png`)} alt="" />
-                      <FontAwesome
-                        className={rtl ? 'block absolute top-4 right-4 text-success' : 'hidden'}
+                      <FaCheckCircle
+                        className={
+                          rtl
+                            ? 'absolute right-4 top-4 block text-success'
+                            : 'hidden'
+                        }
                         name="check-circle"
                       />
                     </Link>
@@ -144,7 +157,7 @@ function Customizer() {
                 <h4 className="mb-8 text-base font-semibold text-dark dark:text-white87">
                   {t('sidebar')} {t('type')}
                 </h4>
-                <ul className="flex -m-2.5">
+                <ul className="-m-2.5 flex">
                   <li className="relative m-2.5">
                     <Link
                       onClick={() => {
@@ -152,11 +165,15 @@ function Customizer() {
                         darkmodeDiactivated();
                         changeLayout('lightMode');
                       }}
-                      to="#"
+                      href="#"
                     >
                       <img src={require('../../static/img/light.png')} alt="" />
-                      <FontAwesome
-                        className={layoutMode === 'lightMode' ? 'block absolute top-4 right-4 text-success' : 'hidden'}
+                      <FaCheckCircle
+                        className={
+                          layoutMode === 'lightMode'
+                            ? 'absolute right-4 top-4 block text-success'
+                            : 'hidden'
+                        }
                         name="check-circle"
                       />
                     </Link>
@@ -168,11 +185,15 @@ function Customizer() {
                         darkmodeActivated();
                         changeLayout('darkMode');
                       }}
-                      to="#"
+                      href="#"
                     >
                       <img src={require(`../../static/img/dark.png`)} alt="" />
-                      <FontAwesome
-                        className={layoutMode === 'darkMode' ? 'block absolute top-4 right-4 text-success' : 'hidden'}
+                      <FaCheckCircle
+                        className={
+                          layoutMode === 'darkMode'
+                            ? 'absolute right-4 top-4 block text-success'
+                            : 'hidden'
+                        }
                         name="check-circle"
                       />
                     </Link>
@@ -183,18 +204,22 @@ function Customizer() {
                 <h4 className="mb-8 text-base font-semibold text-dark dark:text-white87">
                   {t('navbar')} {t('type')}
                 </h4>
-                <ul className="flex -m-2.5">
+                <ul className="-m-2.5 flex">
                   <li className="relative m-2.5">
                     <Link
                       onClick={() => {
                         showCustomizer();
                         changeNavbar(false);
                       }}
-                      to="#"
+                      href="#"
                     >
                       <img src={require('../../static/img/side.png')} alt="" />
-                      <FontAwesome
-                        className={!topMenu ? 'block absolute top-4 right-4 text-success' : 'hidden'}
+                      <FaCheckCircle
+                        className={
+                          !topMenu
+                            ? 'absolute right-4 top-4 block text-success'
+                            : 'hidden'
+                        }
                         name="check-circle"
                       />
                     </Link>
@@ -205,11 +230,15 @@ function Customizer() {
                         showCustomizer();
                         changeNavbar(true);
                       }}
-                      to="#"
+                      href="#"
                     >
                       <img src={require(`../../static/img/top.png`)} alt="" />
-                      <FontAwesome
-                        className={topMenu ? 'block absolute top-4 right-4 text-success' : 'hidden'}
+                      <FaCheckCircle
+                        className={
+                          topMenu
+                            ? 'absolute right-4 top-4 block text-success'
+                            : 'hidden'
+                        }
                         name="check-circle"
                       />
                     </Link>

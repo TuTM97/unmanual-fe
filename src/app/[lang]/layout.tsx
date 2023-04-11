@@ -1,5 +1,8 @@
+import { Provider } from 'react-redux';
+
 import type { Locales } from '@/i18n/config';
 import { supportedLocales } from '@/i18n/config';
+import { store } from '@/redux/store';
 import { AppConfig } from '@/utils/AppConfig';
 
 // Root metadata
@@ -32,7 +35,9 @@ interface IRootLayoutProps {
 export default function RootLayout({ children, params }: IRootLayoutProps) {
   return (
     <html lang={params.lang || AppConfig.locale}>
-      <body>{children}</body>
+      <body>
+        <Provider store={store}>{children}</Provider>
+      </body>
     </html>
   );
 }
