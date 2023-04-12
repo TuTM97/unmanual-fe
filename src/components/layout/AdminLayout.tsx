@@ -9,6 +9,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import { Link, NavLink } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import { theme } from '@/config/theme/themeVariables';
 import { useAppSelector } from '@/hooks/useRedux';
 
 import AuthInfo from '../components/utilities/auth-info/info';
@@ -22,8 +23,6 @@ import {
   TopMenuSearch,
 } from './Style';
 import TopMenu from './TopMenu';
-
-const { theme } = require('../config/theme/themeVariables');
 
 const { Header, Sider, Content } = Layout;
 
@@ -79,7 +78,7 @@ const AdminLayout = ({ children, ...props }: IAdminLayoutProps) => {
     zIndex: 988,
   };
 
-  function renderThumb({ style }) {
+  function renderThumb({ style }: { style: React.CSSProperties }) {
     const thumbStyle = {
       borderRadius: 6,
       backgroundColor: '#F1F2F6',
@@ -87,7 +86,7 @@ const AdminLayout = ({ children, ...props }: IAdminLayoutProps) => {
     return <div style={{ ...style, ...thumbStyle }} />;
   }
   const renderTrackVertical = () => {
-    const thumbStyle = {
+    const thumbStyle: React.CSSProperties = {
       position: 'absolute',
       width: '6px',
       transition: 'opacity 200ms ease 0s',
@@ -104,9 +103,9 @@ const AdminLayout = ({ children, ...props }: IAdminLayoutProps) => {
       />
     );
   };
-  function renderView({ style }) {
+  function renderView({ style }: { style: React.CSSProperties }) {
     const customStyle = {
-      marginRight: rtl && 'auto',
+      marginRight: rtl ? 'auto' : 'unset',
       [rtl ? 'marginLeft' : 'marginRight']: '-17px',
     };
     return <div style={{ ...style, ...customStyle }} />;
@@ -124,7 +123,7 @@ const AdminLayout = ({ children, ...props }: IAdminLayoutProps) => {
           }}
           className="z-998 flex h-[72px] items-center justify-between bg-white p-0 dark:bg-[#1b1e2b] dark:shadow-[0_5px_20px_rgba(160,160,160,.02)]"
         >
-          <div className="flex flex-row items-center flex-1 h-full">
+          <div className="flex h-full flex-1 flex-row items-center">
             <div className=" rtl:ssm::pl:[15px] grid h-full min-w-[280px] align-middle ltr:pl-[30px] ltr:pr-5 rtl:pl-5 rtl:pr-[30px] dark:bg-[#323541] ssm:min-w-[220px] ltr:ssm:px-[15px] rtl:ssm:pr-[15px] xs:min-w-[170px] xs:ltr:pl-[20px] xs:rtl:pr-[20px]">
               <div className="flex items-center justify-between">
                 <Link to="/admin">
@@ -159,7 +158,7 @@ const AdminLayout = ({ children, ...props }: IAdminLayoutProps) => {
               <div className="flex flex-row items-center md:hidden">
                 {topMenu && window.innerWidth > 991 ? (
                   <TopMenuSearch>
-                    <div className="flex top-right-wrap">
+                    <div className="top-right-wrap flex">
                       <CustomizerWrap />
                       <AuthInfo />
                     </div>
@@ -193,6 +192,7 @@ const AdminLayout = ({ children, ...props }: IAdminLayoutProps) => {
             <ThemeProvider theme={theme}>
               <Sider
                 width={280}
+                // @ts-ignore
                 style={SideBarStyle}
                 collapsed={collapsed}
                 theme={layoutMode === 'lightMode' ? 'light' : 'dark'}
@@ -207,16 +207,19 @@ const AdminLayout = ({ children, ...props }: IAdminLayoutProps) => {
                   renderView={renderView}
                   renderTrackVertical={renderTrackVertical}
                 >
-                  <MenueItems
-                    toggleCollapsed={toggleCollapsedMobile}
-                  />
+                  <MenueItems toggleCollapsed={toggleCollapsedMobile} />
                 </Scrollbars>
               </Sider>
             </ThemeProvider>
           ) : null}
           <Layout className="atbd-main-layout">
             <Content>
-              {React.cloneElement(children, { ...props })}
+              {children &&
+                typeof children !== 'string' &&
+                typeof children !== 'number' &&
+                typeof children !== 'boolean' &&
+                // @ts-ignore
+                React.cloneElement(children, { ...props })}
               <FooterStyle className="bg-white dark:bg-[#1B1E2B]">
                 <Row>
                   <Col md={12} xs={24}>
