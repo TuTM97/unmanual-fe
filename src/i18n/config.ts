@@ -1,5 +1,3 @@
-import 'server-only';
-
 export enum Locales {
   'en' = 'en',
   'ar' = 'ar',
