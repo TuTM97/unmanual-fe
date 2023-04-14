@@ -1,11 +1,16 @@
 // Define a type for the slice state
 export interface ILayoutState {
-  rtlData: boolean;
-  topMenu: boolean;
-  mode: string;
-  loading: boolean;
-  rtlLoading: boolean;
-  menuLoading: boolean;
-  mainContentLoading: boolean;
-  error: any;
+  isRTL: boolean,
+  darkMode: boolean,
+  isCollapsed: boolean,
+  customizer: boolean,
+  semiDarkMode: boolean,
+  skin: string,
+  contentWidth: string,
+  type: string,
+  menuHidden:boolean,
+  navBarType: string,
+  footerType: string,
+  mobileMenu: boolean,
+  isMonochrome: boolean,
 }

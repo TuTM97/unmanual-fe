@@ -1,75 +1,184 @@
-import type { PayloadAction } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
+/* eslint-disable import/extensions */
+/* eslint-disable no-param-reassign */
 
-import type { ILayoutState } from './layout.interface';
+import { createSlice } from '@reduxjs/toolkit'
 
-// Define the initial state using that type
+// theme config import
+import themeConfig from '@/configs/themeConfig'
+import { ILayoutState } from './layout.interface'
+
+const initialDarkMode = () => {
+  if (typeof window !== 'undefined') {
+    const item = window?.localStorage.getItem('darkMode')
+    return item ? JSON.parse(item) : themeConfig.layout.darkMode
+  }
+  return themeConfig.layout.darkMode
+}
+
+const initialSidebarCollapsed = () => {
+  if (typeof window !== 'undefined') {
+    const item = window?.localStorage.getItem('sidebarCollapsed')
+    return item ? JSON.parse(item) : themeConfig.layout.menu.isCollapsed
+  }
+  return themeConfig.layout.menu.isCollapsed
+}
+
+const initialSemiDarkMode = () => {
+  if (typeof window !== 'undefined') {
+    const item = window?.localStorage.getItem('semiDarkMode')
+    return item ? JSON.parse(item) : themeConfig.layout.semiDarkMode
+  }
+
+  return themeConfig.layout.semiDarkMode
+}
+
+const initialRtl = () => {
+  if (typeof window !== 'undefined') {
+    const item = window?.localStorage.getItem('direction')
+    return item ? JSON.parse(item) : themeConfig.layout.isRTL
+  }
+  return themeConfig.layout.isRTL
+}
+
+const initialSkin = () => {
+  if (typeof window !== 'undefined') {
+    const item = window?.localStorage.getItem('skin')
+    return item ? JSON.parse(item) : themeConfig.layout.skin
+  }
+
+  return themeConfig.layout.skin
+}
+
+const initialType = () => {
+  if (typeof window !== 'undefined') {
+    const item = window?.localStorage.getItem('type')
+    return item ? JSON.parse(item) : themeConfig.layout.type
+  }
+  return themeConfig.layout.type
+}
+
+const initialMonochrome = () => {
+  if (typeof window !== 'undefined') {
+    const item = window?.localStorage.getItem('monochrome')
+    return item ? JSON.parse(item) : themeConfig.layout.isMonochrome
+  }
+  return themeConfig.layout.isMonochrome
+}
+
 const initialState: ILayoutState = {
-  rtlData: false,
-  topMenu: false,
-  mode: 'lightMode',
-  loading: false,
-  rtlLoading: false,
-  menuLoading: false,
-  mainContentLoading: false,
-  error: null,
-};
+  isRTL: initialRtl(),
+  darkMode: initialDarkMode(),
+  isCollapsed: initialSidebarCollapsed(),
+  customizer: themeConfig.layout.customizer,
+  semiDarkMode: initialSemiDarkMode(),
+  skin: initialSkin(),
+  contentWidth: themeConfig.layout.contentWidth,
+  type: initialType(),
+  menuHidden: themeConfig.layout.menu.isHidden,
+  navBarType: themeConfig.layout.navBarType,
+  footerType: themeConfig.layout.footerType,
+  mobileMenu: themeConfig.layout.mobileMenu,
+  isMonochrome: initialMonochrome(),
+}
 
 export const layoutSlice = createSlice({
   name: 'layout',
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    changeLayoutBegin: (state) => {
-      state.loading = true;
+    // handle dark mode
+    handleDarkMode: (state, action) => {
+      state.darkMode = action.payload
+      if (typeof window !== 'undefined') {
+        window?.localStorage.setItem('darkMode', action.payload)
+      }
     },
-    changeLayoutSuccess: (state, action: PayloadAction<string>) => {
-      state.mode = action.payload;
-      state.loading = false;
+    // handle sidebar collapsed
+    handleSidebarCollapsed: (state, action) => {
+      state.isCollapsed = action.payload
+      if (typeof window !== 'undefined') {
+        window?.localStorage.setItem('sidebarCollapsed', action.payload)
+      }
     },
-    changeLayoutErr: (state, action: PayloadAction<string>) => {
-      state.error = action.payload;
-      state.loading = false;
+    // handle customizer
+    handleCustomizer: (state, action) => {
+      state.customizer = action.payload
     },
-
-    changeRtlBegin: (state) => {
-      state.rtlLoading = true;
+    // handle semiDark
+    handleSemiDarkMode: (state, action) => {
+      state.semiDarkMode = action.payload
+      if (typeof window !== 'undefined') {
+        window?.localStorage.setItem('semiDarkMode', action.payload)
+      }
     },
-    changeRtlSuccess: (state, action: PayloadAction<boolean>) => {
-      state.rtlData = action.payload;
-      state.rtlLoading = false;
+    // handle rtl
+    handleRtl: (state, action) => {
+      state.isRTL = action.payload
+      if (typeof window !== 'undefined') {
+        window?.localStorage.setItem(
+          'direction',
+          JSON.stringify(action.payload)
+        )
+      }
     },
-    changeRtlErr: (state, action: PayloadAction<string>) => {
-      state.error = action.payload;
-      state.rtlLoading = false;
+    // handle skin
+    handleSkin: (state, action) => {
+      state.skin = action.payload
+      if (typeof window !== 'undefined') {
+        window?.localStorage.setItem('skin', JSON.stringify(action.payload))
+      }
     },
-
-    changeMenuBegin: (state) => {
-      state.menuLoading = true;
+    // handle content width
+    handleContentWidth: (state, action) => {
+      state.contentWidth = action.payload
     },
-    changeMenuSuccess: (state, action: PayloadAction<boolean>) => {
-      state.topMenu = action.payload;
-      state.menuLoading = false;
+    // handle type
+    handleType: (state, action) => {
+      state.type = action.payload
+      if (typeof window !== 'undefined') {
+        window?.localStorage.setItem('type', JSON.stringify(action.payload))
+      }
     },
-    changeMenuErr: (state, action: PayloadAction<string>) => {
-      state.error = action.payload;
-      state.menuLoading = false;
+    // handle menu hidden
+    handleMenuHidden: (state, action) => {
+      state.menuHidden = action.payload
+    },
+    // handle navbar type
+    handleNavBarType: (state, action) => {
+      state.navBarType = action.payload
+    },
+    // handle footer type
+    handleFooterType: (state, action) => {
+      state.footerType = action.payload
+    },
+    handleMobileMenu: (state, action) => {
+      state.mobileMenu = action.payload
+    },
+    handleMonoChrome: (state, action) => {
+      state.isMonochrome = action.payload
+      if (typeof window !== 'undefined') {
+        window?.localStorage.setItem(
+          'monochrome',
+          JSON.stringify(action.payload)
+        )
+      }
     },
   },
-});
+})
 
 export const {
-  changeLayoutBegin,
-  changeLayoutSuccess,
-  changeLayoutErr,
+  handleDarkMode,
+  handleSidebarCollapsed,
+  handleCustomizer,
+  handleSemiDarkMode,
+  handleRtl,
+  handleSkin,
+  handleContentWidth,
+  handleType,
+  handleMenuHidden,
+  handleNavBarType,
+  handleFooterType,
+  handleMobileMenu,
+  handleMonoChrome,
+} = layoutSlice.actions
 
-  changeRtlBegin,
-  changeRtlSuccess,
-  changeRtlErr,
-
-  changeMenuBegin,
-  changeMenuSuccess,
-  changeMenuErr,
-} = layoutSlice.actions;
-
-export default layoutSlice.reducer;
+export default layoutSlice.reducer
