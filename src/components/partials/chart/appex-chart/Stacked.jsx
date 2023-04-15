@@ -1,35 +1,35 @@
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
 
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const Stacked = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   const series = [
     {
-      name: "PRODUCT A",
+      name: 'PRODUCT A',
       data: [44, 55, 41, 67, 22, 43, 21, 49],
     },
     {
-      name: "PRODUCT B",
+      name: 'PRODUCT B',
       data: [13, 23, 20, 8, 13, 27, 33, 12],
     },
     {
-      name: "PRODUCT C",
+      name: 'PRODUCT C',
       data: [11, 17, 15, 15, 21, 14, 15, 13],
     },
-  ];
+  ]
   const options = {
     chart: {
       stacked: true,
-      stackType: "100%",
+      stackType: '100%',
       toolbar: {
         show: false,
       },
     },
     plotOptions: {
       bar: {
-        columnWidth: "25%",
+        columnWidth: '25%',
       },
     },
     responsive: [
@@ -37,7 +37,7 @@ const Stacked = () => {
         breakpoint: 480,
         options: {
           legend: {
-            position: "bottom",
+            position: 'bottom',
             offsetX: -10,
             offsetY: 0,
           },
@@ -47,36 +47,36 @@ const Stacked = () => {
     yaxis: {
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
     grid: {
       show: true,
-      borderColor: isDark ? "#334155" : "#e2e8f0",
-      position: "back",
+      borderColor: isDark ? '#334155' : '#e2e8f0',
+      position: 'back',
     },
     legend: {
       labels: {
-        colors: isDark ? "#CBD5E1" : "#475569",
+        colors: isDark ? '#CBD5E1' : '#475569',
       },
     },
     xaxis: {
       categories: [
-        "2011 Q1",
-        "2011 Q2",
-        "2011 Q3",
-        "2011 Q4",
-        "2012 Q1",
-        "2012 Q2",
-        "2012 Q3",
-        "2012 Q4",
+        '2011 Q1',
+        '2011 Q2',
+        '2011 Q3',
+        '2011 Q4',
+        '2012 Q1',
+        '2012 Q2',
+        '2012 Q3',
+        '2012 Q4',
       ],
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
       axisBorder: {
@@ -89,13 +89,19 @@ const Stacked = () => {
     fill: {
       opacity: 1,
     },
-    colors: ["#4669FA", "#0CE7FA", "#FA916B"],
-  };
+    colors: ['#4669FA', '#0CE7FA', '#FA916B'],
+  }
   return (
     <div>
-      <Chart options={options} series={series} type="bar" height="350" width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="bar"
+        height="350"
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default Stacked;
+export default Stacked

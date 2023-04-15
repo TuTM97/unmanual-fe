@@ -3,7 +3,7 @@ export enum Locales {
   'ar' = 'ar',
 }
 
-export const supportedLocales = [Locales.en, Locales.ar];
+export const supportedLocales = [Locales.en, Locales.ar]
 
 const dictionaries = {
   en: () =>
@@ -14,8 +14,8 @@ const dictionaries = {
     import('./localization/ar/translation.json').then(
       (module) => module.default
     ),
-};
+}
 
 export const getDictionary = async (locale: Locales) => {
-  return dictionaries[locale]();
-};
+  return dictionaries[locale]()
+}

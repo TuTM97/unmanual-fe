@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
-import Link from "next/link";
-import { message } from "@/constant/data";
+import Link from 'next/link'
+import { message } from '@/constant/data'
 
 const MessageList = () => {
-  const newMessage = message.slice(0, 5);
+  const newMessage = message.slice(0, 5)
   return (
     <div>
       <ul className="divide-y divide-slate-100 dark:divide-slate-700 -mx-6 -mb-6">
@@ -19,7 +19,7 @@ const MessageList = () => {
                   <div className="h-8 w-8 bg-white dark:bg-slate-700 rounded-full relative">
                     <span
                       className={`${
-                        item.active ? "bg-secondary-500" : "bg-success-500"
+                        item.active ? 'bg-secondary-500' : 'bg-success-500'
                       } w-[10px] h-[10px] rounded-full border border-white dark:border-slate-700  inline-block absolute right-0 top-0`}
                     ></span>
                     <img
@@ -53,7 +53,7 @@ const MessageList = () => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default MessageList;
+export default MessageList

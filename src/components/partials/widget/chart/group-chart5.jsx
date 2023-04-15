@@ -1,11 +1,12 @@
-import React from "react";
-import { colors } from "@/constant/data";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+import React from 'react'
+import { colors } from '@/constant/data'
+import dynamic from 'next/dynamic'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 const columnCharthome2 = {
   series: [
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [40, 70, 45, 100, 75, 40, 80, 90],
     },
   ],
@@ -25,8 +26,8 @@ const columnCharthome2 = {
     },
     plotOptions: {
       bar: {
-        columnWidth: "60px",
-        barHeight: "100%",
+        columnWidth: '60px',
+        barHeight: '100%',
       },
     },
     legend: {
@@ -37,7 +38,7 @@ const columnCharthome2 = {
       enabled: false,
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
 
@@ -46,8 +47,8 @@ const columnCharthome2 = {
     },
     tooltip: {
       y: {
-        formatter: function (val) {
-          return "$ " + val + "k";
+        formatter(val) {
+          return `$ ${val}k`
         },
       },
     },
@@ -71,11 +72,11 @@ const columnCharthome2 = {
       show: false,
     },
   },
-};
+}
 const columnCharthome3 = {
   series: [
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [40, 70, 45, 100, 75, 40, 80, 90],
     },
   ],
@@ -95,8 +96,8 @@ const columnCharthome3 = {
     },
     plotOptions: {
       bar: {
-        columnWidth: "60px",
-        barHeight: "100%",
+        columnWidth: '60px',
+        barHeight: '100%',
       },
     },
     legend: {
@@ -107,7 +108,7 @@ const columnCharthome3 = {
       enabled: false,
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
 
@@ -116,8 +117,8 @@ const columnCharthome3 = {
     },
     tooltip: {
       y: {
-        formatter: function (val) {
-          return "$ " + val + "k";
+        formatter(val) {
+          return `$ ${val}k`
         },
       },
     },
@@ -141,11 +142,11 @@ const columnCharthome3 = {
       show: false,
     },
   },
-};
+}
 const columnCharthome4 = {
   series: [
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [40, 70, 45, 100, 75, 40, 80, 90],
     },
   ],
@@ -165,8 +166,8 @@ const columnCharthome4 = {
     },
     plotOptions: {
       bar: {
-        columnWidth: "60px",
-        barHeight: "100%",
+        columnWidth: '60px',
+        barHeight: '100%',
       },
     },
     legend: {
@@ -177,7 +178,7 @@ const columnCharthome4 = {
       enabled: false,
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
 
@@ -186,8 +187,8 @@ const columnCharthome4 = {
     },
     tooltip: {
       y: {
-        formatter: function (val) {
-          return "$ " + val + "k";
+        formatter(val) {
+          return `$ ${val}k`
         },
       },
     },
@@ -211,33 +212,33 @@ const columnCharthome4 = {
       show: false,
     },
   },
-};
+}
 const statistics = [
   {
     name: columnCharthome3,
-    title: "Current balance ",
-    count: "$34,564",
-    bg: "bg-[#E5F9FF] dark:bg-slate-900	",
-    text: "text-info-500",
-    icon: "heroicons:shopping-cart",
+    title: 'Current balance ',
+    count: '$34,564',
+    bg: 'bg-[#E5F9FF] dark:bg-slate-900	',
+    text: 'text-info-500',
+    icon: 'heroicons:shopping-cart',
   },
   {
     name: columnCharthome4,
-    title: "Credit",
-    count: "$3,564",
-    bg: "bg-[#E5F9FF] dark:bg-slate-900	",
-    text: "text-warning-500",
-    icon: "heroicons:cube",
+    title: 'Credit',
+    count: '$3,564',
+    bg: 'bg-[#E5F9FF] dark:bg-slate-900	',
+    text: 'text-warning-500',
+    icon: 'heroicons:cube',
   },
   {
     name: columnCharthome2,
-    title: "Debit",
-    count: "$3,564",
-    bg: "bg-[#E5F9FF] dark:bg-slate-900	",
-    text: "text-[#5743BE]",
-    icon: "heroicons:arrow-trending-up-solid",
+    title: 'Debit',
+    count: '$3,564',
+    bg: 'bg-[#E5F9FF] dark:bg-slate-900	',
+    text: 'text-[#5743BE]',
+    icon: 'heroicons:arrow-trending-up-solid',
   },
-];
+]
 const GroupChart5 = () => {
   return (
     <>
@@ -261,7 +262,7 @@ const GroupChart5 = () => {
         </div>
       ))}
     </>
-  );
-};
+  )
+}
 
-export default GroupChart5;
+export default GroupChart5

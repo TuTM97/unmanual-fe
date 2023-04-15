@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 const SkeletionTable = ({ items, count }) => {
-  items = items || Array.from({ length: count });
+  items = items || Array.from({ length: count })
   return (
     <div className="w-full bg-white dark:bg-slate-700 shadow-base p-6 rounded-md">
       <table className="animate-pulse w-full border-separate border-spacing-4 table-fixed">
@@ -47,7 +47,7 @@ const SkeletionTable = ({ items, count }) => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default SkeletionTable;
+export default SkeletionTable

@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import Icon from "@/components/ui/Icon";
-import Cleave from "cleave.js/react";
-import "cleave.js/dist/addons/cleave-phone.us";
+import React, { useState } from 'react'
+import Icon from '@/components/ui/Icon'
+import Cleave from 'cleave.js/react'
+import 'cleave.js/dist/addons/cleave-phone.us'
 
 const InputGroup = ({
   type,
   label,
   placeholder,
-  classLabel = "form-label",
-  className = "",
-  classGroup = "",
+  classLabel = 'form-label',
+  className = '',
+  classGroup = '',
   register,
   name,
   readonly,
@@ -33,21 +33,21 @@ const InputGroup = ({
 
   ...rest
 }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
   const handleOpen = () => {
-    setOpen(!open);
-  };
+    setOpen(!open)
+  }
 
   return (
     <div
-      className={`  ${horizontal ? "flex" : ""} 
-      ${merged ? "merged" : ""}  `}
+      className={`  ${horizontal ? 'flex' : ''} 
+      ${merged ? 'merged' : ''}  `}
     >
       {label && (
         <label
           htmlFor={id}
           className={`block capitalize ${classLabel}  ${
-            horizontal ? "flex-0 mr-6 md:w-[100px] w-[60px] break-words" : ""
+            horizontal ? 'flex-0 mr-6 md:w-[100px] w-[60px] break-words' : ''
           }`}
         >
           {label}
@@ -57,16 +57,16 @@ const InputGroup = ({
         className={`flex items-stretch inputGroup 
       
         
-    ${append ? "has-append" : ""}
-    ${prepend ? "has-prepend" : ""}
+    ${append ? 'has-append' : ''}
+    ${prepend ? 'has-prepend' : ''}
 
-    ${error ? "is-invalid" : ""}  ${validate ? "is-valid" : ""}
+    ${error ? 'is-invalid' : ''}  ${validate ? 'is-valid' : ''}
     
    
-    ${horizontal ? "flex-1" : ""}
+    ${horizontal ? 'flex-1' : ''}
       `}
       >
-        {/* prepend*/}
+        {/* prepend */}
         {prepend && (
           <span className="flex-none input-group-addon">
             <div className="input-group-text  h-full prepend-slot">
@@ -77,17 +77,17 @@ const InputGroup = ({
         <div className="flex-1">
           <div
             className={`relative fromGroup2
-          ${error ? "has-error" : ""} 
-           ${validate ? "is-valid" : ""}
+          ${error ? 'has-error' : ''} 
+           ${validate ? 'is-valid' : ''}
           `}
           >
             {name && !isMask && (
               <input
-                type={type === "password" && open === true ? "text" : type}
+                type={type === 'password' && open === true ? 'text' : type}
                 {...register(name)}
                 {...rest}
                 className={`${
-                  error ? " has-error" : " "
+                  error ? ' has-error' : ' '
                 } input-group-control block w-full focus:outline-none py-2 ${className}  `}
                 placeholder={placeholder}
                 readOnly={readonly}
@@ -98,7 +98,7 @@ const InputGroup = ({
             )}
             {!name && !isMask && (
               <input
-                type={type === "password" && open === true ? "text" : type}
+                type={type === 'password' && open === true ? 'text' : type}
                 className={`input-group-control block w-full focus:outline-none py-2 ${className}`}
                 placeholder={placeholder}
                 readOnly={readonly}
@@ -114,7 +114,7 @@ const InputGroup = ({
                 placeholder={placeholder}
                 options={options}
                 className={`${
-                  error ? " has-error" : " "
+                  error ? ' has-error' : ' '
                 } input-group-control w-full py-2 ${className}  `}
                 onFocus={onFocus}
                 id={id}
@@ -128,7 +128,7 @@ const InputGroup = ({
                 placeholder={placeholder}
                 options={options}
                 className={`${
-                  error ? " has-error" : " "
+                  error ? ' has-error' : ' '
                 } input-group-control w-full py-2 ${className}  `}
                 onFocus={onFocus}
                 id={id}
@@ -144,10 +144,10 @@ const InputGroup = ({
                   className="cursor-pointer text-secondary-500"
                   onClick={handleOpen}
                 >
-                  {open && type === "password" && (
+                  {open && type === 'password' && (
                     <Icon icon="heroicons-outline:eye" />
                   )}
-                  {!open && type === "password" && (
+                  {!open && type === 'password' && (
                     <Icon icon="heroicons-outline:eye-off" />
                   )}
                 </span>
@@ -166,32 +166,32 @@ const InputGroup = ({
             </div>
           </div>
         </div>
-        {/* append*/}
+        {/* append */}
         {append && (
           <span className="flex-none input-group-addon right">
             <div className="input-group-text  h-full append-slot">{append}</div>
           </span>
         )}
       </div>
-      {/* error and success message*/}
+      {/* error and success message */}
       {error && (
         <div
           className={` mt-2 ${
             msgTooltip
-              ? " inline-block bg-danger-500 text-white text-[10px] px-2 py-1 rounded"
-              : " text-danger-500 block text-sm"
+              ? ' inline-block bg-danger-500 text-white text-[10px] px-2 py-1 rounded'
+              : ' text-danger-500 block text-sm'
           }`}
         >
           {error.message}
         </div>
       )}
-      {/* validated and success message*/}
+      {/* validated and success message */}
       {validate && (
         <div
           className={` mt-2 ${
             msgTooltip
-              ? " inline-block bg-success-500 text-white text-[10px] px-2 py-1 rounded"
-              : " text-success-500 block text-sm"
+              ? ' inline-block bg-success-500 text-white text-[10px] px-2 py-1 rounded'
+              : ' text-success-500 block text-sm'
           }`}
         >
           {validate}
@@ -200,7 +200,7 @@ const InputGroup = ({
       {/* only description */}
       {description && <span className="input-description">{description}</span>}
     </div>
-  );
-};
+  )
+}
 
-export default InputGroup;
+export default InputGroup

@@ -1,40 +1,41 @@
-"use client";
-import Button from "@/components/ui/Button";
+'use client'
+
+import Button from '@/components/ui/Button'
 
 const rabitWidget = [
   {
-    bg: "bg-slate-900 dark:bg-slate-800",
+    bg: 'bg-slate-900 dark:bg-slate-800',
   },
   {
-    bg: "bg-primary-500",
+    bg: 'bg-primary-500',
   },
   {
-    bg: "bg-success-500",
+    bg: 'bg-success-500',
   },
   {
-    bg: "bg-info-500 ",
+    bg: 'bg-info-500 ',
   },
-];
+]
 const griftWidget = [
   {
-    bg: "bg-slate-900 dark:bg-slate-800",
+    bg: 'bg-slate-900 dark:bg-slate-800',
   },
   {
-    bg: "bg-primary-500",
+    bg: 'bg-primary-500',
   },
   {
-    bg: "bg-success-500",
+    bg: 'bg-success-500',
   },
   {
-    bg: "bg-info-500 ",
+    bg: 'bg-info-500 ',
   },
   {
-    bg: "bg-danger-500 ",
+    bg: 'bg-danger-500 ',
   },
   {
-    bg: "bg-warning-500 ",
+    bg: 'bg-warning-500 ',
   },
-];
+]
 const BasicWidget = () => {
   return (
     <div className="space-y-5">
@@ -319,7 +320,7 @@ const BasicWidget = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BasicWidget;
+export default BasicWidget

@@ -1,10 +1,11 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const Candlestick = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   const series = [
     {
       data: [
@@ -250,7 +251,7 @@ const Candlestick = () => {
         },
       ],
     },
-  ];
+  ]
   const options = {
     chart: {
       toolbar: {
@@ -260,18 +261,18 @@ const Candlestick = () => {
     plotOptions: {
       candlestick: {
         colors: {
-          upward: "#4669FA",
-          downward: "#F1595C",
+          upward: '#4669FA',
+          downward: '#F1595C',
         },
       },
     },
 
     xaxis: {
-      type: "datetime",
+      type: 'datetime',
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
       axisBorder: {
@@ -284,8 +285,8 @@ const Candlestick = () => {
 
     grid: {
       show: true,
-      borderColor: isDark ? "#334155" : "#e2e8f0",
-      position: "back",
+      borderColor: isDark ? '#334155' : '#e2e8f0',
+      position: 'back',
     },
     yaxis: {
       tooltip: {
@@ -293,24 +294,24 @@ const Candlestick = () => {
       },
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
-    colors: ["#000000"],
-  };
+    colors: ['#000000'],
+  }
   return (
     <div>
       <Chart
         options={options}
         series={series}
         type="candlestick"
-        height="350" 
-        width="100%" 
+        height="350"
+        width="100%"
       />
     </div>
-  );
-};
+  )
+}
 
-export default Candlestick;
+export default Candlestick

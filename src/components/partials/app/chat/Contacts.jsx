@@ -1,11 +1,11 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { openChat } from "./store";
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { openChat } from './store'
 
 const Contacts = ({ contact }) => {
-  const { fullName, avatar, status, lastmessage, unredmessage } = contact;
+  const { fullName, avatar, status, lastmessage, unredmessage } = contact
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   return (
     <div
@@ -16,7 +16,7 @@ const Contacts = ({ contact }) => {
             contact,
             activechat: true,
           })
-        );
+        )
       }}
     >
       <div className="flex space-x-3 px-6 rtl:space-x-reverse">
@@ -24,7 +24,7 @@ const Contacts = ({ contact }) => {
           <div className="h-10 w-10 rounded-full relative">
             <span
               className={`  status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0
-                ${status === "active" ? "bg-success-500" : "bg-secondary-500"}
+                ${status === 'active' ? 'bg-success-500' : 'bg-secondary-500'}
               `}
             ></span>
             <img
@@ -40,7 +40,7 @@ const Contacts = ({ contact }) => {
               {fullName}
             </span>
             <span className="block text-slate-600 dark:text-slate-300 text-xs font-normal">
-              {lastmessage.slice(0, 14) + "..."}
+              {`${lastmessage.slice(0, 14)}...`}
             </span>
           </div>
           <div className="flex-none ltr:text-right rtl:text-end">
@@ -56,7 +56,7 @@ const Contacts = ({ contact }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contacts;
+export default Contacts

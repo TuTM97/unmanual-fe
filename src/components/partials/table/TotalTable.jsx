@@ -1,30 +1,31 @@
-import React from "react";
+import React from 'react'
+
 const rows = [
   {
-    item: "Headphone",
+    item: 'Headphone',
     qty: 2,
-    price: "$600.25",
-    total: "$1200.50",
+    price: '$600.25',
+    total: '$1200.50',
   },
   {
-    item: "Headphone",
+    item: 'Headphone',
     qty: 2,
-    price: "$600.25",
-    total: "$1200.50",
+    price: '$600.25',
+    total: '$1200.50',
   },
   {
-    item: "Headphone",
+    item: 'Headphone',
     qty: 2,
-    price: "$600.25",
-    total: "$1200.50",
+    price: '$600.25',
+    total: '$1200.50',
   },
   {
-    item: "Headphone",
+    item: 'Headphone',
     qty: 2,
-    price: "$600.25",
-    total: "$1200.50",
+    price: '$600.25',
+    total: '$1200.50',
   },
-];
+]
 
 const TotalTable = () => {
   return (
@@ -100,7 +101,7 @@ const TotalTable = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TotalTable;
+export default TotalTable

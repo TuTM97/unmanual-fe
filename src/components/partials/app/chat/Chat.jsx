@@ -1,53 +1,53 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleMobileChatSidebar, infoToggle, sendMessage } from "./store";
-import useWidth from "@/hooks/useWidth";
-import Icon from "@/components/ui/Icon";
-import Dropdown from "@/components/ui/Dropdown";
+import React, { useEffect, useRef, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import useWidth from '@/hooks/useWidth'
+import Icon from '@/components/ui/Icon'
+import Dropdown from '@/components/ui/Dropdown'
+import { toggleMobileChatSidebar, infoToggle, sendMessage } from './store'
 
 const chatAction = [
   {
-    label: "Remove",
-    link: "#",
+    label: 'Remove',
+    link: '#',
   },
   {
-    label: "Forward",
-    link: "#",
+    label: 'Forward',
+    link: '#',
   },
-];
+]
 const time = () => {
-  const date = new Date();
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  const ampm = hours >= 12 ? "pm" : "am";
-  const hours12 = hours % 12 || 12;
-  const minutesStr = minutes < 10 ? "0" + minutes : minutes;
-  return hours12 + ":" + minutesStr + " " + ampm;
-};
+  const date = new Date()
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+  const ampm = hours >= 12 ? 'pm' : 'am'
+  const hours12 = hours % 12 || 12
+  const minutesStr = minutes < 10 ? `0${minutes}` : minutes
+  return `${hours12}:${minutesStr} ${ampm}`
+}
 
 const Chat = () => {
   const { activechat, openinfo, mobileChatSidebar, messFeed, user } =
-    useSelector((state) => state.chat);
-  const { width, breakpoints } = useWidth();
-  const dispatch = useDispatch();
-  const [message, setMessage] = useState("");
+    useSelector((state) => state.chat)
+  const { width, breakpoints } = useWidth()
+  const dispatch = useDispatch()
+  const [message, setMessage] = useState('')
   const handleSendMessage = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (message.trim()) {
       dispatch(
         sendMessage({
           content: message.trim(),
-          sender: "me",
-          img: "/assets/images/users/user-1.jpg",
+          sender: 'me',
+          img: '/assets/images/users/user-1.jpg',
         })
-      );
-      setMessage("");
+      )
+      setMessage('')
     }
-  };
-  const chatheight = useRef(null);
+  }
+  const chatheight = useRef(null)
   useEffect(() => {
-    chatheight.current.scrollTop = chatheight.current.scrollHeight;
-  }, [messFeed]);
+    chatheight.current.scrollTop = chatheight.current.scrollHeight
+  }, [messFeed])
 
   return (
     <div className="h-full">
@@ -68,9 +68,9 @@ const Chat = () => {
                   <span
                     className={` status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0
                   ${
-                    user.status === "active"
-                      ? "bg-success-500"
-                      : "bg-secondary-500"
+                    user.status === 'active'
+                      ? 'bg-success-500'
+                      : 'bg-secondary-500'
                   }
                   `}
                   ></span>
@@ -115,7 +115,7 @@ const Chat = () => {
         >
           {messFeed.map((item, i) => (
             <div className="block md:px-6 px-4" key={i}>
-              {item.sender === "them" && (
+              {item.sender === 'them' && (
                 <div className="flex space-x-2 items-start group rtl:space-x-reverse">
                   <div className="flex-none">
                     <div className="h-8 w-8 rounded-full">
@@ -150,7 +150,7 @@ const Chat = () => {
                 </div>
               )}
               {/* sender */}
-              {item.sender === "me" && (
+              {item.sender === 'me' && (
                 <div className="flex space-x-2 items-start justify-end group w-full rtl:space-x-reverse">
                   <div className="no flex space-x-4 rtl:space-x-reverse">
                     <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible">
@@ -214,9 +214,9 @@ const Chat = () => {
               // @keydown.enter.shift.exact.prevent="newMessage += '\n'"
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === "Enter" && !e.shiftKey) {
-                  e.preventDefault();
-                  handleSendMessage(e);
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault()
+                  handleSendMessage(e)
                 }
               }}
             />
@@ -232,7 +232,7 @@ const Chat = () => {
         </form>
       </footer>
     </div>
-  );
-};
+  )
+}
 
-export default Chat;
+export default Chat

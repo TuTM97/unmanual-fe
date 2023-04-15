@@ -1,8 +1,7 @@
 /* eslint-disable react/display-name */
-import React, { useState, useMemo } from "react";
-import { homeTable } from "../../../constant/table-data";
+import React, { useState, useMemo } from 'react'
 
-import Icon from "@/components/ui/Icon";
+import Icon from '@/components/ui/Icon'
 
 import {
   useTable,
@@ -10,12 +9,13 @@ import {
   useSortBy,
   useGlobalFilter,
   usePagination,
-} from "react-table";
+} from 'react-table'
+import { homeTable } from '../../../constant/table-data'
 
 const COLUMNS = [
   {
-    Header: "company",
-    accessor: "company",
+    Header: 'company',
+    accessor: 'company',
     Cell: (row) => {
       return (
         <span className="flex items-center">
@@ -37,26 +37,26 @@ const COLUMNS = [
             </div>
           </div>
         </span>
-      );
+      )
     },
   },
   {
-    Header: "Category",
-    accessor: "category",
+    Header: 'Category',
+    accessor: 'category',
     Cell: (row) => {
-      return <span>Technology</span>;
+      return <span>Technology</span>
     },
   },
   {
-    Header: "sales",
-    accessor: "sales",
+    Header: 'sales',
+    accessor: 'sales',
     Cell: (row) => {
       return (
         <div className="flex space-x-6 items-center rtl:space-x-reverse">
-          <span> {row?.cell?.value + "%"}</span>
+          <span> {`${row?.cell?.value}%`}</span>
           <span
             className={` text-xl
-             ${row?.cell?.value > 100 ? "text-success-500" : "text-danger-500"}
+             ${row?.cell?.value > 100 ? 'text-success-500' : 'text-danger-500'}
               `}
           >
             {row?.cell?.value > 100 ? (
@@ -66,28 +66,28 @@ const COLUMNS = [
             )}
           </span>
         </div>
-      );
+      )
     },
   },
   {
-    Header: "views",
-    accessor: "views",
+    Header: 'views',
+    accessor: 'views',
     Cell: (row) => {
-      return <span>{row?.cell?.value}</span>;
+      return <span>{row?.cell?.value}</span>
     },
   },
   {
-    Header: "revenue",
-    accessor: "revenue",
+    Header: 'revenue',
+    accessor: 'revenue',
     Cell: (row) => {
-      return <span>{row?.cell?.value}</span>;
+      return <span>{row?.cell?.value}</span>
     },
   },
-];
+]
 
 const CompanyTable = () => {
-  const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => homeTable, []);
+  const columns = useMemo(() => COLUMNS, [])
+  const data = useMemo(() => homeTable, [])
 
   const tableInstance = useTable(
     {
@@ -102,7 +102,7 @@ const CompanyTable = () => {
     useSortBy,
     usePagination,
     useRowSelect
-  );
+  )
   const {
     getTableProps,
     getTableBodyProps,
@@ -120,9 +120,9 @@ const CompanyTable = () => {
     setPageSize,
     setGlobalFilter,
     prepareRow,
-  } = tableInstance;
+  } = tableInstance
 
-  const { pageIndex, pageSize } = state;
+  const { pageIndex, pageSize } = state
 
   return (
     <>
@@ -137,27 +137,27 @@ const CompanyTable = () => {
                 <thead className=" bg-slate-200 dark:bg-slate-700">
                   {headerGroups.map((headerGroup) => {
                     const { key, ...restHeaderGroupProps } =
-                      headerGroup.getHeaderGroupProps();
-                    <tr key={key} {...restHeaderGroupProps}>
+                      headerGroup.getHeaderGroupProps()
+                    ;<tr key={key} {...restHeaderGroupProps}>
                       {headerGroup.headers.map((column) => {
-                        const { key, ...restColumn } = column.getHeaderProps();
-                        <th
+                        const { key, ...restColumn } = column.getHeaderProps()
+                        ;<th
                           key={key}
                           {...restColumn}
                           scope="col"
                           className=" table-th "
                         >
-                          {column.render("Header")}
+                          {column.render('Header')}
                           <span>
                             {column.isSorted
                               ? column.isSortedDesc
-                                ? " 🔽"
-                                : " 🔼"
-                              : ""}
+                                ? ' 🔽'
+                                : ' 🔼'
+                              : ''}
                           </span>
-                        </th>;
+                        </th>
                       })}
-                    </tr>;
+                    </tr>
                   })}
                 </thead>
                 <tbody
@@ -165,24 +165,24 @@ const CompanyTable = () => {
                   {...getTableBodyProps}
                 >
                   {page.map((row) => {
-                    prepareRow(row);
-                    const { key, ...restRowProps } = row.getRowProps();
+                    prepareRow(row)
+                    const { key, ...restRowProps } = row.getRowProps()
                     return (
                       <tr key={key} {...restRowProps}>
                         {row.cells.map((cell) => {
-                          const { key, ...restCellProps } = cell.getCellProps();
+                          const { key, ...restCellProps } = cell.getCellProps()
                           return (
                             <td
                               key={key}
                               {...restCellProps}
                               className="table-td"
                             >
-                              {cell.render("Cell")}
+                              {cell.render('Cell')}
                             </td>
-                          );
+                          )
                         })}
                       </tr>
-                    );
+                    )
                   })}
                 </tbody>
               </table>
@@ -194,7 +194,7 @@ const CompanyTable = () => {
             <li className="text-xl leading-4 text-slate-900 dark:text-white rtl:rotate-180">
               <button
                 className={` ${
-                  !canPreviousPage ? "opacity-50 cursor-not-allowed" : ""
+                  !canPreviousPage ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 onClick={() => previousPage()}
                 disabled={!canPreviousPage}
@@ -203,14 +203,14 @@ const CompanyTable = () => {
               </button>
             </li>
             {pageOptions.map((page, pageIdx) => (
-              <li key={pageIdx + "sss"}>
+              <li key={`${pageIdx}sss`}>
                 <button
                   href="#"
                   aria-current="page"
                   className={` ${
                     pageIdx === pageIndex
-                      ? "bg-slate-900 dark:bg-slate-600  dark:text-slate-200 text-white font-medium "
-                      : "bg-slate-100 dark:bg-slate-700 dark:text-slate-400 text-slate-900  font-normal  "
+                      ? 'bg-slate-900 dark:bg-slate-600  dark:text-slate-200 text-white font-medium '
+                      : 'bg-slate-100 dark:bg-slate-700 dark:text-slate-400 text-slate-900  font-normal  '
                   }    text-sm rounded leading-[16px] flex h-6 w-6 items-center justify-center transition-all duration-150`}
                   onClick={() => gotoPage(pageIdx)}
                 >
@@ -221,7 +221,7 @@ const CompanyTable = () => {
             <li className="text-xl leading-4 text-slate-900 dark:text-white rtl:rotate-180">
               <button
                 className={` ${
-                  !canNextPage ? "opacity-50 cursor-not-allowed" : ""
+                  !canNextPage ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 onClick={() => nextPage()}
                 disabled={!canNextPage}
@@ -233,7 +233,7 @@ const CompanyTable = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default CompanyTable;
+export default CompanyTable

@@ -1,30 +1,31 @@
-"use client";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
-import Textinput from "@/components/ui/Textinput";
-import Textarea from "@/components/ui/Textarea";
-import Icon from "@/components/ui/Icon";
-import Link from "next/link";
-import Sidebar from "@/components/partials/blog/Sidebar";
+'use client'
+
+import Card from '@/components/ui/Card'
+import Button from '@/components/ui/Button'
+import Textinput from '@/components/ui/Textinput'
+import Textarea from '@/components/ui/Textarea'
+import Icon from '@/components/ui/Icon'
+import Link from 'next/link'
+import Sidebar from '@/components/partials/blog/Sidebar'
 
 const tags = [
   {
-    title: "Business",
-    link: "#",
+    title: 'Business',
+    link: '#',
   },
   {
-    title: "Consulting",
-    link: "#",
+    title: 'Consulting',
+    link: '#',
   },
   {
-    title: "Photographic",
-    link: "#",
+    title: 'Photographic',
+    link: '#',
   },
   {
-    title: "Investment",
-    link: "#",
+    title: 'Investment',
+    link: '#',
   },
-];
+]
 
 const BlogDetailsPage = () => {
   return (
@@ -42,7 +43,7 @@ const BlogDetailsPage = () => {
             <Card>
               <div className=" h-[248px] w-full mb-6 ">
                 <img
-                  src={"/assets/images/all-img/post-1.png"}
+                  src={'/assets/images/all-img/post-1.png'}
                   alt=""
                   className=" w-full h-full  object-cover"
                 />
@@ -122,22 +123,22 @@ const BlogDetailsPage = () => {
                   <li className="dark:text-slate-300">share:</li>
                   <li>
                     <a href="#">
-                      <img src={"/assets/images/svg/tw.svg"} alt="" />
+                      <img src={'/assets/images/svg/tw.svg'} alt="" />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <img src={"/assets/images/svg/fb.svg"} alt="" />
+                      <img src={'/assets/images/svg/fb.svg'} alt="" />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <img src={"/assets/images/svg/ln.svg"} alt="" />
+                      <img src={'/assets/images/svg/ln.svg'} alt="" />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <img src={"/assets/images/svg/ins.svg"} alt="" />
+                      <img src={'/assets/images/svg/ins.svg'} alt="" />
                     </a>
                   </li>
                 </ul>
@@ -160,7 +161,7 @@ const BlogDetailsPage = () => {
                       <div className="flex-none">
                         <div className="h-[56px] w-[56px] rounded-full ltr:mr-6 rtl:ml-6">
                           <img
-                            src={"/assets/images/post/c1.png"}
+                            src={'/assets/images/post/c1.png'}
                             alt=""
                             className="w-full block h-full object-contain rounded-full"
                           />
@@ -205,7 +206,7 @@ const BlogDetailsPage = () => {
                           <div className="flex-none">
                             <div className="h-[56px] w-[56px] rounded-full ltr:mr-6 rtl:ml-6">
                               <img
-                                src={"/assets/images/post/c2.png"}
+                                src={'/assets/images/post/c2.png'}
                                 alt=""
                                 className="w-full block h-full object-contain rounded-full"
                               />
@@ -253,7 +254,7 @@ const BlogDetailsPage = () => {
                       <div className="flex-none">
                         <div className="h-[56px] w-[56px] rounded-full ltr:mr-6 rtl:ml-6">
                           <img
-                            src={"/assets/images/post/c3.png"}
+                            src={'/assets/images/post/c3.png'}
                             alt=""
                             className="w-full block h-full object-contain rounded-full"
                           />
@@ -333,7 +334,7 @@ const BlogDetailsPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BlogDetailsPage;
+export default BlogDetailsPage

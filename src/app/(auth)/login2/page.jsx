@@ -1,13 +1,14 @@
-"use client";
-import React from "react";
-import Link from "next/link";
-import LoginForm from "@/components/partials/auth/login-form";
-import Social from "@/components/partials/auth/social";
-import useDarkMode from "@/hooks/useDarkMode";
-import dynamic from "next/dynamic";
+'use client'
+
+import React from 'react'
+import Link from 'next/link'
+import LoginForm from '@/components/partials/auth/login-form'
+import Social from '@/components/partials/auth/social'
+import useDarkMode from '@/hooks/useDarkMode'
+import dynamic from 'next/dynamic'
 
 const Login2 = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
     <>
       <div className="loginwrapper">
@@ -20,8 +21,8 @@ const Login2 = () => {
                     <img
                       src={
                         isDark
-                          ? "assets/images/logo/logo-white.svg"
-                          : "/assets/images/logo/logo.svg"
+                          ? 'assets/images/logo/logo-white.svg'
+                          : '/assets/images/logo/logo.svg'
                       }
                       alt=""
                       className="mx-auto"
@@ -44,7 +45,7 @@ const Login2 = () => {
                   <Social />
                 </div>
                 <div className="md:max-w-[345px] mt-6 mx-auto font-normal text-slate-500 dark:text-slate-400mt-12 uppercase text-sm">
-                  Don’t have an account?{" "}
+                  Don’t have an account?{' '}
                   <Link
                     href="/register"
                     className="text-slate-900 dark:text-white font-medium hover:underline"
@@ -76,7 +77,7 @@ const Login2 = () => {
               </div>
               <div>
                 <div className="black-500-title max-w-[525px] mx-auto pb-20 text-center">
-                  Unlock your Project{" "}
+                  Unlock your Project{' '}
                   <span className="text-white font-bold">performance</span>
                 </div>
               </div>
@@ -85,7 +86,7 @@ const Login2 = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Login2;
+export default Login2

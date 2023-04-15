@@ -1,12 +1,13 @@
-import React from "react";
-import Bar from "./Bar";
+import React from 'react'
+import Bar from './Bar'
+
 const ProgressBar = ({
   title,
   children,
   value,
-  backClass = "rounded-[999px]",
-  className = "bg-slate-900 dark:bg-slate-900",
-  titleClass = "text-base font-normal",
+  backClass = 'rounded-[999px]',
+  className = 'bg-slate-900 dark:bg-slate-900',
+  titleClass = 'text-base font-normal',
   striped,
   animate,
   showValue,
@@ -47,7 +48,7 @@ const ProgressBar = ({
         )
       }
     </div>
-  );
-};
+  )
+}
 
-export default ProgressBar;
+export default ProgressBar

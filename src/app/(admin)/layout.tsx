@@ -1,30 +1,36 @@
 'use client'
 
-import { useEffect, useState, Suspense } from 'react'
-import { useRouter, usePathname } from 'next/navigation'
+import { motion } from 'framer-motion'
+import { usePathname, useRouter } from 'next/navigation'
+import { Suspense, useEffect } from 'react'
 import { ToastContainer } from 'react-toastify'
-import Header from '@/components/partials/header'
-import Sidebar from '@/components/partials/sidebar'
-import Settings from '@/components/partials/settings'
-import useWidth from '@/hooks/useWidth'
-import useSidebar from '@/hooks/useSidebar'
-import useContentWidth from '@/hooks/useContentWidth'
-import useMenulayout from '@/hooks/useMenulayout'
-import useMenuHidden from '@/hooks/useMenuHidden'
+
+import Loading from '@/components/Loading'
 import Footer from '@/components/partials/footer'
+import MobileFooter from '@/components/partials/footer/MobileFooter'
+import Header from '@/components/partials/header'
+import Settings from '@/components/partials/settings'
+import Sidebar from '@/components/partials/sidebar'
 // import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import MobileMenu from '@/components/partials/sidebar/MobileMenu'
-import useMobileMenu from '@/hooks/useMobileMenu'
-import MobileFooter from '@/components/partials/footer/MobileFooter'
-import { useSelector } from 'react-redux'
-import useRtl from '@/hooks/useRtl'
-import useDarkMode from '@/hooks/useDarkMode'
-import useSkin from '@/hooks/useSkin'
-import Loading from '@/components/Loading'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import useContentWidth from '@/hooks/useContentWidth'
+import useDarkMode from '@/hooks/useDarkMode'
+import useMenuHidden from '@/hooks/useMenuHidden'
+import useMenulayout from '@/hooks/useMenulayout'
+import useMobileMenu from '@/hooks/useMobileMenu'
 import useNavbarType from '@/hooks/useNavbarType'
-import { motion, AnimatePresence } from 'framer-motion'
-export default function RootLayout({ children }) {
+import { useAppSelector } from '@/hooks/useRedux'
+import useRtl from '@/hooks/useRtl'
+import useSidebar from '@/hooks/useSidebar'
+import useSkin from '@/hooks/useSkin'
+import useWidth from '@/hooks/useWidth'
+
+interface IRootLayoutProps {
+  children: React.ReactNode
+}
+
+export default function RootLayout({ children }: IRootLayoutProps) {
   const { width, breakpoints } = useWidth()
   const [collapsed] = useSidebar()
   const [isRtl] = useRtl()
@@ -33,7 +39,7 @@ export default function RootLayout({ children }) {
   const [navbarType] = useNavbarType()
 
   const router = useRouter()
-  const { isAuth } = useSelector((state) => state.auth)
+  const { isAuth } = useAppSelector((state) => state.auth)
 
   useEffect(() => {
     if (!isAuth) {
@@ -41,16 +47,6 @@ export default function RootLayout({ children }) {
     }
   }, [isAuth])
   const location = usePathname()
-  // header switch class
-  const switchHeaderClass = () => {
-    if (menuType === 'horizontal' || menuHidden) {
-      return 'ltr:ml-0 rtl:mr-0'
-    } else if (collapsed) {
-      return 'ltr:ml-[72px] rtl:mr-[72px]'
-    } else {
-      return 'ltr:ml-[248px] rtl:mr-[248px]'
-    }
-  }
 
   // content width
   const [contentWidth] = useContentWidth()
@@ -58,6 +54,17 @@ export default function RootLayout({ children }) {
   const [menuHidden] = useMenuHidden()
   // mobile menu
   const { mobileMenu, setMobileMenu } = useMobileMenu()
+
+  // header switch class
+  const switchHeaderClass = () => {
+    if (menuType === 'horizontal' || menuHidden) {
+      return 'ltr:ml-0 rtl:mr-0'
+    }
+    if (collapsed) {
+      return 'ltr:ml-[72px] rtl:mr-[72px]'
+    }
+    return 'ltr:ml-[248px] rtl:mr-[248px]'
+  }
 
   return (
     <div
@@ -76,14 +83,14 @@ export default function RootLayout({ children }) {
       <MobileMenu
         className={`${
           width < breakpoints.xl && mobileMenu
-            ? 'left-0 visible opacity-100  z-[9999]'
-            : 'left-[-300px] invisible opacity-0  z-[-999] '
+            ? 'visible left-0 z-[9999]  opacity-100'
+            : 'invisible left-[-300px] z-[-999]  opacity-0 '
         }`}
       />
-      {/* mobile menu overlay*/}
+      {/* mobile menu overlay */}
       {width < breakpoints.xl && mobileMenu && (
         <div
-          className="overlay bg-slate-900/50 backdrop-filter backdrop-blur-sm opacity-100 fixed inset-0 z-[999]"
+          className="overlay fixed inset-0 z-[999] bg-slate-900/50 opacity-100 backdrop-blur-sm"
           onClick={() => setMobileMenu(false)}
         ></div>
       )}
@@ -93,7 +100,7 @@ export default function RootLayout({ children }) {
           width > 1280 ? switchHeaderClass() : ''
         }`}
       >
-        {/* md:min-h-screen will h-full*/}
+        {/* md:min-h-screen will h-full */}
         <div className="page-content   page-min-height  ">
           <div
             className={
@@ -126,8 +133,10 @@ export default function RootLayout({ children }) {
               }}
             >
               <Suspense fallback={<Loading />}>
-                <Breadcrumbs />
-                {children}
+                <>
+                  <Breadcrumbs />
+                  {children}
+                </>
               </Suspense>
             </motion.div>
           </div>

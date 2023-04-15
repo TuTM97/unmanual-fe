@@ -1,18 +1,19 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { colors } from "@/constant/data";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import { colors } from '@/constant/data'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const OrderChart = ({
-  className = "bg-slate-50 dark:bg-slate-900 rounded pt-3 px-4",
+  className = 'bg-slate-50 dark:bg-slate-900 rounded pt-3 px-4',
   barColor = colors.warning,
 }) => {
   const series = [
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [40, 70, 45, 100, 75, 40, 80, 90],
     },
-  ];
+  ]
   const options = {
     chart: {
       toolbar: {
@@ -29,8 +30,8 @@ const OrderChart = ({
     },
     plotOptions: {
       bar: {
-        columnWidth: "60px",
-        barHeight: "100%",
+        columnWidth: '60px',
+        barHeight: '100%',
       },
     },
     legend: {
@@ -41,7 +42,7 @@ const OrderChart = ({
       enabled: false,
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
 
@@ -50,8 +51,8 @@ const OrderChart = ({
     },
     tooltip: {
       y: {
-        formatter: function (val) {
-          return "$ " + val + "k";
+        formatter(val) {
+          return `$ ${val}k`
         },
       },
     },
@@ -74,7 +75,7 @@ const OrderChart = ({
     grid: {
       show: false,
     },
-  };
+  }
   return (
     <div className={className}>
       <div className="text-sm text-slate-600 dark:text-slate-300 mb-[6px]">
@@ -88,10 +89,16 @@ const OrderChart = ({
         From last Week
       </div>
       <div className="mt-4">
-        <Chart type="bar" height="44" options={options} series={series} width="100%" />
+        <Chart
+          type="bar"
+          height="44"
+          options={options}
+          series={series}
+          width="100%"
+        />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default OrderChart;
+export default OrderChart

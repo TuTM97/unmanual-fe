@@ -1,24 +1,25 @@
-"use client";
-import Card from "@/components/ui/Card";
-import { tableData } from "@/constant/table-data";
+'use client'
+
+import Card from '@/components/ui/Card'
+import { tableData } from '@/constant/table-data'
 
 const columns = [
   {
-    label: "Age",
-    field: "age",
+    label: 'Age',
+    field: 'age',
   },
   {
-    label: "First Name",
-    field: "first_name",
+    label: 'First Name',
+    field: 'first_name',
   },
 
   {
-    label: "Email",
-    field: "email",
+    label: 'Email',
+    field: 'email',
   },
-];
+]
 // slice(0, 10) is used to limit the number of rows to 10
-const rows = tableData.slice(0, 7);
+const rows = tableData.slice(0, 7)
 const BasicTablePage = () => {
   return (
     <div className="grid xl:grid-cols-2 grid-cols-1 gap-5">
@@ -207,7 +208,7 @@ const BasicTablePage = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default BasicTablePage;
+export default BasicTablePage

@@ -1,22 +1,22 @@
-import React, { useState, useMemo } from "react";
-import { advancedTable } from "@/constant/table-data";
-import Card from "@/components/ui/Card";
-import Icon from "@/components/ui/Icon";
-import Dropdown from "@/components/ui/Dropdown";
-import { Menu } from "@headlessui/react";
+import React, { useState, useMemo } from 'react'
+import { advancedTable } from '@/constant/table-data'
+import Card from '@/components/ui/Card'
+import Icon from '@/components/ui/Icon'
+import Dropdown from '@/components/ui/Dropdown'
+import { Menu } from '@headlessui/react'
 import {
   useTable,
   useRowSelect,
   useSortBy,
   useGlobalFilter,
   usePagination,
-} from "react-table";
-import GlobalFilter from "@/components/partials/table/GlobalFilter";
+} from 'react-table'
+import GlobalFilter from '@/components/partials/table/GlobalFilter'
 
 const COLUMNS = [
   {
-    Header: "customer",
-    accessor: "customer",
+    Header: 'customer',
+    accessor: 'customer',
     Cell: (row) => {
       return (
         <div>
@@ -33,12 +33,12 @@ const COLUMNS = [
             </span>
           </span>
         </div>
-      );
+      )
     },
   },
   {
-    Header: "date",
-    accessor: "date",
+    Header: 'date',
+    accessor: 'date',
     Cell: (row) => {
       return (
         <span className="text-slate-500 dark:text-slate-400">
@@ -48,12 +48,12 @@ const COLUMNS = [
             {Math.floor(Math.random() * 60) + 1}
           </span>
         </span>
-      );
+      )
     },
   },
   {
-    Header: "HISTORY",
-    accessor: "quantity",
+    Header: 'HISTORY',
+    accessor: 'quantity',
     Cell: (row) => {
       return (
         <span className="text-slate-500 dark:text-slate-400">
@@ -64,36 +64,36 @@ const COLUMNS = [
             Trans ID: 8HG654Pk32
           </span>
         </span>
-      );
+      )
     },
   },
 
   {
-    Header: "amount",
-    accessor: "status",
+    Header: 'amount',
+    accessor: 'status',
     Cell: (row) => {
       return (
         <span className="block w-full">
           <span
             className={`${
-              row?.cell?.value === "paid" ? "text-success-500 " : ""
+              row?.cell?.value === 'paid' ? 'text-success-500 ' : ''
             } 
-            ${row?.cell?.value === "due" ? "text-warning-500 " : ""}
-            ${row?.cell?.value === "cancled" ? "text-danger-500" : ""}
+            ${row?.cell?.value === 'due' ? 'text-warning-500 ' : ''}
+            ${row?.cell?.value === 'cancled' ? 'text-danger-500' : ''}
             
              `}
           >
-            {row?.cell?.value === "due" && <span>+$ 1,200.00</span>}
-            {row?.cell?.value === "paid" && <span>+$ 200.00</span>}
-            {row?.cell?.value === "cancled" && <span>+$ 1400.00</span>}
+            {row?.cell?.value === 'due' && <span>+$ 1,200.00</span>}
+            {row?.cell?.value === 'paid' && <span>+$ 200.00</span>}
+            {row?.cell?.value === 'cancled' && <span>+$ 1400.00</span>}
           </span>
         </span>
-      );
+      )
     },
   },
   {
-    Header: "action",
-    accessor: "action",
+    Header: 'action',
+    accessor: 'action',
     Cell: (row) => {
       return (
         <div className=" text-center">
@@ -112,9 +112,9 @@ const COLUMNS = [
                     className={`
                 
                   ${
-                    item.name === "delete"
-                      ? "bg-danger-500 text-danger-500 bg-opacity-30   hover:bg-opacity-100 hover:text-white"
-                      : "hover:bg-slate-900 hover:text-white dark:hover:bg-slate-600 dark:hover:bg-opacity-50"
+                    item.name === 'delete'
+                      ? 'bg-danger-500 text-danger-500 bg-opacity-30   hover:bg-opacity-100 hover:text-white'
+                      : 'hover:bg-slate-900 hover:text-white dark:hover:bg-slate-600 dark:hover:bg-opacity-50'
                   }
                    w-full border-b border-b-gray-500 border-opacity-10 px-4 py-2 text-sm  last:mb-0 cursor-pointer 
                    first:rounded-t last:rounded-b flex  space-x-2 items-center rtl:space-x-reverse `}
@@ -129,29 +129,29 @@ const COLUMNS = [
             </div>
           </Dropdown>
         </div>
-      );
+      )
     },
   },
-];
+]
 
 const actions = [
   {
-    name: "view",
-    icon: "heroicons-outline:eye",
+    name: 'view',
+    icon: 'heroicons-outline:eye',
   },
   {
-    name: "edit",
-    icon: "heroicons:pencil-square",
+    name: 'edit',
+    icon: 'heroicons:pencil-square',
   },
   {
-    name: "delete",
-    icon: "heroicons-outline:trash",
+    name: 'delete',
+    icon: 'heroicons-outline:trash',
   },
-];
+]
 
 const TransactionsTable = () => {
-  const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => advancedTable, []);
+  const columns = useMemo(() => COLUMNS, [])
+  const data = useMemo(() => advancedTable, [])
 
   const tableInstance = useTable(
     {
@@ -166,7 +166,7 @@ const TransactionsTable = () => {
     useSortBy,
     usePagination,
     useRowSelect
-  );
+  )
   const {
     getTableProps,
     getTableBodyProps,
@@ -184,9 +184,9 @@ const TransactionsTable = () => {
     setPageSize,
     setGlobalFilter,
     prepareRow,
-  } = tableInstance;
+  } = tableInstance
 
-  const { globalFilter, pageIndex, pageSize } = state;
+  const { globalFilter, pageIndex, pageSize } = state
   return (
     <>
       <Card noborder>
@@ -206,27 +206,27 @@ const TransactionsTable = () => {
                 <thead className=" border-t border-slate-100 dark:border-slate-800">
                   {headerGroups.map((headerGroup) => {
                     const { key, ...restHeaderGroupProps } =
-                      headerGroup.getHeaderGroupProps();
-                    <tr key={key} {...restHeaderGroupProps}>
+                      headerGroup.getHeaderGroupProps()
+                    ;<tr key={key} {...restHeaderGroupProps}>
                       {headerGroup.headers.map((column) => {
-                        const { key, ...restColumn } = column.getHeaderProps();
-                        <th
+                        const { key, ...restColumn } = column.getHeaderProps()
+                        ;<th
                           key={key}
                           {...restColumn}
                           scope="col"
                           className=" table-th "
                         >
-                          {column.render("Header")}
+                          {column.render('Header')}
                           <span>
                             {column.isSorted
                               ? column.isSortedDesc
-                                ? " 🔽"
-                                : " 🔼"
-                              : ""}
+                                ? ' 🔽'
+                                : ' 🔼'
+                              : ''}
                           </span>
-                        </th>;
+                        </th>
                       })}
-                    </tr>;
+                    </tr>
                   })}
                 </thead>
                 <tbody
@@ -234,24 +234,24 @@ const TransactionsTable = () => {
                   {...getTableBodyProps}
                 >
                   {page.map((row) => {
-                    prepareRow(row);
-                    const { key, ...restRowProps } = row.getRowProps();
+                    prepareRow(row)
+                    const { key, ...restRowProps } = row.getRowProps()
                     return (
                       <tr key={key} {...restRowProps}>
                         {row.cells.map((cell) => {
-                          const { key, ...restCellProps } = cell.getCellProps();
+                          const { key, ...restCellProps } = cell.getCellProps()
                           return (
                             <td
                               key={key}
                               {...restCellProps}
                               className="table-td py-2"
                             >
-                              {cell.render("Cell")}
+                              {cell.render('Cell')}
                             </td>
-                          );
+                          )
                         })}
                       </tr>
-                    );
+                    )
                   })}
                 </tbody>
               </table>
@@ -260,7 +260,7 @@ const TransactionsTable = () => {
         </div>
       </Card>
     </>
-  );
-};
+  )
+}
 
-export default TransactionsTable;
+export default TransactionsTable

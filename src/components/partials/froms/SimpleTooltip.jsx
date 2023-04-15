@@ -1,15 +1,15 @@
-import React from "react";
-import Textinput from "@/components/ui/Textinput";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import React from 'react'
+import Textinput from '@/components/ui/Textinput'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 const FormValadtionSchema = yup
   .object({
-    password: yup.string().required("Password is Required"),
-    email: yup.string().email("Invalid email").required("Email is Required"),
+    password: yup.string().required('Password is Required'),
+    email: yup.string().email('Invalid email').required('Email is Required'),
   })
-  .required();
+  .required()
 
 const SimpleTooltip = () => {
   const {
@@ -18,12 +18,12 @@ const SimpleTooltip = () => {
     handleSubmit,
   } = useForm({
     resolver: yupResolver(FormValadtionSchema),
-    mode: "all",
-  });
+    mode: 'all',
+  })
 
   const onSubmit = (data) => {
-    console.log(data);
-  };
+    console.log(data)
+  }
 
   return (
     <div>
@@ -50,7 +50,7 @@ const SimpleTooltip = () => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default SimpleTooltip;
+export default SimpleTooltip

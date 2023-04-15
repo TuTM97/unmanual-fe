@@ -1,7 +1,9 @@
-"use client";
-import Card from "@/components/ui/Card";
-import Icon from "@/components/ui/Icon";
-import Link from "next/link";
+'use client'
+
+import Card from '@/components/ui/Card'
+import Icon from '@/components/ui/Icon'
+import Link from 'next/link'
+
 const lists = [
   {
     id: 1,
@@ -21,7 +23,7 @@ const lists = [
   {
     id: 6,
   },
-];
+]
 const Typography = () => {
   return (
     <div>
@@ -378,7 +380,7 @@ const Typography = () => {
                 <ul className="space-y-3 p-6 rounded-md bg-slate-50 dark:bg-slate-700 custom-list">
                   <li className="text-sm text-slate-900 dark:text-slate-300">
                     <span className="font-medium">
-                      {" "}
+                      {' '}
                       Lorem ipsum dolor sit amet.
                     </span>
                     <ul className="lits-by-slash">
@@ -387,7 +389,7 @@ const Typography = () => {
                   </li>
                   <li className="text-sm text-slate-900 dark:text-slate-300">
                     <span className="font-medium">
-                      {" "}
+                      {' '}
                       Lorem ipsum dolor sit amet.
                     </span>
                     <ul className="lits-by-slash">
@@ -396,7 +398,7 @@ const Typography = () => {
                   </li>
                   <li className="text-sm text-slate-900 dark:text-slate-300">
                     <span className="font-medium">
-                      {" "}
+                      {' '}
                       Lorem ipsum dolor sit amet.
                     </span>
                     <ul className="lits-by-slash">
@@ -492,7 +494,7 @@ const Typography = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Typography;
+export default Typography

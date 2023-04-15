@@ -1,24 +1,25 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
 
-const DonutChart2 = ({ height = 200, colors = ["#0CE7FA", "#E2F6FD"] }) => {
-  const [isDark] = useDarkMode();
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
-  const series = [70, 30];
+const DonutChart2 = ({ height = 200, colors = ['#0CE7FA', '#E2F6FD'] }) => {
+  const [isDark] = useDarkMode()
+
+  const series = [70, 30]
 
   const options = {
-    labels: ["Complete", "Left"],
+    labels: ['Complete', 'Left'],
     dataLabels: {
       enabled: false,
     },
 
     colors: [...colors],
     legend: {
-      position: "bottom",
-      fontSize: "12px",
-      fontFamily: "Outfit",
+      position: 'bottom',
+      fontSize: '12px',
+      fontFamily: 'Outfit',
       fontWeight: 400,
       show: false,
     },
@@ -26,43 +27,49 @@ const DonutChart2 = ({ height = 200, colors = ["#0CE7FA", "#E2F6FD"] }) => {
     plotOptions: {
       pie: {
         donut: {
-          size: "40%",
+          size: '40%',
           labels: {
             show: true,
             name: {
               show: false,
-              fontSize: "14px",
-              fontWeight: "bold",
-              fontFamily: "Inter",
+              fontSize: '14px',
+              fontWeight: 'bold',
+              fontFamily: 'Inter',
             },
             value: {
               show: true,
-              fontSize: "16px",
-              fontFamily: "Outfit",
-              color: isDark ? "#cbd5e1" : "#0f172a",
+              fontSize: '16px',
+              fontFamily: 'Outfit',
+              color: isDark ? '#cbd5e1' : '#0f172a',
               formatter(val) {
-                return `${parseInt(val)}%`;
+                return `${parseInt(val)}%`
               },
             },
             total: {
               show: true,
-              fontSize: "10px",
-              label: "",
+              fontSize: '10px',
+              label: '',
               formatter() {
-                return "70";
+                return '70'
               },
             },
           },
         },
       },
     },
-  };
+  }
 
   return (
     <div>
-      <Chart options={options} series={series} type="donut" height={height} width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="donut"
+        height={height}
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default DonutChart2;
+export default DonutChart2

@@ -1,8 +1,8 @@
-import React from "react";
-import Icon from "@/components/ui/Icon";
+import React from 'react'
+import Icon from '@/components/ui/Icon'
 
 const Badge = ({
-  className = "bg-danger-500 text-white",
+  className = 'bg-danger-500 text-white',
   label,
   icon,
   children,
@@ -21,7 +21,7 @@ const Badge = ({
       )}
       {children && <span className="inline-flex items-center">{children}</span>}
     </span>
-  );
-};
+  )
+}
 
-export default Badge;
+export default Badge

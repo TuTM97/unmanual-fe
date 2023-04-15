@@ -1,21 +1,22 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
-import { colors } from "@/constant/data";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+import { colors } from '@/constant/data'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const VisitorRadar = ({ height = 350 }) => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   const series = [
     {
-      name: "Male",
+      name: 'Male',
       data: [41, 64, 81, 60, 42, 42, 33, 23],
     },
     {
-      name: "Female",
+      name: 'Female',
       data: [65, 46, 42, 25, 58, 63, 76, 43],
     },
-  ];
+  ]
   const options = {
     chart: {
       toolbar: {
@@ -31,36 +32,36 @@ const VisitorRadar = ({ height = 350 }) => {
     },
     legend: {
       show: true,
-      fontSize: "14px",
-      fontFamily: "Inter",
+      fontSize: '14px',
+      fontFamily: 'Inter',
       labels: {
-        colors: isDark ? "#CBD5E1" : "#475569",
+        colors: isDark ? '#CBD5E1' : '#475569',
       },
     },
     yaxis: {
       show: true,
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
     colors: [colors.warning, colors.primary],
     xaxis: {
       categories: [
-        "2019",
-        "2020",
-        "2021",
-        "2017",
-        "2018",
-        "2015",
-        "2014",
-        "2013",
+        '2019',
+        '2020',
+        '2021',
+        '2017',
+        '2018',
+        '2015',
+        '2014',
+        '2013',
       ],
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
+          colors: isDark ? '#CBD5E1' : '#475569',
         },
       },
     },
@@ -76,13 +77,19 @@ const VisitorRadar = ({ height = 350 }) => {
     grid: {
       show: false,
     },
-  };
+  }
 
   return (
     <div>
-      <Chart series={series} options={options} type="radar" height={height} width="100%" />
+      <Chart
+        series={series}
+        options={options}
+        type="radar"
+        height={height}
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default VisitorRadar;
+export default VisitorRadar

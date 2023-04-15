@@ -1,11 +1,12 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const RadarChart = () => {
-  const [isDark] = useDarkMode();
-  const series = [67];
+  const [isDark] = useDarkMode()
+  const series = [67]
   const options = {
     chart: {
       toolbar: {
@@ -18,28 +19,28 @@ const RadarChart = () => {
         endAngle: 135,
         dataLabels: {
           name: {
-            fontSize: "22px",
-            color: isDark ? "#E2E8F0" : "#475569",
+            fontSize: '22px',
+            color: isDark ? '#E2E8F0' : '#475569',
           },
           value: {
-            fontSize: "16px",
-            color: isDark ? "#E2E8F0" : "#475569",
+            fontSize: '16px',
+            color: isDark ? '#E2E8F0' : '#475569',
           },
           total: {
             show: true,
-            label: "Total",
-            color: isDark ? "#E2E8F0" : "#475569",
-            formatter: function () {
-              return 249;
+            label: 'Total',
+            color: isDark ? '#E2E8F0' : '#475569',
+            formatter() {
+              return 249
             },
           },
         },
       },
     },
     fill: {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
-        shade: "dark",
+        shade: 'dark',
         shadeIntensity: 0.15,
         inverseColors: false,
         opacityFrom: 1,
@@ -50,14 +51,20 @@ const RadarChart = () => {
     stroke: {
       dashArray: 4,
     },
-    colors: ["#4669FA"],
-  };
+    colors: ['#4669FA'],
+  }
 
   return (
     <div>
-      <Chart series={series} options={options} type="radialBar" height="320" width="100%" />
+      <Chart
+        series={series}
+        options={options}
+        type="radialBar"
+        height="320"
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default RadarChart;
+export default RadarChart

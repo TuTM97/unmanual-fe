@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   BarChart,
   Bar,
@@ -7,82 +7,83 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-} from "recharts";
+} from 'recharts'
 
-import useDarkMode from "@/hooks/useDarkMode";
-import { colors } from "@/constant/data";
+import useDarkMode from '@/hooks/useDarkMode'
+import { colors } from '@/constant/data'
+
 const data = [
   {
-    name: "7/12",
+    name: '7/12',
     react: 80,
     vue: 130,
     svelte: 150,
     angular: 210,
   },
   {
-    name: "8/12",
+    name: '8/12',
     react: 100,
     vue: 150,
     svelte: 170,
     angular: 380,
   },
   {
-    name: "9/12",
+    name: '9/12',
     react: 80,
     vue: 140,
     svelte: 160,
     angular: 220,
   },
   {
-    name: "10/12",
+    name: '10/12',
     react: 100,
     vue: 150,
     svelte: 170,
     angular: 380,
   },
   {
-    name: "11/12",
+    name: '11/12',
     react: 50,
     vue: 90,
     svelte: 110,
     angular: 150,
   },
   {
-    name: "12/12",
+    name: '12/12',
     react: 125,
     vue: 90,
     svelte: 100,
     angular: 65,
   },
   {
-    name: "13/12",
+    name: '13/12',
     react: 70,
     vue: 110,
     svelte: 130,
     angular: 210,
   },
   {
-    name: "14/12",
+    name: '14/12',
     react: 100,
     vue: 150,
     svelte: 170,
     angular: 380,
   },
   {
-    name: "15/12",
+    name: '15/12',
     react: 80,
     vue: 100,
     svelte: 120,
     angular: 180,
   },
   {
-    name: "16/12",
+    name: '16/12',
     react: 30,
     vue: 60,
     svelte: 70,
     angular: 110,
   },
-];
+]
 
 const CustomTooltip = (data) => {
   if (data.active && data.payload) {
@@ -105,36 +106,36 @@ const CustomTooltip = (data) => {
                   {i.dataKey} : {i.payload[i.dataKey]}
                 </span>
               </div>
-            );
+            )
           })}
         </div>
       </div>
-    );
+    )
   }
 
-  return null;
-};
+  return null
+}
 
 const ReBarChart = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
     <div>
       <ResponsiveContainer height={350}>
         <BarChart height={300} data={data} barSize={15}>
           <CartesianGrid
             strokeDasharray="1 1"
-            stroke={isDark ? "#334155" : "#e2e8f0"}
+            stroke={isDark ? '#334155' : '#e2e8f0'}
           />
           <XAxis
             dataKey="name"
-            tick={{ fill: isDark ? "#cbd5e1" : "#64748b" }}
-            tickLine={{ stroke: isDark ? "#cbd5e1" : "#64748b" }}
-            stroke={isDark ? "#334155" : "#e2e8f0"}
+            tick={{ fill: isDark ? '#cbd5e1' : '#64748b' }}
+            tickLine={{ stroke: isDark ? '#cbd5e1' : '#64748b' }}
+            stroke={isDark ? '#334155' : '#e2e8f0'}
           />
           <YAxis
-            tick={{ fill: isDark ? "#cbd5e1" : "#64748b" }}
-            tickLine={{ stroke: isDark ? "#cbd5e1" : "#64748b" }}
-            stroke={isDark ? "#334155" : "#e2e8f0"}
+            tick={{ fill: isDark ? '#cbd5e1' : '#64748b' }}
+            tickLine={{ stroke: isDark ? '#cbd5e1' : '#64748b' }}
+            stroke={isDark ? '#334155' : '#e2e8f0'}
           />
           <Tooltip content={CustomTooltip} />
           <Bar dataKey="react" stackId="a" fill={colors.info} />
@@ -149,7 +150,7 @@ const ReBarChart = () => {
         </BarChart>
       </ResponsiveContainer>
     </div>
-  );
-};
+  )
+}
 
-export default ReBarChart;
+export default ReBarChart

@@ -1,19 +1,20 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const Radar = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   const series = [
     {
-      name: "Option A",
+      name: 'Option A',
       data: [41, 64, 81, 60, 42, 42, 33, 23],
     },
     {
-      name: "Option B",
+      name: 'Option B',
       data: [65, 46, 42, 25, 58, 63, 76, 43],
     },
-  ];
+  ]
   const options = {
     chart: {
       toolbar: {
@@ -29,26 +30,26 @@ const Radar = () => {
     },
     legend: {
       show: true,
-      fontSize: "14px",
-      fontFamily: "Inter",
+      fontSize: '14px',
+      fontFamily: 'Inter',
       labels: {
-        colors: isDark ? "#CBD5E1" : "#475569",
+        colors: isDark ? '#CBD5E1' : '#475569',
       },
     },
     yaxis: {
       show: false,
     },
-    //colors: [chartColors.donut.series1, chartColors.donut.series3],
+    // colors: [chartColors.donut.series1, chartColors.donut.series3],
     xaxis: {
       categories: [
-        "Battery",
-        "Brand",
-        "Camera",
-        "Memory",
-        "Storage",
-        "Display",
-        "OS",
-        "Price",
+        'Battery',
+        'Brand',
+        'Camera',
+        'Memory',
+        'Storage',
+        'Display',
+        'OS',
+        'Price',
       ],
     },
     fill: {
@@ -64,12 +65,18 @@ const Radar = () => {
     grid: {
       show: false,
     },
-  };
+  }
   return (
     <div>
-      <Chart options={options} series={series} type="radar" height={450} width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="radar"
+        height={450}
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default Radar;
+export default Radar

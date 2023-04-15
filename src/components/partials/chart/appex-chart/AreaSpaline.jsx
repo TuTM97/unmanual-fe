@@ -1,14 +1,14 @@
-import React from "react";
-//import Chart from "react-apexcharts";
+import React from 'react'
+// import Chart from "react-apexcharts";
 // import ReactApexChart from "react-apexcharts";
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic'
 
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+import useDarkMode from '@/hooks/useDarkMode'
 
-import useDarkMode from "@/hooks/useDarkMode";
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const AreaSpaLine = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   const series = [
     {
       data: [31, 40, 28, 51, 42, 109, 100],
@@ -16,7 +16,7 @@ const AreaSpaLine = () => {
     {
       data: [11, 32, 45, 32, 34, 52, 41],
     },
-  ];
+  ]
   const options = {
     chart: {
       toolbar: {
@@ -27,38 +27,38 @@ const AreaSpaLine = () => {
       enabled: false,
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
     yaxis: {
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
     grid: {
       show: true,
-      borderColor: isDark ? "#334155" : "#e2e8f0",
+      borderColor: isDark ? '#334155' : '#e2e8f0',
       strokeDashArray: 10,
-      position: "back",
+      position: 'back',
     },
     xaxis: {
-      type: "datetime",
+      type: 'datetime',
       categories: [
-        "2018-09-19T00:00:00.000Z",
-        "2018-09-19T01:30:00.000Z",
-        "2018-09-19T02:30:00.000Z",
-        "2018-09-19T03:30:00.000Z",
-        "2018-09-19T04:30:00.000Z",
-        "2018-09-19T05:30:00.000Z",
-        "2018-09-19T06:30:00.000Z",
+        '2018-09-19T00:00:00.000Z',
+        '2018-09-19T01:30:00.000Z',
+        '2018-09-19T02:30:00.000Z',
+        '2018-09-19T03:30:00.000Z',
+        '2018-09-19T04:30:00.000Z',
+        '2018-09-19T05:30:00.000Z',
+        '2018-09-19T06:30:00.000Z',
       ],
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
       axisBorder: {
@@ -70,21 +70,27 @@ const AreaSpaLine = () => {
     },
     legend: {
       labels: {
-        colors: isDark ? "#CBD5E1" : "#475569",
+        colors: isDark ? '#CBD5E1' : '#475569',
       },
-      fontFamily: "Inter",
+      fontFamily: 'Inter',
     },
     tooltip: {
       x: {
-        format: "dd/MM/yy HH:mm",
+        format: 'dd/MM/yy HH:mm',
       },
     },
-  };
+  }
   return (
     <div>
-      <Chart options={options} series={series} type="area" height={350} width="100%" />
+      <Chart
+        options={options}
+        series={series}
+        type="area"
+        height={350}
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default AreaSpaLine;
+export default AreaSpaLine

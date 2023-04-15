@@ -1,13 +1,14 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
-import useWidth from "@/hooks/useWidth";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+import useWidth from '@/hooks/useWidth'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const RadialsChart = () => {
-  const [isDark] = useDarkMode();
-  const { width, breakpoints } = useWidth();
-  const series = [44, 55, 67, 83];
+  const [isDark] = useDarkMode()
+  const { width, breakpoints } = useWidth()
+  const series = [44, 55, 67, 83]
   const options = {
     chart: {
       toolbar: {
@@ -18,31 +19,31 @@ const RadialsChart = () => {
       radialBar: {
         dataLabels: {
           name: {
-            fontSize: "22px",
-            color: isDark ? "#CBD5E1" : "#475569",
+            fontSize: '22px',
+            color: isDark ? '#CBD5E1' : '#475569',
           },
           value: {
-            fontSize: "16px",
-            color: isDark ? "#CBD5E1" : "#475569",
+            fontSize: '16px',
+            color: isDark ? '#CBD5E1' : '#475569',
           },
           total: {
             show: true,
-            label: "Total",
-            color: isDark ? "#CBD5E1" : "#475569",
-            formatter: function () {
-              return 249;
+            label: 'Total',
+            color: isDark ? '#CBD5E1' : '#475569',
+            formatter() {
+              return 249
             },
           },
         },
         track: {
-          background: "#E2E8F0",
-          strokeWidth: "97%",
+          background: '#E2E8F0',
+          strokeWidth: '97%',
         },
       },
     },
-    labels: ["A", "B", "C", "D"],
-    colors: ["#4669FA", "#FA916B", "#50C793", "#0CE7FA"],
-  };
+    labels: ['A', 'B', 'C', 'D'],
+    colors: ['#4669FA', '#FA916B', '#50C793', '#0CE7FA'],
+  }
 
   return (
     <div>
@@ -54,7 +55,7 @@ const RadialsChart = () => {
         width="100%"
       />
     </div>
-  );
-};
+  )
+}
 
-export default RadialsChart;
+export default RadialsChart

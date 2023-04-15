@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import Card from "@/components/ui/Card";
-import Textarea from "@/components/ui/Textarea";
+import React, { useState } from 'react'
+import Card from '@/components/ui/Card'
+import Textarea from '@/components/ui/Textarea'
 
 const Textareapage = () => {
   const errorMessage = {
-    message: "This is invalid state",
-  };
-  const [value, setValue] = useState("");
+    message: 'This is invalid state',
+  }
+  const [value, setValue] = useState('')
 
   const handleFormatter = (e) => {
-    const value = e.target.value;
-    setValue(value);
-  };
+    const { value } = e.target
+    setValue(value)
+  }
   return (
     <div className="grid xl:grid-cols-2 gap-5 ">
       <Card title="Basic Textarea">
@@ -95,7 +95,7 @@ const Textareapage = () => {
         {value.toLowerCase()}
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default Textareapage;
+export default Textareapage

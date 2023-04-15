@@ -14,7 +14,7 @@ const ImageBlock2 = () => {
         <p className="text-sm text-white font-normal">Welcome to Dashcode</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ImageBlock2;
+export default ImageBlock2

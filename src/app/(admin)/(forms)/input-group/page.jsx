@@ -1,11 +1,11 @@
-"use client";
+'use client'
 
-import React from "react";
-import Card from "@/components/ui/Card";
-import InputGroup from "@/components/ui/InputGroup";
-import Icon from "@/components/ui/Icon";
-import Button from "@/components/ui/Button";
-import Dropdown from "@/components/ui/Dropdown";
+import React from 'react'
+import Card from '@/components/ui/Card'
+import InputGroup from '@/components/ui/InputGroup'
+import Icon from '@/components/ui/Icon'
+import Button from '@/components/ui/Button'
+import Dropdown from '@/components/ui/Dropdown'
 
 const InputGroupPage = () => {
   return (
@@ -244,7 +244,7 @@ const InputGroupPage = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default InputGroupPage;
+export default InputGroupPage

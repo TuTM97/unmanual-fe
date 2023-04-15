@@ -1,14 +1,15 @@
-"use client";
-import React, { useState } from "react";
-import Button from "@/components/ui/Button";
-import Card from "@/components/ui/Card";
-import Textinput from "@/components/ui/Textinput";
-import Textarea from "@/components/ui/Textarea";
-import Repeater from "@/components/partials/froms/Repeater";
-import Flatpickr from "react-flatpickr";
+'use client'
+
+import React, { useState } from 'react'
+import Button from '@/components/ui/Button'
+import Card from '@/components/ui/Card'
+import Textinput from '@/components/ui/Textinput'
+import Textarea from '@/components/ui/Textarea'
+import Repeater from '@/components/partials/froms/Repeater'
+import Flatpickr from 'react-flatpickr'
 
 const InvoiceAddPage = () => {
-  const [picker, setPicker] = useState(new Date());
+  const [picker, setPicker] = useState(new Date())
   return (
     <div>
       <Card title="Create new invoice">
@@ -89,7 +90,7 @@ const InvoiceAddPage = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default InvoiceAddPage;
+export default InvoiceAddPage

@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import React from "react";
-import Link from "next/link";
-import useDarkMode from "@/hooks/useDarkMode";
-import RegForm from "@/components/partials/auth/reg-from";
-import Social from "@/components/partials/auth/social";
+import React from 'react'
+import Link from 'next/link'
+import useDarkMode from '@/hooks/useDarkMode'
+import RegForm from '@/components/partials/auth/reg-from'
+import Social from '@/components/partials/auth/social'
 
 const Register = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
     <>
       <div className="loginwrapper">
@@ -18,8 +18,8 @@ const Register = () => {
                 <img
                   src={
                     isDark
-                      ? "/assets/images/logo/logo-white.svg"
-                      : "/assets/images/logo/logo.svg"
+                      ? '/assets/images/logo/logo-white.svg'
+                      : '/assets/images/logo/logo.svg'
                   }
                   alt=""
                   className="mb-10"
@@ -49,8 +49,8 @@ const Register = () => {
                     <img
                       src={
                         isDark
-                          ? "/assets/images/logo/logo-white.svg"
-                          : "/assets/images/logo/logo.svg"
+                          ? '/assets/images/logo/logo-white.svg'
+                          : '/assets/images/logo/logo.svg'
                       }
                       alt=""
                       className="mx-auto"
@@ -90,7 +90,7 @@ const Register = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register

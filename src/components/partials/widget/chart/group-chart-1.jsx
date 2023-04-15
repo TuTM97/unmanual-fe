@@ -1,6 +1,7 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+import React from 'react'
+import dynamic from 'next/dynamic'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const shapeLine1 = {
   series: [
@@ -11,7 +12,7 @@ const shapeLine1 = {
   options: {
     chart: {
       toolbar: {
-        autoSelected: "pan",
+        autoSelected: 'pan',
         show: false,
       },
       offsetX: 0,
@@ -27,12 +28,12 @@ const shapeLine1 = {
       enabled: false,
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
-    colors: ["#00EBFF"],
+    colors: ['#00EBFF'],
     tooltip: {
-      theme: "light",
+      theme: 'light',
     },
     grid: {
       show: false,
@@ -45,7 +46,7 @@ const shapeLine1 = {
       show: false,
     },
     fill: {
-      type: "solid",
+      type: 'solid',
       opacity: [0.1],
     },
     legend: {
@@ -68,7 +69,7 @@ const shapeLine1 = {
       },
     },
   },
-};
+}
 const shapeLine2 = {
   series: [
     {
@@ -78,7 +79,7 @@ const shapeLine2 = {
   options: {
     chart: {
       toolbar: {
-        autoSelected: "pan",
+        autoSelected: 'pan',
         show: false,
       },
       offsetX: 0,
@@ -94,12 +95,12 @@ const shapeLine2 = {
       enabled: false,
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
-    colors: ["#FB8F65"],
+    colors: ['#FB8F65'],
     tooltip: {
-      theme: "light",
+      theme: 'light',
     },
     grid: {
       show: false,
@@ -112,7 +113,7 @@ const shapeLine2 = {
       show: false,
     },
     fill: {
-      type: "solid",
+      type: 'solid',
       opacity: [0.1],
     },
     legend: {
@@ -135,7 +136,7 @@ const shapeLine2 = {
       },
     },
   },
-};
+}
 const shapeLine3 = {
   series: [
     {
@@ -145,7 +146,7 @@ const shapeLine3 = {
   options: {
     chart: {
       toolbar: {
-        autoSelected: "pan",
+        autoSelected: 'pan',
         show: false,
       },
       offsetX: 0,
@@ -161,12 +162,12 @@ const shapeLine3 = {
       enabled: false,
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 2,
     },
-    colors: ["#5743BE"],
+    colors: ['#5743BE'],
     tooltip: {
-      theme: "light",
+      theme: 'light',
     },
     grid: {
       show: false,
@@ -179,7 +180,7 @@ const shapeLine3 = {
       show: false,
     },
     fill: {
-      type: "solid",
+      type: 'solid',
       opacity: [0.1],
     },
     legend: {
@@ -202,28 +203,28 @@ const shapeLine3 = {
       },
     },
   },
-};
+}
 
 const statistics = [
   {
     name: shapeLine1,
-    title: "Totel revenue",
-    count: "3,564",
-    bg: "bg-[#E5F9FF] dark:bg-slate-900	",
+    title: 'Totel revenue',
+    count: '3,564',
+    bg: 'bg-[#E5F9FF] dark:bg-slate-900	',
   },
   {
     name: shapeLine2,
-    title: "Products sold",
-    count: "564",
-    bg: "bg-[#FFEDE5] dark:bg-slate-900	",
+    title: 'Products sold',
+    count: '564',
+    bg: 'bg-[#FFEDE5] dark:bg-slate-900	',
   },
   {
     name: shapeLine3,
-    title: "Growth",
-    count: "+5.0%",
-    bg: "bg-[#EAE5FF] dark:bg-slate-900	",
+    title: 'Growth',
+    count: '+5.0%',
+    bg: 'bg-[#EAE5FF] dark:bg-slate-900	',
   },
-];
+]
 const GroupChart1 = () => {
   return (
     <>
@@ -251,7 +252,7 @@ const GroupChart1 = () => {
         </div>
       ))}
     </>
-  );
-};
+  )
+}
 
-export default GroupChart1;
+export default GroupChart1

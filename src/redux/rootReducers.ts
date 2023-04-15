@@ -1,11 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit'
 
-import layoutReducer from './layout'
 import authReducer from './auth'
 import calendarReducer from './calendar'
 import chatReducer from './chat'
 import emailReducer from './email'
 import kanbanReducer from './kanban'
+import layoutReducer from './layout'
 import projectsReducer from './projects'
 import todoReducer from './todo'
 
@@ -17,7 +17,7 @@ const rootReducers = combineReducers({
   project: projectsReducer,
   kanban: kanbanReducer,
   email: emailReducer,
-  todo: todoReducer
+  todo: todoReducer,
 })
 
 export default rootReducers

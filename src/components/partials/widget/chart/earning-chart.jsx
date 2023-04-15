@@ -1,24 +1,25 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const EarningChart = ({
-  className = "bg-slate-50 dark:bg-slate-900 rounded py-3 px-4 md:col-span-2",
+  className = 'bg-slate-50 dark:bg-slate-900 rounded py-3 px-4 md:col-span-2',
 }) => {
-  const [isDark] = useDarkMode();
-  const series = [44, 55];
+  const [isDark] = useDarkMode()
+  const series = [44, 55]
 
   const options = {
-    labels: ["success", "Return"],
+    labels: ['success', 'Return'],
     dataLabels: {
       enabled: false,
     },
-    colors: ["#0CE7FA", "#FA916B"],
+    colors: ['#0CE7FA', '#FA916B'],
     legend: {
-      position: "bottom",
-      fontSize: "14px",
-      fontFamily: "Inter",
+      position: 'bottom',
+      fontSize: '14px',
+      fontFamily: 'Inter',
       fontWeight: 400,
       markers: {
         width: 8,
@@ -32,13 +33,13 @@ const EarningChart = ({
         vertical: 0,
       },
       labels: {
-        colors: isDark ? "#CBD5E1" : "#475569",
+        colors: isDark ? '#CBD5E1' : '#475569',
       },
     },
     plotOptions: {
       pie: {
         donut: {
-          size: "65%",
+          size: '65%',
         },
       },
     },
@@ -48,12 +49,12 @@ const EarningChart = ({
         breakpoint: 480,
         options: {
           legend: {
-            position: "bottom",
+            position: 'bottom',
           },
         },
       },
     ],
-  };
+  }
   return (
     <div className={` ${className}`}>
       <div className="flex items-center">
@@ -76,13 +77,13 @@ const EarningChart = ({
               height="200"
               options={options}
               series={series}
-              width="100%" 
+              width="100%"
             />
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default EarningChart;
+export default EarningChart

@@ -1,40 +1,40 @@
-import React from "react";
+import React from 'react'
 
 export const lists = [
   {
-    title: "Project start date",
-    desc: "This parcel is paid for by the customer. Please contact the customer for any further information.",
-    date: "Sep 20, 2021 ",
-    time: "12:32 AM",
-    status: "ok",
+    title: 'Project start date',
+    desc: 'This parcel is paid for by the customer. Please contact the customer for any further information.',
+    date: 'Sep 20, 2021 ',
+    time: '12:32 AM',
+    status: 'ok',
   },
   {
-    title: "Project start date",
-    date: "Sep 20, 2021 ",
-    desc: "This parcel is paid for by the customer. Please contact the customer for any further information.",
-    time: "12:32 AM",
-    status: "ok",
+    title: 'Project start date',
+    date: 'Sep 20, 2021 ',
+    desc: 'This parcel is paid for by the customer. Please contact the customer for any further information.',
+    time: '12:32 AM',
+    status: 'ok',
   },
   {
-    title: "Project start date",
-    date: "Sep 20, 2021 ",
-    desc: "This parcel is paid for by the customer. Please contact the customer for any further information.",
-    time: "12:32 AM",
-    status: "ok",
+    title: 'Project start date',
+    date: 'Sep 20, 2021 ',
+    desc: 'This parcel is paid for by the customer. Please contact the customer for any further information.',
+    time: '12:32 AM',
+    status: 'ok',
   },
   {
-    title: "Project start date",
-    date: "Sep 20, 2021 ",
-    desc: "This parcel is paid for by the customer. Please contact the customer for any further information.",
-    time: "12:32 AM",
+    title: 'Project start date',
+    date: 'Sep 20, 2021 ',
+    desc: 'This parcel is paid for by the customer. Please contact the customer for any further information.',
+    time: '12:32 AM',
   },
   {
-    title: "Project start date",
-    date: "Sep 20, 2021 ",
-    desc: "This parcel is paid for by the customer. Please contact the customer for any further information.",
-    time: "12:32 AM",
+    title: 'Project start date',
+    date: 'Sep 20, 2021 ',
+    desc: 'This parcel is paid for by the customer. Please contact the customer for any further information.',
+    time: '12:32 AM',
   },
-];
+]
 const TrackingParcel = () => {
   return (
     <ul className="relative ltr:pl-2 rtl:pr-2">
@@ -43,9 +43,9 @@ const TrackingParcel = () => {
           key={i}
           className={`
                ${
-                 item.status === "ok"
-                   ? "before:opacity-100"
-                   : " before:opacity-50"
+                 item.status === 'ok'
+                   ? 'before:opacity-100'
+                   : ' before:opacity-50'
                }
 
                  ltr:border-l-2 rtl:border-r-2 border-slate-100 dark:border-slate-700 pb-4 
@@ -65,7 +65,7 @@ const TrackingParcel = () => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default TrackingParcel;
+export default TrackingParcel

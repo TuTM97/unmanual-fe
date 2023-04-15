@@ -1,21 +1,21 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import Card from "@/components/ui/Card";
-import Textinput from "@/components/ui/Textinput";
-import Textarea from "@/components/ui/Textarea";
-import Select from "@/components/ui/Select";
+import React, { useState } from 'react'
+import Card from '@/components/ui/Card'
+import Textinput from '@/components/ui/Textinput'
+import Textarea from '@/components/ui/Textarea'
+import Select from '@/components/ui/Select'
 
 const InputPage = () => {
   const errorMessage = {
-    message: "This is invalid state",
-  };
-  const [value, setValue] = useState("");
+    message: 'This is invalid state',
+  }
+  const [value, setValue] = useState('')
 
   const handleFormatter = (e) => {
-    const value = e.target.value;
-    setValue(value);
-  };
+    const { value } = e.target
+    setValue(value)
+  }
 
   return (
     <div className="grid xl:grid-cols-2 gap-5">
@@ -47,7 +47,7 @@ const InputPage = () => {
             placeholder="Type here"
           />
           <Select
-            options={["Option 1", "Option 2", "Option 3"]}
+            options={['Option 1', 'Option 2', 'Option 3']}
             label="Select Option's"
           />
         </div>
@@ -160,7 +160,7 @@ const InputPage = () => {
         </Card>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default InputPage;
+export default InputPage

@@ -1,15 +1,16 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const BasicBar = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   const series = [
     {
       data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
     },
-  ];
+  ]
   const options = {
     chart: {
       toolbar: {
@@ -27,34 +28,34 @@ const BasicBar = () => {
     yaxis: {
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
     grid: {
       show: true,
-      borderColor: isDark ? "#334155" : "#e2e8f0",
+      borderColor: isDark ? '#334155' : '#e2e8f0',
       strokeDashArray: 10,
-      position: "back",
+      position: 'back',
     },
     xaxis: {
       categories: [
-        "South Korea",
-        "Canada",
-        "United Kingdom",
-        "Netherlands",
-        "Italy",
-        "France",
-        "Japan",
-        "United States",
-        "China",
-        "Germany",
+        'South Korea',
+        'Canada',
+        'United Kingdom',
+        'Netherlands',
+        'Italy',
+        'France',
+        'Japan',
+        'United States',
+        'China',
+        'Germany',
       ],
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
       axisBorder: {
@@ -64,13 +65,19 @@ const BasicBar = () => {
         show: false,
       },
     },
-    colors: ["#4669FA"],
-  };
+    colors: ['#4669FA'],
+  }
   return (
     <div>
-      <Chart options={options} series={series} type="bar" height="350" width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="bar"
+        height="350"
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default BasicBar;
+export default BasicBar

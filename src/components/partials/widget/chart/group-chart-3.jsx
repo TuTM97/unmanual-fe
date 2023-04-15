@@ -1,48 +1,48 @@
-import Icon from "@/components/ui/Icon";
+import Icon from '@/components/ui/Icon'
 
 const statistics = [
   {
-    title: "Sales",
-    count: "354",
-    bg: "bg-warning-500",
-    text: "text-primary-500",
-    percent: "25.67% ",
-    icon: "heroicons:arrow-trending-up",
-    img: "/assets/images/all-img/shade-1.png",
-    percentClass: "text-primary-500",
+    title: 'Sales',
+    count: '354',
+    bg: 'bg-warning-500',
+    text: 'text-primary-500',
+    percent: '25.67% ',
+    icon: 'heroicons:arrow-trending-up',
+    img: '/assets/images/all-img/shade-1.png',
+    percentClass: 'text-primary-500',
   },
   {
-    title: "Revenue ",
-    count: "$86,954",
+    title: 'Revenue ',
+    count: '$86,954',
 
-    bg: "bg-info-500",
-    text: "text-primary-500",
-    percent: "8.67%",
-    icon: "heroicons:arrow-trending-up",
-    img: "/assets/images/all-img/shade-2.png",
-    percentClass: "text-primary-500",
+    bg: 'bg-info-500',
+    text: 'text-primary-500',
+    percent: '8.67%',
+    icon: 'heroicons:arrow-trending-up',
+    img: '/assets/images/all-img/shade-2.png',
+    percentClass: 'text-primary-500',
   },
   {
-    title: "Conversion",
-    count: "15%",
-    bg: "bg-primary-500",
-    text: "text-danger-500",
-    percent: "1.67%  ",
-    icon: "heroicons:arrow-trending-down",
-    img: "/assets/images/all-img/shade-3.png",
-    percentClass: "text-danger-500",
+    title: 'Conversion',
+    count: '15%',
+    bg: 'bg-primary-500',
+    text: 'text-danger-500',
+    percent: '1.67%  ',
+    icon: 'heroicons:arrow-trending-down',
+    img: '/assets/images/all-img/shade-3.png',
+    percentClass: 'text-danger-500',
   },
   {
-    title: "Leads",
-    count: "654",
-    bg: "bg-success-500",
-    text: "text-primary-500",
-    percent: "11.67%  ",
-    icon: "heroicons:arrow-trending-up",
-    img: "/assets/images/all-img/shade-4.png",
-    percentClass: "text-primary-500",
+    title: 'Leads',
+    count: '654',
+    bg: 'bg-success-500',
+    text: 'text-primary-500',
+    percent: '11.67%  ',
+    icon: 'heroicons:arrow-trending-up',
+    img: '/assets/images/all-img/shade-4.png',
+    percentClass: 'text-primary-500',
   },
-];
+]
 const GroupChart3 = () => {
   return (
     <>
@@ -81,7 +81,7 @@ const GroupChart3 = () => {
         </div>
       ))}
     </>
-  );
-};
+  )
+}
 
-export default GroupChart3;
+export default GroupChart3

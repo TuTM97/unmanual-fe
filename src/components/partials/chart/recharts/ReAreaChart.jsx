@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   AreaChart,
   Area,
@@ -7,91 +7,91 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-} from "recharts";
+} from 'recharts'
 
-import useDarkMode from "@/hooks/useDarkMode";
-import { colors } from "@/constant/data";
+import useDarkMode from '@/hooks/useDarkMode'
+import { colors } from '@/constant/data'
 
 const data = [
   {
-    name: "7/12",
+    name: '7/12',
     sales: 20,
     clicks: 60,
     visits: 100,
   },
   {
-    name: "8/12",
+    name: '8/12',
     sales: 40,
     clicks: 80,
     visits: 120,
   },
   {
-    name: "9/12",
+    name: '9/12',
     sales: 30,
     clicks: 70,
     visits: 90,
   },
   {
-    name: "10/12",
+    name: '10/12',
     sales: 70,
     clicks: 110,
     visits: 170,
   },
   {
-    name: "11/12",
+    name: '11/12',
     sales: 40,
     clicks: 80,
     visits: 130,
   },
   {
-    name: "12/12",
+    name: '12/12',
     sales: 60,
     clicks: 80,
     visits: 160,
   },
   {
-    name: "13/12",
+    name: '13/12',
     sales: 50,
     clicks: 100,
     visits: 140,
   },
   {
-    name: "14/12",
+    name: '14/12',
     sales: 140,
     clicks: 90,
     visits: 240,
   },
   {
-    name: "15/12",
+    name: '15/12',
     sales: 120,
     clicks: 180,
     visits: 220,
   },
   {
-    name: "16/12",
+    name: '16/12',
     sales: 100,
     clicks: 160,
     visits: 180,
   },
   {
-    name: "17/12",
+    name: '17/12',
     sales: 140,
     clicks: 140,
     visits: 270,
   },
   {
-    name: "18/12",
+    name: '18/12',
     sales: 180,
     clicks: 200,
     visits: 280,
   },
   {
-    name: "19/12",
+    name: '19/12',
     sales: 220,
     clicks: 220,
     visits: 375,
   },
-];
+]
 
 const CustomTooltip = (data) => {
   if (data.active && data.payload) {
@@ -115,36 +115,36 @@ const CustomTooltip = (data) => {
                   {i.dataKey} : {i.payload[i.dataKey]}
                 </span>
               </div>
-            );
+            )
           })}
         </div>
       </div>
-    );
+    )
   }
 
-  return null;
-};
+  return null
+}
 
 const ReAreaChart = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
     <div>
       <ResponsiveContainer height={350}>
         <AreaChart height={300} data={data}>
           <CartesianGrid
             strokeDasharray="1 1"
-            stroke={isDark ? "#334155" : "#e2e8f0"}
+            stroke={isDark ? '#334155' : '#e2e8f0'}
           />
           <XAxis
             dataKey="name"
-            tick={{ fill: isDark ? "#cbd5e1" : "#64748b" }}
-            tickLine={{ stroke: isDark ? "#cbd5e1" : "#64748b" }}
-            stroke={isDark ? "#334155" : "#e2e8f0"}
+            tick={{ fill: isDark ? '#cbd5e1' : '#64748b' }}
+            tickLine={{ stroke: isDark ? '#cbd5e1' : '#64748b' }}
+            stroke={isDark ? '#334155' : '#e2e8f0'}
           />
           <YAxis
-            tick={{ fill: isDark ? "#cbd5e1" : "#64748b" }}
-            tickLine={{ stroke: isDark ? "#cbd5e1" : "#64748b" }}
-            stroke={isDark ? "#334155" : "#e2e8f0"}
+            tick={{ fill: isDark ? '#cbd5e1' : '#64748b' }}
+            tickLine={{ stroke: isDark ? '#cbd5e1' : '#64748b' }}
+            stroke={isDark ? '#334155' : '#e2e8f0'}
           />
           <Tooltip content={CustomTooltip} />
 
@@ -169,7 +169,7 @@ const ReAreaChart = () => {
         </AreaChart>
       </ResponsiveContainer>
     </div>
-  );
-};
+  )
+}
 
-export default ReAreaChart;
+export default ReAreaChart

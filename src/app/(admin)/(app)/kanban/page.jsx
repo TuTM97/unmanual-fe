@@ -1,36 +1,37 @@
-"use client";
+'use client'
 
-import React from "react";
-import Button from "@/components/ui/Button";
-import Tooltip from "@/components/ui/Tooltip";
-import Icon from "@/components/ui/Icon";
+import React from 'react'
+import Button from '@/components/ui/Button'
+import Tooltip from '@/components/ui/Tooltip'
+import Icon from '@/components/ui/Icon'
 
-import { useSelector, useDispatch } from "react-redux";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { useSelector, useDispatch } from 'react-redux'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import {
   sort,
   toggleColumnModal,
   deleteColumnBoard,
   toggleTaskModal,
-} from "@/components/partials/app/kanban/store";
-import Task from "@/components/partials/app/kanban/Task";
-import AddColumn from "@/components/partials/app/kanban/AddColumn";
-import AddTaskModal from "@/components/partials/app/kanban/AddTaskModal";
-import { ToastContainer } from "react-toastify";
-import EditTaskModal from "@/components/partials/app/kanban/EditTask";
+} from '@/components/partials/app/kanban/store'
+import Task from '@/components/partials/app/kanban/Task'
+import AddColumn from '@/components/partials/app/kanban/AddColumn'
+import AddTaskModal from '@/components/partials/app/kanban/AddTaskModal'
+import { ToastContainer } from 'react-toastify'
+import EditTaskModal from '@/components/partials/app/kanban/EditTask'
+
 const KanbanPage = () => {
-  const { columns, taskModal } = useSelector((state) => state.kanban);
-  const dispatch = useDispatch();
+  const { columns, taskModal } = useSelector((state) => state.kanban)
+  const dispatch = useDispatch()
 
   const onDragEnd = (result) => {
-    const { destination, source, draggableId, type } = result;
+    const { destination, source, draggableId, type } = result
 
     if (!destination) {
-      return;
+      return
     }
 
-    dispatch(sort(result));
-  };
+    dispatch(sort(result))
+  }
   return (
     <div>
       <ToastContainer />
@@ -74,13 +75,13 @@ const KanbanPage = () => {
                           <div
                             className={`w-[320px] flex-none h-full  rounded transition-all duration-100 ${
                               snapshot.isDragging
-                                ? "shadow-xl bg-primary-300"
-                                : "shadow-none bg-slate-200 dark:bg-slate-700"
+                                ? 'shadow-xl bg-primary-300'
+                                : 'shadow-none bg-slate-200 dark:bg-slate-700'
                             } 
                        
                             `}
                           >
-                            {/* Board Header*/}
+                            {/* Board Header */}
                             <div className="relative flex justify-between items-center bg-white dark:bg-slate-800 rounded shadow-base px-6 py-5">
                               <div
                                 className="absolute left-0 top-1/2 -translate-y-1/2 h-8 w-[2px]"
@@ -140,7 +141,7 @@ const KanbanPage = () => {
                                   ref={provided.innerRef}
                                   {...provided.droppableProps}
                                   className={`px-2 py-4 h-full space-y-4  ${
-                                    snapshot.isDraggingOver && "bg-primary-400"
+                                    snapshot.isDraggingOver && 'bg-primary-400'
                                   }`}
                                 >
                                   {column.tasks?.map((task, j) => (
@@ -168,7 +169,7 @@ const KanbanPage = () => {
                         </div>
                       )}
                     </Draggable>
-                  );
+                  )
                 })}
                 {provided.placeholder}
               </div>
@@ -180,7 +181,7 @@ const KanbanPage = () => {
       <AddTaskModal />
       <EditTaskModal />
     </div>
-  );
-};
+  )
+}
 
-export default KanbanPage;
+export default KanbanPage

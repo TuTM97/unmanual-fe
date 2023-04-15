@@ -1,22 +1,24 @@
-"use client";
-import Card from "@/components/ui/Card";
-import dynamic from "next/dynamic";
-const BasicMap = dynamic(() => import("@/components/partials/map/basic-map"), {
+'use client'
+
+import Card from '@/components/ui/Card'
+import dynamic from 'next/dynamic'
+
+const BasicMap = dynamic(() => import('@/components/partials/map/basic-map'), {
   ssr: false,
-});
+})
 const MarkerMap = dynamic(
-  () => import("@/components/partials/map/marker-map"),
+  () => import('@/components/partials/map/marker-map'),
   {
     ssr: false,
   }
-);
-const GeoJSON = dynamic(() => import("@/components/partials/map/GeoJSON"), {
+)
+const GeoJSON = dynamic(() => import('@/components/partials/map/GeoJSON'), {
   ssr: false,
-});
+})
 
-const VMap = dynamic(() => import("@/components/partials/map/VectoreMap"), {
+const VMap = dynamic(() => import('@/components/partials/map/VectoreMap'), {
   ssr: false,
-});
+})
 
 const MapPage = () => {
   return (
@@ -34,7 +36,7 @@ const MapPage = () => {
         <VMap />
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default MapPage;
+export default MapPage

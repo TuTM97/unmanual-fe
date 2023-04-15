@@ -1,26 +1,27 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const MixedChart = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   const series = [
     {
-      name: "Column",
-      type: "column",
+      name: 'Column',
+      type: 'column',
       data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
     },
     {
-      name: "Area",
-      type: "area",
+      name: 'Area',
+      type: 'area',
       data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
     },
     {
-      name: "Line",
-      type: "line",
+      name: 'Line',
+      type: 'line',
       data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
     },
-  ];
+  ]
   const options = {
     chart: {
       stacked: false,
@@ -31,11 +32,11 @@ const MixedChart = () => {
 
     stroke: {
       width: [0, 2, 5],
-      curve: "smooth",
+      curve: 'smooth',
     },
     plotOptions: {
       bar: {
-        columnWidth: "50%",
+        columnWidth: '50%',
       },
     },
 
@@ -43,35 +44,35 @@ const MixedChart = () => {
       opacity: [0.85, 0.25, 1],
       gradient: {
         inverseColors: false,
-        shade: "light",
-        type: "vertical",
+        shade: 'light',
+        type: 'vertical',
         opacityFrom: 0.85,
         opacityTo: 0.55,
         stops: [0, 100, 100, 100],
       },
     },
     labels: [
-      "01/01/2003",
-      "02/01/2003",
-      "03/01/2003",
-      "04/01/2003",
-      "05/01/2003",
-      "06/01/2003",
-      "07/01/2003",
-      "08/01/2003",
-      "09/01/2003",
-      "10/01/2003",
-      "11/01/2003",
+      '01/01/2003',
+      '02/01/2003',
+      '03/01/2003',
+      '04/01/2003',
+      '05/01/2003',
+      '06/01/2003',
+      '07/01/2003',
+      '08/01/2003',
+      '09/01/2003',
+      '10/01/2003',
+      '11/01/2003',
     ],
     markers: {
       size: 0,
     },
     xaxis: {
-      type: "datetime",
+      type: 'datetime',
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
       axisBorder: {
@@ -85,8 +86,8 @@ const MixedChart = () => {
       min: 0,
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
@@ -94,11 +95,11 @@ const MixedChart = () => {
       shared: true,
       intersect: false,
       y: {
-        formatter: function (y) {
-          if (typeof y !== "undefined") {
-            return y.toFixed(0) + " views";
+        formatter(y) {
+          if (typeof y !== 'undefined') {
+            return `${y.toFixed(0)} views`
           }
-          return y;
+          return y
         },
       },
     },
@@ -109,16 +110,22 @@ const MixedChart = () => {
     },
     grid: {
       show: true,
-      borderColor: isDark ? "#334155" : "#e2e8f0",
-      position: "back",
+      borderColor: isDark ? '#334155' : '#e2e8f0',
+      position: 'back',
     },
-    colors: ["#4669FA", "#50C793", "#0CE7FA"],
-  };
+    colors: ['#4669FA', '#50C793', '#0CE7FA'],
+  }
   return (
     <div>
-      <Chart options={options} series={series} type="line" height={350} width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="line"
+        height={350}
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default MixedChart;
+export default MixedChart

@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
 const Grid = ({ items, count = 6 }) => {
   // set items length by count
-  items = items || Array.from({ length: count });
+  items = items || Array.from({ length: count })
   return (
     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
       {items.map((item, i) => (
@@ -53,7 +53,7 @@ const Grid = ({ items, count = 6 }) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Grid;
+export default Grid

@@ -1,11 +1,11 @@
-"use client";
+'use client'
 
-import React from "react";
-import Card from "@/components/ui/Card";
-import Simple from "@/components/partials/froms/Simple";
-import SimpleTooltip from "@/components/partials/froms/SimpleTooltip";
-import MultiValidation from "@/components/partials/froms/multiple-rules";
-import ValidationTypes from "@/components/partials/froms/validation-types";
+import React from 'react'
+import Card from '@/components/ui/Card'
+import Simple from '@/components/partials/froms/Simple'
+import SimpleTooltip from '@/components/partials/froms/SimpleTooltip'
+import MultiValidation from '@/components/partials/froms/multiple-rules'
+import ValidationTypes from '@/components/partials/froms/validation-types'
 
 const FormValidation = () => {
   return (
@@ -20,14 +20,14 @@ const FormValidation = () => {
         <Card title="Validating Multiple Rules">
           <MultiValidation />
         </Card>
-      </div>{" "}
+      </div>{' '}
       <div className="xl:col-span-2 col-span-1">
         <Card title="Validation Types">
           <ValidationTypes />
         </Card>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FormValidation;
+export default FormValidation

@@ -1,17 +1,18 @@
-"use client";
-import Card from "@/components/ui/Card";
-import Icon from "@/components/ui/Icon";
-import GroupChart4 from "@/components/partials/widget/chart/group-chart-4";
-import DonutChart from "@/components/partials/widget/chart/donut-chart";
-import BasicArea from "@/components/partials/chart/appex-chart/BasicArea";
-import SelectMonth from "@/components/partials/SelectMonth";
-import TaskLists from "@/components/partials/widget/task-list";
-import MessageList from "@/components/partials/widget/message-list";
-import TrackingParcel from "@/components/partials/widget/activity";
-import TeamTable from "@/components/partials/table/team-table";
-import { meets, files } from "@/constant/data";
-import CalendarView from "@/components/partials/widget/CalendarView";
-import HomeBredCurbs from "@/components/partials/HomeBredCurbs";
+'use client'
+
+import Card from '@/components/ui/Card'
+import Icon from '@/components/ui/Icon'
+import GroupChart4 from '@/components/partials/widget/chart/group-chart-4'
+import DonutChart from '@/components/partials/widget/chart/donut-chart'
+import BasicArea from '@/components/partials/chart/appex-chart/BasicArea'
+import SelectMonth from '@/components/partials/SelectMonth'
+import TaskLists from '@/components/partials/widget/task-list'
+import MessageList from '@/components/partials/widget/message-list'
+import TrackingParcel from '@/components/partials/widget/activity'
+import TeamTable from '@/components/partials/table/team-table'
+import { meets, files } from '@/constant/data'
+import CalendarView from '@/components/partials/widget/CalendarView'
+import HomeBredCurbs from '@/components/partials/HomeBredCurbs'
 
 const ProjectPage = () => {
   return (
@@ -142,7 +143,7 @@ const ProjectPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectPage;
+export default ProjectPage

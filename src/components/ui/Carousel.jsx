@@ -1,18 +1,19 @@
-import React from "react";
-import { Swiper } from "swiper/react";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/scrollbar";
-import "swiper/css/effect-cards";
+import React from 'react'
+import { Swiper } from 'swiper/react'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+import 'swiper/css/scrollbar'
+import 'swiper/css/effect-cards'
 import {
   EffectFade,
   Pagination,
   Autoplay,
   Navigation,
   EffectCards,
-} from "swiper";
+} from 'swiper'
 
-import "swiper/css";
+import 'swiper/css'
+
 const Carousel = ({
   spaceBetween = 20,
   slidesPerView = 1,
@@ -20,7 +21,7 @@ const Carousel = ({
   onSwiper,
   children,
   pagination,
-  className = "main-caro",
+  className = 'main-caro',
   navigation,
   autoplay,
   effect,
@@ -42,7 +43,7 @@ const Carousel = ({
         {children}
       </Swiper>
     </div>
-  );
-};
+  )
+}
 
-export default Carousel;
+export default Carousel

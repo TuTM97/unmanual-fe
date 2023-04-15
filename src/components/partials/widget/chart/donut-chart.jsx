@@ -1,32 +1,33 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
-import { colors } from "@/constant/data";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+import { colors } from '@/constant/data'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const DonutChart = ({ height = 113 }) => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
 
   function colorOpacity(color, opacity) {
     // coerce values so ti is between 0 and 1.
-    var _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
+    const _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255)
     console.log('_opacity: ', _opacity)
-    return color + _opacity.toString(16).toUpperCase();
+    return color + _opacity.toString(16).toUpperCase()
   }
 
-  const series = [70, 30];
+  const series = [70, 30]
 
   const options = {
-    labels: ["Complete", "Left"],
+    labels: ['Complete', 'Left'],
     dataLabels: {
       enabled: false,
     },
 
     colors: [colors.info, colorOpacity(colors.info, 0.16)],
     legend: {
-      position: "bottom",
-      fontSize: "12px",
-      fontFamily: "Inter",
+      position: 'bottom',
+      fontSize: '12px',
+      fontFamily: 'Inter',
       fontWeight: 400,
       show: false,
     },
@@ -34,46 +35,52 @@ const DonutChart = ({ height = 113 }) => {
     plotOptions: {
       pie: {
         donut: {
-          size: "40%",
+          size: '40%',
           labels: {
             show: true,
             name: {
               show: false,
-              fontSize: "14px",
-              fontWeight: "bold",
-              fontFamily: "Inter",
-              color: isDark ? "#cbd5e1" : "#475569",
+              fontSize: '14px',
+              fontWeight: 'bold',
+              fontFamily: 'Inter',
+              color: isDark ? '#cbd5e1' : '#475569',
             },
             value: {
               show: true,
-              fontSize: "16px",
-              fontFamily: "Inter",
-              color: isDark ? "#cbd5e1" : "#475569",
+              fontSize: '16px',
+              fontFamily: 'Inter',
+              color: isDark ? '#cbd5e1' : '#475569',
               formatter(val) {
                 // eslint-disable-next-line radix
-                return `${parseInt(val)}%`;
+                return `${parseInt(val)}%`
               },
             },
             total: {
               show: true,
-              fontSize: "10px",
-              label: "",
-              color: isDark ? "#cbd5e1" : "#475569",
+              fontSize: '10px',
+              label: '',
+              color: isDark ? '#cbd5e1' : '#475569',
               formatter() {
-                return "70";
+                return '70'
               },
             },
           },
         },
       },
     },
-  };
+  }
 
   return (
     <div>
-      <Chart options={options} series={series} type="pie" height={height} width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="pie"
+        height={height}
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default DonutChart;
+export default DonutChart

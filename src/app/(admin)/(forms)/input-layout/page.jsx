@@ -1,15 +1,15 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import Card from "@/components/ui/Card";
-import Textinput from "@/components/ui/Textinput";
-import Checkbox from "@/components/ui/Checkbox";
-import Button from "@/components/ui/Button";
-import InputGroup from "@/components/ui/InputGroup";
-import Icon from "@/components/ui/Icon";
+import React, { useState } from 'react'
+import Card from '@/components/ui/Card'
+import Textinput from '@/components/ui/Textinput'
+import Checkbox from '@/components/ui/Checkbox'
+import Button from '@/components/ui/Button'
+import InputGroup from '@/components/ui/InputGroup'
+import Icon from '@/components/ui/Icon'
 
 const InputlayoutPage = () => {
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(true)
 
   return (
     <div className="grid xl:grid-cols-2 grid-cols-1 gap-5">
@@ -182,7 +182,7 @@ const InputlayoutPage = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default InputlayoutPage;
+export default InputlayoutPage

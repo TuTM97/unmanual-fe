@@ -1,14 +1,15 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const BasicArea = ({ height = 350 }) => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   const series = [
     {
       data: [90, 70, 85, 60, 80, 70, 90, 75, 60, 80],
     },
-  ];
+  ]
   const options = {
     chart: {
       toolbar: {
@@ -19,22 +20,22 @@ const BasicArea = ({ height = 350 }) => {
       enabled: false,
     },
     stroke: {
-      curve: "smooth",
+      curve: 'smooth',
       width: 4,
     },
-    colors: ["#4669FA"],
+    colors: ['#4669FA'],
     tooltip: {
-      theme: "dark",
+      theme: 'dark',
     },
     grid: {
       show: true,
-      borderColor: isDark ? "#334155" : "#e2e8f0",
+      borderColor: isDark ? '#334155' : '#e2e8f0',
       strokeDashArray: 10,
-      position: "back",
+      position: 'back',
     },
     fill: {
-      type: "gradient",
-      colors: "#4669FA",
+      type: 'gradient',
+      colors: '#4669FA',
       gradient: {
         shadeIntensity: 1,
         opacityFrom: 0.4,
@@ -45,30 +46,30 @@ const BasicArea = ({ height = 350 }) => {
     yaxis: {
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
     xaxis: {
       categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
       ],
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
       axisBorder: {
@@ -84,12 +85,18 @@ const BasicArea = ({ height = 350 }) => {
       bottom: 0,
       left: 0,
     },
-  };
+  }
   return (
     <div>
-      <Chart options={options} series={series} type="area" height={height} width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="area"
+        height={height}
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default BasicArea;
+export default BasicArea

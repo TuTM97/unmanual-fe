@@ -1,32 +1,32 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import Card from "@/components/ui/Card";
-import Fileinput from "@/components/ui/Fileinput";
-import DropZone from "@/components/partials/froms/DropZone";
+import React, { useState } from 'react'
+import Card from '@/components/ui/Card'
+import Fileinput from '@/components/ui/Fileinput'
+import DropZone from '@/components/partials/froms/DropZone'
 
 const FileinputPage = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [selectedFile2, setSelectedFile2] = useState(null);
-  const [selectedFiles, setSelectedFiles] = useState([]);
-  const [selectedFiles2, setSelectedFiles2] = useState([]);
+  const [selectedFile, setSelectedFile] = useState(null)
+  const [selectedFile2, setSelectedFile2] = useState(null)
+  const [selectedFiles, setSelectedFiles] = useState([])
+  const [selectedFiles2, setSelectedFiles2] = useState([])
 
   const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
-  };
+    setSelectedFile(e.target.files[0])
+  }
   const handleFileChange2 = (e) => {
-    setSelectedFile2(e.target.files[0]);
-  };
+    setSelectedFile2(e.target.files[0])
+  }
   const handleFileChangeMultiple = (e) => {
-    const files = e.target.files;
-    const filesArray = Array.from(files).map((file) => file);
-    setSelectedFiles(filesArray);
-  };
+    const { files } = e.target
+    const filesArray = Array.from(files).map((file) => file)
+    setSelectedFiles(filesArray)
+  }
   const handleFileChangeMultiple2 = (e) => {
-    const files = e.target.files;
-    const filesArray = Array.from(files).map((file) => file);
-    setSelectedFiles2(filesArray);
-  };
+    const { files } = e.target
+    const filesArray = Array.from(files).map((file) => file)
+    setSelectedFiles2(filesArray)
+  }
 
   return (
     <div className="grid xl:grid-cols-2 grid-cols-1 gap-5">
@@ -83,7 +83,7 @@ const FileinputPage = () => {
         />
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default FileinputPage;
+export default FileinputPage

@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-import Modal from "@/components/ui/Modal";
-import { useSelector, useDispatch } from "react-redux";
-import Textinput from "@/components/ui/Textinput";
+import Modal from '@/components/ui/Modal'
+import { useSelector, useDispatch } from 'react-redux'
+import Textinput from '@/components/ui/Textinput'
 
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { toggleColumnModal, addColumnBoard } from "./store";
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import { toggleColumnModal, addColumnBoard } from './store'
 
 const FormValidationSchema = yup
   .object({
-    title: yup.string().required("Title is required"),
+    title: yup.string().required('Title is required'),
   })
-  .required();
+  .required()
 
 const AddColumn = () => {
-  const { columModal } = useSelector((state) => state.kanban);
-  const dispatch = useDispatch();
-  const [color, setColor] = useState("#4669fa");
+  const { columModal } = useSelector((state) => state.kanban)
+  const dispatch = useDispatch()
+  const [color, setColor] = useState('#4669fa')
   const {
     register,
     control,
@@ -27,14 +27,14 @@ const AddColumn = () => {
     handleSubmit,
   } = useForm({
     resolver: yupResolver(FormValidationSchema),
-    mode: "all",
-  });
+    mode: 'all',
+  })
 
   const onSubmit = (data) => {
-    dispatch(addColumnBoard({ ...data, color }));
-    dispatch(toggleColumnModal(false));
-    reset();
-  };
+    dispatch(addColumnBoard({ ...data, color }))
+    dispatch(toggleColumnModal(false))
+    reset()
+  }
 
   return (
     <div>
@@ -69,7 +69,7 @@ const AddColumn = () => {
         </form>
       </Modal>
     </div>
-  );
-};
+  )
+}
 
-export default AddColumn;
+export default AddColumn

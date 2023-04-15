@@ -1,25 +1,27 @@
-"use client";
-import React from "react";
-import useDarkMode from "@/hooks/useDarkMode";
+'use client'
+
+import React from 'react'
+
+import useDarkMode from '@/hooks/useDarkMode'
 
 const Loading = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
-    <div className="flex flex-col items-center justify-center app_height">
+    <div className="app_height flex flex-col items-center justify-center">
       <div className="mb-3">
         <img
           src={
             isDark
-              ? "/assets/images/logo/logo-white.svg"
-              : "/assets/images/logo/logo.svg"
+              ? '/assets/images/logo/logo-white.svg'
+              : '/assets/images/logo/logo.svg'
           }
           alt="Logo"
         />
       </div>
 
       <svg
-        className="animate-spin ltr:-ml-1 ltr:mr-3 rtl:-mr-1 rtl:ml-3 
-           h-12 w-12
+        className="h-12 w-12 animate-spin ltr:-ml-1 ltr:mr-3 
+           rtl:-mr-1 rtl:ml-3
          "
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -40,7 +42,7 @@ const Loading = () => {
         ></path>
       </svg>
     </div>
-  );
-};
+  )
+}
 
-export default Loading;
+export default Loading

@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 const ListLoading = ({ items, count }) => {
-  items = items || Array.from({ length: count });
+  items = items || Array.from({ length: count })
   return (
     <div className="divide-y divide-slate-100 dark:divide-slate-700">
       {items.map((item, i) => (
@@ -17,7 +17,7 @@ const ListLoading = ({ items, count }) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default ListLoading;
+export default ListLoading

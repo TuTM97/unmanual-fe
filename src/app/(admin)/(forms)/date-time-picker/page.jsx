@@ -1,15 +1,15 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import Card from "@/components/ui/Card";
-import Flatpickr from "react-flatpickr";
+import React, { useState } from 'react'
+import Card from '@/components/ui/Card'
+import Flatpickr from 'react-flatpickr'
 
 const FlatpickerPage = () => {
-  const [picker, setPicker] = useState(new Date());
-  const [picker2, setPicker2] = useState(new Date());
-  const [picker3, setPicker3] = useState(new Date());
-  const [picker4, setPicker4] = useState(new Date());
-  const [basic, setBasic] = useState(new Date());
+  const [picker, setPicker] = useState(new Date())
+  const [picker2, setPicker2] = useState(new Date())
+  const [picker3, setPicker3] = useState(new Date())
+  const [picker4, setPicker4] = useState(new Date())
+  const [basic, setBasic] = useState(new Date())
   return (
     <div>
       <Card title="Date & Time Picker">
@@ -48,8 +48,8 @@ const FlatpickerPage = () => {
               className="form-control py-2"
               onChange={(date) => setPicker3(date)}
               options={{
-                mode: "range",
-                defaultDate: ["2020-02-01", "2020-02-15"],
+                mode: 'range',
+                defaultDate: ['2020-02-01', '2020-02-15'],
               }}
             />
           </div>
@@ -63,7 +63,7 @@ const FlatpickerPage = () => {
               className="form-control py-2"
               onChange={(date) => setPicker4(date)}
               options={{
-                dateFormat: "Y-m-d",
+                dateFormat: 'Y-m-d',
                 disable: [
                   {
                     from: new Date(),
@@ -85,7 +85,7 @@ const FlatpickerPage = () => {
               options={{
                 enableTime: true,
                 noCalendar: true,
-                dateFormat: "H:i",
+                dateFormat: 'H:i',
                 time_24hr: true,
               }}
               onChange={(date) => setBasic(date)}
@@ -99,7 +99,7 @@ const FlatpickerPage = () => {
               value={picker}
               id="multi-dates-picker"
               className="form-control py-2"
-              options={{ mode: "multiple" }}
+              options={{ mode: 'multiple' }}
               onChange={(date) => setPicker(date)}
             />
           </div>
@@ -114,8 +114,8 @@ const FlatpickerPage = () => {
               onChange={(date) => setPicker(date)}
               options={{
                 altInput: true,
-                altFormat: "F j, Y",
-                dateFormat: "Y-m-d",
+                altFormat: 'F j, Y',
+                dateFormat: 'Y-m-d',
               }}
             />
           </div>
@@ -133,7 +133,7 @@ const FlatpickerPage = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default FlatpickerPage;
+export default FlatpickerPage

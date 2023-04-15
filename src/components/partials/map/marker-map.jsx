@@ -1,15 +1,9 @@
-import React from "react";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Circle,
-  Polygon,
-} from "react-leaflet";
+import React from 'react'
+import { MapContainer, TileLayer, Marker, Circle, Polygon } from 'react-leaflet'
 
 const MarkerMap = () => {
-  const position = [47.31322, -1.319482];
-  const circleRadius = 4500;
+  const position = [47.31322, -1.319482]
+  const circleRadius = 4500
   const polygonCoords = [
     [47.2263299, -1.6222],
     [47.21024000000001, -1.6270065],
@@ -31,7 +25,7 @@ const MarkerMap = () => {
     [47.2589612, -1.6204834],
     [47.237287, -1.6266632],
     [47.2263299, -1.6222],
-  ];
+  ]
 
   return (
     <div className="w-full h-[300px]">
@@ -41,7 +35,7 @@ const MarkerMap = () => {
         maxZoom={18}
         minZoom={3}
         scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%" }}
+        style={{ height: '100%', width: '100%' }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -52,7 +46,7 @@ const MarkerMap = () => {
         <Polygon positions={polygonCoords} />
       </MapContainer>
     </div>
-  );
-};
+  )
+}
 
-export default MarkerMap;
+export default MarkerMap

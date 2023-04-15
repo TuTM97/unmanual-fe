@@ -1,18 +1,18 @@
-import React from "react";
-import Select from "react-select";
+import React from 'react'
+import Select from 'react-select'
 
 const furits = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+]
 
 const styles = {
   option: (provided, state) => ({
     ...provided,
-    fontSize: "14px",
+    fontSize: '14px',
   }),
-};
+}
 const ReactSelect = () => {
   return (
     <div className=" grid grid-cols-2 gap-5">
@@ -72,12 +72,12 @@ const ReactSelect = () => {
           options={furits}
           isDisabled={true}
           isClearable={false}
-          id={"dis"}
+          id={'dis'}
           styles={styles}
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ReactSelect;
+export default ReactSelect

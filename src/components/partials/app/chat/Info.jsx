@@ -1,28 +1,28 @@
-import React from "react";
-import SimpleBar from "simplebar-react";
-import { useSelector } from "react-redux";
-import Icon from "@/components/ui/Icon";
+import React from 'react'
+import SimpleBar from 'simplebar-react'
+import { useSelector } from 'react-redux'
+import Icon from '@/components/ui/Icon'
 
 const socials = [
   {
-    name: "facebook",
-    icon: "bi:facebook",
-    link: "#",
+    name: 'facebook',
+    icon: 'bi:facebook',
+    link: '#',
   },
   {
-    name: "twitter",
-    link: "#",
-    icon: "bi:twitter",
+    name: 'twitter',
+    link: '#',
+    icon: 'bi:twitter',
   },
   {
-    name: "instagram",
-    link: "#",
-    icon: "bi:instagram",
+    name: 'instagram',
+    link: '#',
+    icon: 'bi:instagram',
   },
-];
+]
 
 const Info = () => {
-  const { activechat, user } = useSelector((state) => state.chat);
+  const { activechat, user } = useSelector((state) => state.chat)
   return (
     <SimpleBar className="h-full p-6">
       <h4 className="text-xl text-slate-900 font-medium mb-8">About</h4>
@@ -88,49 +88,49 @@ const Info = () => {
       <ul className="grid grid-cols-3 gap-2">
         <li className="h-[46px]">
           <img
-            src={"/assets/images/chat/sd1.png"}
+            src={'/assets/images/chat/sd1.png'}
             alt=""
             className="w-full h-full object-cover rounded-[3px]"
           />
         </li>
         <li className="h-[46px]">
           <img
-            src={"/assets/images/chat/sd2.png"}
+            src={'/assets/images/chat/sd2.png'}
             alt=""
             className="w-full h-full object-cover rounded-[3px]"
           />
         </li>
         <li className="h-[46px]">
           <img
-            src={"/assets/images/chat/sd3.png"}
+            src={'/assets/images/chat/sd3.png'}
             alt=""
             className="w-full h-full object-cover rounded-[3px]"
           />
         </li>
         <li className="h-[46px]">
           <img
-            src={"/assets/images/chat/sd4.png"}
+            src={'/assets/images/chat/sd4.png'}
             alt=""
             className="w-full h-full object-cover rounded-[3px]"
           />
         </li>
         <li className="h-[46px]">
           <img
-            src={"/assets/images/chat/sd5.png"}
+            src={'/assets/images/chat/sd5.png'}
             alt=""
             className="w-full h-full object-cover rounded-[3px]"
           />
         </li>
         <li className="h-[46px]">
           <img
-            src={"/assets/images/chat/sd6.png"}
+            src={'/assets/images/chat/sd6.png'}
             alt=""
             className="w-full h-full object-cover rounded-[3px]"
           />
         </li>
       </ul>
     </SimpleBar>
-  );
-};
+  )
+}
 
-export default Info;
+export default Info

@@ -1,21 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
-
-import { toast } from "react-toastify";
+import { createSlice } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
+import { v4 as uuidv4 } from 'uuid'
 
 export const appEmailSlice = createSlice({
-  name: "appemail",
+  name: 'appemail',
   initialState: {
     mobileEmailSidebar: false,
-    search: "",
-    filter: "all",
+    search: '',
+    filter: 'all',
     emailModal: false,
     emails: [
       {
         id: uuidv4(),
-        image: "/assets/images/avatar/av-1.svg",
-        title: "Pay bills & win up to 600$ Cashback! ",
-        desc: " - Congratulations on your iRun Coach subscription. You made no space for excuses and you decided on a healthier and happier life...",
+        image: '/assets/images/avatar/av-1.svg',
+        title: 'Pay bills & win up to 600$ Cashback! ',
+        desc: ' - Congratulations on your iRun Coach subscription. You made no space for excuses and you decided on a healthier and happier life...',
         isfav: false,
         sent: false,
         draft: true,
@@ -24,7 +23,7 @@ export const appEmailSlice = createSlice({
         personal: false,
         social: true,
         promotions: true,
-        lastime: "12:20 pm",
+        lastime: '12:20 pm',
         business: true,
         is_checked: false,
         isread: false,
@@ -33,9 +32,9 @@ export const appEmailSlice = createSlice({
       },
       {
         id: uuidv4(),
-        image: "/assets/images/avatar/av-2.svg",
-        title: "Pay bills & win up to 600$ Cashback! ",
-        desc: " - Congratulations on your iRun Coach subscription. You made no space for excuses and you decided on a healthier and happier life...",
+        image: '/assets/images/avatar/av-2.svg',
+        title: 'Pay bills & win up to 600$ Cashback! ',
+        desc: ' - Congratulations on your iRun Coach subscription. You made no space for excuses and you decided on a healthier and happier life...',
         isfav: true,
         sent: false,
         draft: false,
@@ -44,7 +43,7 @@ export const appEmailSlice = createSlice({
         personal: false,
         social: false,
         promotions: false,
-        lastime: "12:20 pm",
+        lastime: '12:20 pm',
         is_checked: false,
         business: false,
         isread: false,
@@ -53,9 +52,9 @@ export const appEmailSlice = createSlice({
       },
       {
         id: uuidv4(),
-        image: "/assets/images/avatar/av-3.svg",
-        title: "1-Pay bills & win up to 600$ Cashback! ",
-        desc: " - Congratulations on your iRun Coach subscription. You made no space for excuses and you decided on a healthier and happier life...",
+        image: '/assets/images/avatar/av-3.svg',
+        title: '1-Pay bills & win up to 600$ Cashback! ',
+        desc: ' - Congratulations on your iRun Coach subscription. You made no space for excuses and you decided on a healthier and happier life...',
         isfav: true,
         sent: false,
         draft: true,
@@ -64,7 +63,7 @@ export const appEmailSlice = createSlice({
         personal: true,
         social: false,
         promotions: false,
-        lastime: "12:20 pm",
+        lastime: '12:20 pm',
         is_checked: false,
         business: false,
         isread: false,
@@ -73,9 +72,9 @@ export const appEmailSlice = createSlice({
       },
       {
         id: uuidv4(),
-        image: "/assets/images/avatar/av-4.svg",
-        title: "1-Pay bills & win up to 600$ Cashback! ",
-        desc: " - Congratulations on your iRun Coach subscription. You made no space for excuses and you decided on a healthier and happier life...",
+        image: '/assets/images/avatar/av-4.svg',
+        title: '1-Pay bills & win up to 600$ Cashback! ',
+        desc: ' - Congratulations on your iRun Coach subscription. You made no space for excuses and you decided on a healthier and happier life...',
         isfav: true,
         sent: true,
         draft: false,
@@ -84,7 +83,7 @@ export const appEmailSlice = createSlice({
         personal: true,
         social: false,
         promotions: false,
-        lastime: "12:20 pm",
+        lastime: '12:20 pm',
         is_checked: false,
         business: false,
         isread: false,
@@ -97,79 +96,76 @@ export const appEmailSlice = createSlice({
   },
   reducers: {
     toggleMobileEmailSidebar: (state, action) => {
-      state.mobileEmailSidebar = action.payload;
+      state.mobileEmailSidebar = action.payload
     },
     toggleEmailModal: (state, action) => {
-      state.emailModal = action.payload;
+      state.emailModal = action.payload
     },
     setFilter: (state, action) => {
-      state.filter = action.payload;
+      state.filter = action.payload
     },
     setSearch: (state, action) => {
-      state.search = action.payload;
+      state.search = action.payload
     },
     setCheck: (state, action) => {
       const emailIndex = state.emails.findIndex(
         (email) => email.id === action.payload && email
-      );
-      state.emails[emailIndex].is_checked =
-        !state.emails[emailIndex].is_checked;
+      )
+      state.emails[emailIndex].is_checked = !state.emails[emailIndex].is_checked
     },
-    setAllCheck: (state, action) => {
-      const allCompleted = state.emails.every((email) => email.is_checked);
+    setAllCheck: (state) => {
+      const allCompleted = state.emails.every((email) => email.is_checked)
       state.emails = state.emails.map((email) => ({
         ...email,
         is_checked: !allCompleted,
-      }));
+      }))
     },
     setFaveCheck: (state, action) => {
       const favIndex = state.emails.findIndex(
         (email) => email.id === action.payload && email
-      );
-      state.emails[favIndex].isfav = !state.emails[favIndex].isfav;
+      )
+      state.emails[favIndex].isfav = !state.emails[favIndex].isfav
     },
     deleteEmail: (state, action) => {
-      state.emails = state.emails.filter(
-        (email) => email.id !== action.payload
-      );
+      state.emails = state.emails.filter((email) => email.id !== action.payload)
 
-      toast.warning("Delete Successfully", {
-        position: "top-right",
+      toast.warning('Delete Successfully', {
+        position: 'top-right',
         autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
-      });
+        theme: 'light',
+      })
     },
     toggleSingleModal: (state, action) => {
-      state.singleModal = !state.singleModal;
-      state.singleEmail = action.payload;
+      state.singleModal = !state.singleModal
+      state.singleEmail = action.payload
     },
     // toggleReadMail
     toggleReadMail: (state, action) => {
       const readIndex = state.emails.findIndex(
         (email) => email.id === action.payload && email
-      );
-      state.emails[readIndex].isread = !state.emails[readIndex].isread;
+      )
+      state.emails[readIndex].isread = !state.emails[readIndex].isread
     },
     sendMail: (state, action) => {
-      state.emails.unshift(action.payload);
-      toast.success("Send Successfully", {
-        position: "top-right",
+      state.emails.unshift(action.payload)
+      toast.success('Send Successfully', {
+        position: 'top-right',
         autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
-      });
+        theme: 'light',
+      })
     },
   },
-});
+})
 
 export const {
   toggleMobileEmailSidebar,
@@ -183,5 +179,5 @@ export const {
   toggleSingleModal,
   toggleReadMail,
   sendMail,
-} = appEmailSlice.actions;
-export default appEmailSlice.reducer;
+} = appEmailSlice.actions
+export default appEmailSlice.reducer

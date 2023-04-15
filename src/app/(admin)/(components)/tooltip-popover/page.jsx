@@ -1,7 +1,7 @@
-"use client";
+'use client'
 
-import Tooltip from "@/components/ui/Tooltip";
-import Card from "@/components/ui/Card";
+import Tooltip from '@/components/ui/Tooltip'
+import Card from '@/components/ui/Card'
 
 const TooltipPage = () => {
   return (
@@ -291,7 +291,7 @@ const TooltipPage = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default TooltipPage;
+export default TooltipPage

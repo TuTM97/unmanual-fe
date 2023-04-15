@@ -1,11 +1,12 @@
-"use client";
-import React from "react";
-import Link from "next/link";
-import ForgotPass from "@/components/partials/auth/forgot-pass";
-import useDarkMode from "@/hooks/useDarkMode";
+'use client'
+
+import React from 'react'
+import Link from 'next/link'
+import ForgotPass from '@/components/partials/auth/forgot-pass'
+import useDarkMode from '@/hooks/useDarkMode'
 
 const ForgotPass3 = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
     <div
       className="loginwrapper bg-cover bg-no-repeat bg-center"
@@ -32,8 +33,8 @@ const ForgotPass3 = () => {
                 <img
                   src={
                     isDark
-                      ? "/assets/images/logo/logo-white.svg"
-                      : "/assets/images/logo/logo.svg"
+                      ? '/assets/images/logo/logo-white.svg'
+                      : '/assets/images/logo/logo.svg'
                   }
                   alt=""
                   className="mx-auto"
@@ -68,7 +69,7 @@ const ForgotPass3 = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ForgotPass3;
+export default ForgotPass3

@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 
-function VideoPlayer({ url, className = "w-full" }) {
-  const [isPlaying, setIsPlaying] = useState(false);
+function VideoPlayer({ url, className = 'w-full' }) {
+  const [isPlaying, setIsPlaying] = useState(false)
   const playPause = () => {
-    setIsPlaying(!isPlaying);
-  };
+    setIsPlaying(!isPlaying)
+  }
 
   return (
     <div className="w-full relative">
@@ -16,7 +15,7 @@ function VideoPlayer({ url, className = "w-full" }) {
         className={className}
       />
     </div>
-  );
+  )
 }
 
-export default VideoPlayer;
+export default VideoPlayer

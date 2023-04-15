@@ -4,5 +4,5 @@ export default function Head() {
       <link rel="icon" href="/favicon.svg" />
       <title>Unmanual - Next js </title>
     </>
-  );
+  )
 }

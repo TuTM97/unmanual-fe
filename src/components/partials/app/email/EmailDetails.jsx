@@ -1,14 +1,14 @@
-import React from "react";
-import Button from "@/components/ui/Button";
-import Dropdown from "@/components/ui/Dropdown";
-import Icon from "@/components/ui/Icon";
-import Tooltip from "@/components/ui/Tooltip";
-import { toggleSingleModal } from "./store";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react'
+import Button from '@/components/ui/Button'
+import Dropdown from '@/components/ui/Dropdown'
+import Icon from '@/components/ui/Icon'
+import Tooltip from '@/components/ui/Tooltip'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleSingleModal } from './store'
 
 const EmailDetails = () => {
-  const dispatch = useDispatch();
-  const { singleEmail } = useSelector((state) => state.email);
+  const dispatch = useDispatch()
+  const { singleEmail } = useSelector((state) => state.email)
   return (
     <div className="absolute left-0 top-0 w-full h-full bg-white dark:bg-slate-800 z-[55] rounded-md p-6 overflow-y-auto">
       <div className="flex items-center border-b border-slate-100 dark:border-slate-700 -mx-6 pb-6 mb-6 px-6">
@@ -18,7 +18,7 @@ const EmailDetails = () => {
               className="email-icon"
               type="button"
               onClick={() => {
-                dispatch(toggleSingleModal());
+                dispatch(toggleSingleModal())
               }}
             >
               <Icon icon="heroicons-outline:arrow-left" />
@@ -83,7 +83,7 @@ const EmailDetails = () => {
           Hi Jane Cooper,
           <br />
           <br />
-          Jornalists call this critical, introductory section the {`"Lede,"`}{" "}
+          Jornalists call this critical, introductory section the {`"Lede,"`}{' '}
           and when bridge properly executed, {`it's`} the that carries your
           reader from an headine try at attention-grabbing to the body of your
           blog post, if you want to get it right on of these 10 clever ways to
@@ -150,7 +150,7 @@ const EmailDetails = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default EmailDetails;
+export default EmailDetails

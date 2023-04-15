@@ -1,36 +1,36 @@
 /* eslint-disable react/display-name */
-import React, { useState, useMemo } from "react";
-import { advancedTable } from "../../../constant/table-data";
-import Card from "@/components/ui/Card";
-import Icon from "@/components/ui/Icon";
-import Tooltip from "@/components/ui/Tooltip";
+import React, { useState, useMemo } from 'react'
+import Card from '@/components/ui/Card'
+import Icon from '@/components/ui/Icon'
+import Tooltip from '@/components/ui/Tooltip'
 import {
   useTable,
   useRowSelect,
   useSortBy,
   useGlobalFilter,
   usePagination,
-} from "react-table";
-import GlobalFilter from "./GlobalFilter";
+} from 'react-table'
+import { advancedTable } from '../../../constant/table-data'
+import GlobalFilter from './GlobalFilter'
 
 const COLUMNS = [
   {
-    Header: "Id",
-    accessor: "id",
+    Header: 'Id',
+    accessor: 'id',
     Cell: (row) => {
-      return <span>{row?.cell?.value}</span>;
+      return <span>{row?.cell?.value}</span>
     },
   },
   {
-    Header: "Order",
-    accessor: "order",
+    Header: 'Order',
+    accessor: 'order',
     Cell: (row) => {
-      return <span>#{row?.cell?.value}</span>;
+      return <span>#{row?.cell?.value}</span>
     },
   },
   {
-    Header: "customer",
-    accessor: "customer",
+    Header: 'customer',
+    accessor: 'customer',
     Cell: (row) => {
       return (
         <div>
@@ -47,51 +47,51 @@ const COLUMNS = [
             </span>
           </span>
         </div>
-      );
+      )
     },
   },
   {
-    Header: "date",
-    accessor: "date",
+    Header: 'date',
+    accessor: 'date',
     Cell: (row) => {
-      return <span>{row?.cell?.value}</span>;
+      return <span>{row?.cell?.value}</span>
     },
   },
   {
-    Header: "quantity",
-    accessor: "quantity",
+    Header: 'quantity',
+    accessor: 'quantity',
     Cell: (row) => {
-      return <span>{row?.cell?.value}</span>;
+      return <span>{row?.cell?.value}</span>
     },
   },
   {
-    Header: "amount",
-    accessor: "amount",
+    Header: 'amount',
+    accessor: 'amount',
     Cell: (row) => {
-      return <span>{row?.cell?.value}</span>;
+      return <span>{row?.cell?.value}</span>
     },
   },
   {
-    Header: "status",
-    accessor: "status",
+    Header: 'status',
+    accessor: 'status',
     Cell: (row) => {
       return (
         <span className="block w-full">
           <span
             className={` inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 ${
-              row?.cell?.value === "paid"
-                ? "text-success-500 bg-success-500"
-                : ""
+              row?.cell?.value === 'paid'
+                ? 'text-success-500 bg-success-500'
+                : ''
             } 
             ${
-              row?.cell?.value === "due"
-                ? "text-warning-500 bg-warning-500"
-                : ""
+              row?.cell?.value === 'due'
+                ? 'text-warning-500 bg-warning-500'
+                : ''
             }
             ${
-              row?.cell?.value === "cancled"
-                ? "text-danger-500 bg-danger-500"
-                : ""
+              row?.cell?.value === 'cancled'
+                ? 'text-danger-500 bg-danger-500'
+                : ''
             }
             
              `}
@@ -99,12 +99,12 @@ const COLUMNS = [
             {row?.cell?.value}
           </span>
         </span>
-      );
+      )
     },
   },
   {
-    Header: "action",
-    accessor: "action",
+    Header: 'action',
+    accessor: 'action',
     Cell: (row) => {
       return (
         <div className="flex space-x-3 rtl:space-x-reverse">
@@ -130,19 +130,19 @@ const COLUMNS = [
             </button>
           </Tooltip>
         </div>
-      );
+      )
     },
   },
-];
+]
 
 const IndeterminateCheckbox = React.forwardRef(
   ({ indeterminate, ...rest }, ref) => {
-    const defaultRef = React.useRef();
-    const resolvedRef = ref || defaultRef;
+    const defaultRef = React.useRef()
+    const resolvedRef = ref || defaultRef
 
     React.useEffect(() => {
-      resolvedRef.current.indeterminate = indeterminate;
-    }, [resolvedRef, indeterminate]);
+      resolvedRef.current.indeterminate = indeterminate
+    }, [resolvedRef, indeterminate])
 
     return (
       <>
@@ -153,13 +153,13 @@ const IndeterminateCheckbox = React.forwardRef(
           className="table-checkbox"
         />
       </>
-    );
+    )
   }
-);
+)
 
-const ExampleTwo = ({ title = "Advanced Table Two" }) => {
-  const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => advancedTable, []);
+const ExampleTwo = ({ title = 'Advanced Table Two' }) => {
+  const columns = useMemo(() => COLUMNS, [])
+  const data = useMemo(() => advancedTable, [])
 
   const tableInstance = useTable(
     {
@@ -175,7 +175,7 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
     (hooks) => {
       hooks.visibleColumns.push((columns) => [
         {
-          id: "selection",
+          id: 'selection',
           Header: ({ getToggleAllRowsSelectedProps }) => (
             <div>
               <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
@@ -188,9 +188,9 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
           ),
         },
         ...columns,
-      ]);
+      ])
     }
-  );
+  )
   const {
     getTableProps,
     getTableBodyProps,
@@ -208,9 +208,9 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
     setPageSize,
     setGlobalFilter,
     prepareRow,
-  } = tableInstance;
+  } = tableInstance
 
-  const { globalFilter, pageIndex, pageSize } = state;
+  const { globalFilter, pageIndex, pageSize } = state
   return (
     <>
       <Card>
@@ -230,27 +230,27 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
                 <thead className="bg-slate-200 dark:bg-slate-700">
                   {headerGroups.map((headerGroup) => {
                     const { key, ...restHeaderGroupProps } =
-                      headerGroup.getHeaderGroupProps();
-                    <tr key={key} {...restHeaderGroupProps}>
+                      headerGroup.getHeaderGroupProps()
+                    ;<tr key={key} {...restHeaderGroupProps}>
                       {headerGroup.headers.map((column) => {
-                        const { key, ...restColumn } = column.getHeaderProps();
-                        <th
+                        const { key, ...restColumn } = column.getHeaderProps()
+                        ;<th
                           key={key}
                           {...restColumn}
                           scope="col"
                           className=" table-th "
                         >
-                          {column.render("Header")}
+                          {column.render('Header')}
                           <span>
                             {column.isSorted
                               ? column.isSortedDesc
-                                ? " 🔽"
-                                : " 🔼"
-                              : ""}
+                                ? ' 🔽'
+                                : ' 🔼'
+                              : ''}
                           </span>
-                        </th>;
+                        </th>
                       })}
-                    </tr>;
+                    </tr>
                   })}
                 </thead>
                 <tbody
@@ -258,24 +258,24 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
                   {...getTableBodyProps}
                 >
                   {page.map((row) => {
-                    prepareRow(row);
-                    const { key, ...restRowProps } = row.getRowProps();
+                    prepareRow(row)
+                    const { key, ...restRowProps } = row.getRowProps()
                     return (
                       <tr key={key} {...restRowProps}>
                         {row.cells.map((cell) => {
-                          const { key, ...restCellProps } = cell.getCellProps();
+                          const { key, ...restCellProps } = cell.getCellProps()
                           return (
                             <td
                               key={key}
                               {...restCellProps}
                               className="table-td"
                             >
-                              {cell.render("Cell")}
+                              {cell.render('Cell')}
                             </td>
-                          );
+                          )
                         })}
                       </tr>
-                    );
+                    )
                   })}
                 </tbody>
               </table>
@@ -296,7 +296,7 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
               ))}
             </select>
             <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-              Page{" "}
+              Page{' '}
               <span>
                 {pageIndex + 1} of {pageOptions.length}
               </span>
@@ -306,7 +306,7 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
             <li className="text-xl leading-4 text-slate-900 dark:text-white rtl:rotate-180">
               <button
                 className={` ${
-                  !canPreviousPage ? "opacity-50 cursor-not-allowed" : ""
+                  !canPreviousPage ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 onClick={() => gotoPage(0)}
                 disabled={!canPreviousPage}
@@ -317,7 +317,7 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
             <li className="text-sm leading-4 text-slate-900 dark:text-white rtl:rotate-180">
               <button
                 className={` ${
-                  !canPreviousPage ? "opacity-50 cursor-not-allowed" : ""
+                  !canPreviousPage ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 onClick={() => previousPage()}
                 disabled={!canPreviousPage}
@@ -332,8 +332,8 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
                   aria-current="page"
                   className={` ${
                     pageIdx === pageIndex
-                      ? "bg-slate-900 dark:bg-slate-600  dark:text-slate-200 text-white font-medium "
-                      : "bg-slate-100 dark:bg-slate-700 dark:text-slate-400 text-slate-900  font-normal  "
+                      ? 'bg-slate-900 dark:bg-slate-600  dark:text-slate-200 text-white font-medium '
+                      : 'bg-slate-100 dark:bg-slate-700 dark:text-slate-400 text-slate-900  font-normal  '
                   }    text-sm rounded leading-[16px] flex h-6 w-6 items-center justify-center transition-all duration-150`}
                   onClick={() => gotoPage(pageIdx)}
                 >
@@ -344,7 +344,7 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
             <li className="text-sm leading-4 text-slate-900 dark:text-white rtl:rotate-180">
               <button
                 className={` ${
-                  !canNextPage ? "opacity-50 cursor-not-allowed" : ""
+                  !canNextPage ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 onClick={() => nextPage()}
                 disabled={!canNextPage}
@@ -357,7 +357,7 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
                 onClick={() => gotoPage(pageCount - 1)}
                 disabled={!canNextPage}
                 className={` ${
-                  !canNextPage ? "opacity-50 cursor-not-allowed" : ""
+                  !canNextPage ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
                 <Icon icon="heroicons:chevron-double-right-solid" />
@@ -365,10 +365,10 @@ const ExampleTwo = ({ title = "Advanced Table Two" }) => {
             </li>
           </ul>
         </div>
-        {/*end*/}
+        {/* end */}
       </Card>
     </>
-  );
-};
+  )
+}
 
-export default ExampleTwo;
+export default ExampleTwo

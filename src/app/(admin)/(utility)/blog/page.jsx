@@ -1,9 +1,10 @@
-"use client";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
-import Icon from "@/components/ui/Icon";
-import Link from "next/link";
-import Sidebar from "@/components/partials/blog/Sidebar";
+'use client'
+
+import Card from '@/components/ui/Card'
+import Button from '@/components/ui/Button'
+import Icon from '@/components/ui/Icon'
+import Link from 'next/link'
+import Sidebar from '@/components/partials/blog/Sidebar'
 
 const BlogPage = () => {
   return (
@@ -225,7 +226,7 @@ const BlogPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BlogPage;
+export default BlogPage

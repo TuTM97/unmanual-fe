@@ -1,9 +1,9 @@
-import React from "react";
-import Textinput from "@/components/ui/Textinput";
-import Textarea from "@/components/ui/Textarea";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import React from 'react'
+import Textinput from '@/components/ui/Textinput'
+import Textarea from '@/components/ui/Textarea'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 const FormValidationSchema = yup
   .object({
@@ -11,7 +11,7 @@ const FormValidationSchema = yup
     number: yup.number().required().positive(),
     betweenNumber: yup
       .number()
-      .required("The Number between field is required")
+      .required('The Number between field is required')
       .positive()
       .min(1)
       .max(10),
@@ -19,14 +19,14 @@ const FormValidationSchema = yup
     alphabetic: yup
       .string()
       .required()
-      .matches(/^[a-zA-Z]+$/, "Must only consist of alphabetic characters"),
-    length: yup.string().required("The Min Character field is required").min(3),
+      .matches(/^[a-zA-Z]+$/, 'Must only consist of alphabetic characters'),
+    length: yup.string().required('The Min Character field is required').min(3),
 
     password: yup.string().required().min(8),
-    url: yup.string().required("The URL field is required").url(),
-    message: yup.string().required("The Message field is required"),
+    url: yup.string().required('The URL field is required').url(),
+    message: yup.string().required('The Message field is required'),
   })
-  .required();
+  .required()
 
 const ValidationTypes = () => {
   const {
@@ -35,12 +35,12 @@ const ValidationTypes = () => {
     handleSubmit,
   } = useForm({
     resolver: yupResolver(FormValidationSchema),
-    mode: "all",
-  });
+    mode: 'all',
+  })
 
   const onSubmit = (data) => {
-    //console.log(data);
-  };
+    // console.log(data);
+  }
 
   return (
     <div>
@@ -121,7 +121,7 @@ const ValidationTypes = () => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default ValidationTypes;
+export default ValidationTypes

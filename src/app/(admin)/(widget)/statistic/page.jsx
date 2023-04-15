@@ -1,15 +1,15 @@
-"use client";
+'use client'
 
-import Card from "@/components/ui/Card";
-import GroupChart5 from "@/components/partials/widget/chart/group-chart5";
-import GroupChart3 from "@/components/partials/widget/chart/group-chart-3";
-import GroupChart4 from "@/components/partials/widget/chart/group-chart-4";
-import GroupChart2 from "@/components/partials/widget/chart/group-chart-2";
-import GroupChart1 from "@/components/partials/widget/chart/group-chart-1";
-import DonutChart2 from "@/components/partials/widget/chart/dount-chart2";
-import OrderChart from "@/components/partials/widget/chart/order-chart";
-import ProfitChart from "@/components/partials/widget/chart/profit-chart";
-import EarningChart from "@/components/partials/widget/chart/earning-chart";
+import Card from '@/components/ui/Card'
+import GroupChart5 from '@/components/partials/widget/chart/group-chart5'
+import GroupChart3 from '@/components/partials/widget/chart/group-chart-3'
+import GroupChart4 from '@/components/partials/widget/chart/group-chart-4'
+import GroupChart2 from '@/components/partials/widget/chart/group-chart-2'
+import GroupChart1 from '@/components/partials/widget/chart/group-chart-1'
+import DonutChart2 from '@/components/partials/widget/chart/dount-chart2'
+import OrderChart from '@/components/partials/widget/chart/order-chart'
+import ProfitChart from '@/components/partials/widget/chart/profit-chart'
+import EarningChart from '@/components/partials/widget/chart/earning-chart'
 
 const StatisticWidget = () => {
   return (
@@ -60,39 +60,39 @@ const StatisticWidget = () => {
           <span className="block text-slate-500 dark:text-slate-300 text-sm font-medium">
             Progress
           </span>
-          <DonutChart2 colors={["#F1595C", "#F9E1E5"]} />
+          <DonutChart2 colors={['#F1595C', '#F9E1E5']} />
         </Card>
         <Card>
           <span className="block text-slate-500 dark:text-slate-300 text-sm font-medium">
             Progress
           </span>
-          <DonutChart2 colors={["#50C793", "#E5F3E5"]} />
+          <DonutChart2 colors={['#50C793', '#E5F3E5']} />
         </Card>
         <Card>
           <span className="block text-slate-500 dark:text-slate-300 text-sm font-medium">
             Progress
           </span>
-          <DonutChart2 colors={["#FA916B", "#fcc8b5"]} />
+          <DonutChart2 colors={['#FA916B', '#fcc8b5']} />
         </Card>
       </div>
       <div className="grid xl:grid-cols-6 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
         <OrderChart className="bg-white dark:bg-slate-800 rounded p-4" />
         <OrderChart
           className="bg-white dark:bg-slate-800 rounded p-4"
-          barColor={"#F1595C"}
+          barColor={'#F1595C'}
         />
         <OrderChart
           className="bg-white dark:bg-slate-800 rounded p-4"
-          barColor={"#50C793"}
+          barColor={'#50C793'}
         />
         <ProfitChart className="bg-white dark:bg-slate-800 rounded p-4" />
         <ProfitChart
           className="bg-white dark:bg-slate-800 rounded p-4"
-          color={"#F1595C"}
-        />{" "}
+          color={'#F1595C'}
+        />{' '}
         <ProfitChart
           className="bg-white dark:bg-slate-800 rounded p-4"
-          color={"#50C793"}
+          color={'#50C793'}
         />
       </div>
       <div className="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-4">
@@ -101,7 +101,7 @@ const StatisticWidget = () => {
         <EarningChart className="bg-white dark:bg-slate-800 rounded py-3 px-4" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StatisticWidget;
+export default StatisticWidget

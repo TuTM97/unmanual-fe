@@ -1,14 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
-import { toast } from "react-toastify";
+import { createSlice } from '@reduxjs/toolkit'
 
 export const appChatSlice = createSlice({
-  name: "appchat",
+  name: 'appchat',
   initialState: {
     openProfile: false,
     openinfo: true,
     activechat: false,
-    searchContact: "",
+    searchContact: '',
     mobileChatSidebar: false,
     profileinfo: {},
     messFeed: [],
@@ -16,53 +14,53 @@ export const appChatSlice = createSlice({
     contacts: [
       {
         id: 1,
-        fullName: "Kathryn Murphy",
-        role: "Frontend Developer",
+        fullName: 'Kathryn Murphy',
+        role: 'Frontend Developer',
         lastmessage: "Hey! there I'm available",
-        lastmessageTime: "2:30 PM",
+        lastmessageTime: '2:30 PM',
         unredmessage: Math.floor(Math.random() * 10),
-        avatar: "/assets/images/users/user-2.jpg",
-        status: "offline",
+        avatar: '/assets/images/users/user-2.jpg',
+        status: 'offline',
       },
       {
         id: 2,
-        fullName: "Felecia Rower",
-        role: " UI/UX Designer",
+        fullName: 'Felecia Rower',
+        role: ' UI/UX Designer',
         lastmessage: "Hey! there I'm available",
-        lastmessageTime: "2:30 PM",
+        lastmessageTime: '2:30 PM',
         unredmessage: Math.floor(Math.random() * 10),
-        avatar: "/assets/images/users/user-3.jpg",
-        status: "active",
+        avatar: '/assets/images/users/user-3.jpg',
+        status: 'active',
       },
       {
         id: 3,
-        fullName: " Aileen Chavez",
-        role: " Backend Developer",
+        fullName: ' Aileen Chavez',
+        role: ' Backend Developer',
         lastmessage: "Hey! there I'm available",
-        lastmessageTime: "2:30 PM",
+        lastmessageTime: '2:30 PM',
         unredmessage: Math.floor(Math.random() * 10),
-        avatar: "/assets/images/users/user-4.jpg",
-        status: "offline",
+        avatar: '/assets/images/users/user-4.jpg',
+        status: 'offline',
       },
       {
         id: 4,
-        fullName: "Alec Thompson",
-        role: " Full Stack Developer",
+        fullName: 'Alec Thompson',
+        role: ' Full Stack Developer',
         lastmessage: "Hey! there I'm available",
-        lastmessageTime: "2:30 PM",
+        lastmessageTime: '2:30 PM',
         unredmessage: Math.floor(Math.random() * 10),
-        avatar: "/assets/images/users/user-5.jpg",
-        status: "active",
+        avatar: '/assets/images/users/user-5.jpg',
+        status: 'active',
       },
       {
         id: 5,
-        fullName: "Murphy Aileen",
-        role: "Frontend Developer",
+        fullName: 'Murphy Aileen',
+        role: 'Frontend Developer',
         lastmessage: "Hey! there I'm available",
-        lastmessageTime: "2:30 PM",
+        lastmessageTime: '2:30 PM',
         unredmessage: Math.floor(Math.random() * 10),
-        avatar: "/assets/images/users/user-1.jpg",
-        status: "offline",
+        avatar: '/assets/images/users/user-1.jpg',
+        status: 'offline',
       },
     ],
     chats: [
@@ -71,56 +69,56 @@ export const appChatSlice = createSlice({
         userId: 1,
         messages: [
           {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Hey! How are you?",
-            time: "10:00",
-            sender: "them",
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Hey! How are you?',
+            time: '10:00',
+            sender: 'them',
           },
           {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Good, I will book the meeting room for you.',
+            time: '10:02',
 
-            sender: "them",
+            sender: 'them',
           },
           {
-            content: "Hi, I am good, what about you?",
-            img: "/assets/images/users/user-1.jpg",
-            time: "10:01",
-            sender: "me",
-          },
-
-          {
-            content: "Thanks, It will be great.",
-            img: "/assets/images/users/user-1.jpg",
-            time: "10:03",
-            sender: "me",
-          },
-          {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Hey! How are you?",
-            time: "10:00",
-            sender: "them",
-          },
-          {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
-
-            sender: "them",
-          },
-          {
-            content: "Hi, I am good, what about you?",
-            img: "/assets/images/users/user-1.jpg",
-            time: "10:01",
-            sender: "me",
+            content: 'Hi, I am good, what about you?',
+            img: '/assets/images/users/user-1.jpg',
+            time: '10:01',
+            sender: 'me',
           },
 
           {
-            content: "Thanks, It will be great.",
-            img: "/assets/images/users/user-1.jpg",
-            time: "10:03",
-            sender: "me",
+            content: 'Thanks, It will be great.',
+            img: '/assets/images/users/user-1.jpg',
+            time: '10:03',
+            sender: 'me',
+          },
+          {
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Hey! How are you?',
+            time: '10:00',
+            sender: 'them',
+          },
+          {
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Good, I will book the meeting room for you.',
+            time: '10:02',
+
+            sender: 'them',
+          },
+          {
+            content: 'Hi, I am good, what about you?',
+            img: '/assets/images/users/user-1.jpg',
+            time: '10:01',
+            sender: 'me',
+          },
+
+          {
+            content: 'Thanks, It will be great.',
+            img: '/assets/images/users/user-1.jpg',
+            time: '10:03',
+            sender: 'me',
           },
         ],
       },
@@ -129,17 +127,17 @@ export const appChatSlice = createSlice({
         userId: 2,
         messages: [
           {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Hey! How are you?",
-            time: "10:00",
-            sender: "them",
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Hey! How are you?',
+            time: '10:00',
+            sender: 'them',
           },
           {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Good, I will book the meeting room for you.',
+            time: '10:02',
 
-            sender: "them",
+            sender: 'them',
           },
         ],
       },
@@ -148,17 +146,17 @@ export const appChatSlice = createSlice({
         userId: 3,
         messages: [
           {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Hey! How are you?",
-            time: "10:00",
-            sender: "them",
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Hey! How are you?',
+            time: '10:00',
+            sender: 'them',
           },
           {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Good, I will book the meeting room for you.',
+            time: '10:02',
 
-            sender: "me",
+            sender: 'me',
           },
         ],
       },
@@ -167,17 +165,17 @@ export const appChatSlice = createSlice({
         userId: 4,
         messages: [
           {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Hey! How are you?",
-            time: "10:00",
-            sender: "me",
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Hey! How are you?',
+            time: '10:00',
+            sender: 'me',
           },
           {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Good, I will book the meeting room for you.',
+            time: '10:02',
 
-            sender: "them",
+            sender: 'them',
           },
         ],
       },
@@ -186,17 +184,17 @@ export const appChatSlice = createSlice({
         userId: 5,
         messages: [
           {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Hey! How are you?",
-            time: "10:00",
-            sender: "them",
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Hey! How are you?',
+            time: '10:00',
+            sender: 'them',
           },
           {
-            img: "/assets/images/users/user-2.jpg",
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
+            img: '/assets/images/users/user-2.jpg',
+            content: 'Good, I will book the meeting room for you.',
+            time: '10:02',
 
-            sender: "them",
+            sender: 'them',
           },
         ],
       },
@@ -204,36 +202,38 @@ export const appChatSlice = createSlice({
   },
   reducers: {
     openChat: (state, action) => {
-      state.activechat = action.payload.activechat;
-      state.mobileChatSidebar = !state.mobileChatSidebar;
-      state.user = action.payload.contact;
+      state.activechat = action.payload.activechat
+      state.mobileChatSidebar = !state.mobileChatSidebar
+      state.user = action.payload.contact
       state.chats.map((item) => {
         if (item.userId === action.payload.contact.id) {
-          state.messFeed = item.messages;
+          // @ts-ignore
+          state.messFeed = item.messages
         }
-      });
+      })
     },
     // toggole mobile chat sidebar
     toggleMobileChatSidebar: (state, action) => {
-      state.mobileChatSidebar = action.payload;
+      state.mobileChatSidebar = action.payload
     },
     infoToggle: (state, action) => {
-      state.openinfo = action.payload;
+      state.openinfo = action.payload
     },
     sendMessage: (state, action) => {
-      state.messFeed.push(action.payload);
+      // @ts-ignore
+      state.messFeed.push(action.payload)
     },
     toggleProfile: (state, action) => {
-      state.openProfile = action.payload;
+      state.openProfile = action.payload
     },
     setContactSearch: (state, action) => {
-      state.searchContact = action.payload;
+      state.searchContact = action.payload
     },
     toggleActiveChat: (state, action) => {
-      state.activechat = action.payload;
+      state.activechat = action.payload
     },
   },
-});
+})
 
 export const {
   openChat,
@@ -243,5 +243,5 @@ export const {
   toggleProfile,
   setContactSearch,
   toggleActiveChat,
-} = appChatSlice.actions;
-export default appChatSlice.reducer;
+} = appChatSlice.actions
+export default appChatSlice.reducer

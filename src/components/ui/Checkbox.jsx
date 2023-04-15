@@ -5,12 +5,12 @@ const Checkbox = ({
   value,
   name,
   onChange,
-  activeClass = "ring-black-500  bg-slate-900 dark:bg-slate-700 dark:ring-slate-700 ",
+  activeClass = 'ring-black-500  bg-slate-900 dark:bg-slate-700 dark:ring-slate-700 ',
 }) => {
   return (
     <label
       className={`flex items-center ${
-        disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer"
+        disabled ? ' cursor-not-allowed opacity-50' : 'cursor-pointer'
       }`}
       id={id}
     >
@@ -28,8 +28,8 @@ const Checkbox = ({
         inline-flex ltr:mr-3 rtl:ml-3 relative transition-all duration-150
         ${
           value
-            ? activeClass + " ring-2 ring-offset-2 dark:ring-offset-slate-800 "
-            : "bg-slate-100 dark:bg-slate-600 dark:border-slate-600"
+            ? `${activeClass} ring-2 ring-offset-2 dark:ring-offset-slate-800 `
+            : 'bg-slate-100 dark:bg-slate-600 dark:border-slate-600'
         }
         `}
       >
@@ -45,7 +45,7 @@ const Checkbox = ({
         {label}
       </span>
     </label>
-  );
-};
+  )
+}
 
-export default Checkbox;
+export default Checkbox
