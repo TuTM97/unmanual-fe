@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import Dropdown from "@/components/ui/Dropdown";
-import Card from "@/components/ui/Card";
-import Icon from "@/components/ui/Icon";
+import React, { useEffect, useState } from 'react'
+import Dropdown from '@/components/ui/Dropdown'
+import Card from '@/components/ui/Card'
+import Icon from '@/components/ui/Icon'
 // import menu form headless ui
-import { Menu } from "@headlessui/react";
-import ProgressBar from "@/components/ui/ProgressBar";
-import { deleteTask, toggleEditModal } from "./store";
-import { useDispatch } from "react-redux";
+import { Menu } from '@headlessui/react'
+import ProgressBar from '@/components/ui/ProgressBar'
+import { useDispatch } from 'react-redux'
+import { deleteTask, toggleEditModal } from './store'
+
 const Task = ({ task }) => {
   const {
     name,
@@ -18,19 +19,19 @@ const Task = ({ task }) => {
     startDate,
     endDate,
     id,
-  } = task;
+  } = task
 
-  const [start, setStart] = useState(new Date(startDate));
-  const [end, setEnd] = useState(new Date(endDate));
-  const [totaldays, setTotaldays] = useState(0);
+  const [start, setStart] = useState(new Date(startDate))
+  const [end, setEnd] = useState(new Date(endDate))
+  const [totaldays, setTotaldays] = useState(0)
 
   useEffect(() => {
-    const diffTime = Math.abs(end - start);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    setTotaldays(diffDays);
-  }, [start, end]);
+    const diffTime = Math.abs(end - start)
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+    setTotaldays(diffDays)
+  }, [start, end])
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   return (
     <Card className=" cursor-move bg-white">
@@ -147,7 +148,7 @@ const Task = ({ task }) => {
         <div className="ltr:text-right rtl:text-left">
           <span className="inline-flex items-center space-x-1 bg-danger-500 bg-opacity-[0.16] text-danger-500 text-xs font-normal px-2 py-1 rounded-full rtl:space-x-reverse">
             <span>
-              {" "}
+              {' '}
               <Icon icon="heroicons-outline:clock" />
             </span>
             <span>{totaldays}</span>
@@ -156,7 +157,7 @@ const Task = ({ task }) => {
         </div>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default Task;
+export default Task

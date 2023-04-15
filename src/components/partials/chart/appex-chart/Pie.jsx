@@ -1,25 +1,26 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const Pie = () => {
-  const [isDark] = useDarkMode();
-  const series = [44, 55, 13, 43, 22];
+  const [isDark] = useDarkMode()
+  const series = [44, 55, 13, 43, 22]
 
   const options = {
-    labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+    labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
     dataLabels: {
       enabled: true,
     },
 
-    colors: ["#4669FA", "#F1595C", "#50C793", "#0CE7FA", "#FA916B"],
+    colors: ['#4669FA', '#F1595C', '#50C793', '#0CE7FA', '#FA916B'],
     legend: {
-      position: "bottom",
-      fontSize: "16px",
-      fontFamily: "Inter",
+      position: 'bottom',
+      fontSize: '16px',
+      fontFamily: 'Inter',
       fontWeight: 400,
       labels: {
-        colors: isDark ? "#CBD5E1" : "#475569",
+        colors: isDark ? '#CBD5E1' : '#475569',
       },
       markers: {
         width: 6,
@@ -39,18 +40,24 @@ const Pie = () => {
         breakpoint: 480,
         options: {
           legend: {
-            position: "bottom",
+            position: 'bottom',
           },
         },
       },
     ],
-  };
+  }
 
   return (
     <div>
-      <Chart options={options} series={series} type="pie" height="450" width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="pie"
+        height="450"
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default Pie;
+export default Pie

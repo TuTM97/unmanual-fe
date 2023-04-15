@@ -1,47 +1,47 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import FullCalendar from "@fullcalendar/react"; // must go before plugins
-import { useSelector, useDispatch } from "react-redux";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGridPlugin from "@fullcalendar/timegrid";
-import interactionPlugin from "@fullcalendar/interaction";
-import listPlugin from "@fullcalendar/list";
+import React, { useState } from 'react'
+import FullCalendar from '@fullcalendar/react' // must go before plugins
+import { useSelector, useDispatch } from 'react-redux'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import timeGridPlugin from '@fullcalendar/timegrid'
+import interactionPlugin from '@fullcalendar/interaction'
+import listPlugin from '@fullcalendar/list'
 
 // needed for dayClick
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
-import Checkbox from "@/components/ui/Checkbox";
-import EventModal from "@/components/partials/app/calender/EventModal";
-import EditEventModal from "@/components/partials/app/calender/EditEventModal";
+import Card from '@/components/ui/Card'
+import Button from '@/components/ui/Button'
+import Checkbox from '@/components/ui/Checkbox'
+import EventModal from '@/components/partials/app/calender/EventModal'
+import EditEventModal from '@/components/partials/app/calender/EditEventModal'
 
 const CalenderPage = () => {
-  const { calendarEvents, categories } = useSelector((state) => state.calendar);
-  const [activeModal, setActiveModal] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState(null);
-  const [editItem, setEditItem] = useState(null);
-  const [editModal, setEditModal] = useState(false);
+  const { calendarEvents, categories } = useSelector((state) => state.calendar)
+  const [activeModal, setActiveModal] = useState(false)
+  const [selectedEvent, setSelectedEvent] = useState(null)
+  const [editItem, setEditItem] = useState(null)
+  const [editModal, setEditModal] = useState(false)
 
   const [selectedCategories, setSelectedCategories] = useState(
     categories.map((c) => c.value)
-  );
+  )
 
   const handleCategorySelection = (category) => {
     if (selectedCategories.includes(category)) {
-      setSelectedCategories(selectedCategories.filter((c) => c !== category));
+      setSelectedCategories(selectedCategories.filter((c) => c !== category))
     } else {
-      setSelectedCategories([...selectedCategories, category]);
+      setSelectedCategories([...selectedCategories, category])
     }
-  };
+  }
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const closeModal = () => {
-    setActiveModal(false);
-  };
+    setActiveModal(false)
+  }
 
   const onCloseEditModal = () => {
-    setEditModal(false);
-  };
+    setEditModal(false)
+  }
 
   //   const calendarOptions = {
   //     plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin],
@@ -62,35 +62,40 @@ const CalenderPage = () => {
   //   };
 
   const handleDateClick = (arg) => {
-    setActiveModal(true);
-    setSelectedEvent(arg);
-  };
+    setActiveModal(true)
+    setSelectedEvent(arg)
+  }
 
   const handleEventClick = (arg) => {
-    setEditModal(true);
-    setEditItem(arg);
-  };
+    setEditModal(true)
+    setEditItem(arg)
+  }
 
   const handleClassName = (arg) => {
-    if (arg.event.extendedProps.calendar === "holiday") {
-      return "danger";
-    } else if (arg.event.extendedProps.calendar === "business") {
-      return "primary";
-    } else if (arg.event.extendedProps.calendar === "personal") {
-      return "success";
-    } else if (arg.event.extendedProps.calendar === "family") {
-      return "info";
-    } else if (arg.event.extendedProps.calendar === "etc") {
-      return "info";
-    } else if (arg.event.extendedProps.calendar === "meeting") {
-      return "warning";
+    if (arg.event.extendedProps.calendar === 'holiday') {
+      return 'danger'
     }
-  };
+    if (arg.event.extendedProps.calendar === 'business') {
+      return 'primary'
+    }
+    if (arg.event.extendedProps.calendar === 'personal') {
+      return 'success'
+    }
+    if (arg.event.extendedProps.calendar === 'family') {
+      return 'info'
+    }
+    if (arg.event.extendedProps.calendar === 'etc') {
+      return 'info'
+    }
+    if (arg.event.extendedProps.calendar === 'meeting') {
+      return 'warning'
+    }
+  }
 
   // filter events
   const filteredEvents = calendarEvents.filter((event) =>
     selectedCategories.includes(event.extendedProps.calendar)
-  );
+  )
 
   return (
     <div className="dashcode-calender">
@@ -104,7 +109,7 @@ const CalenderPage = () => {
             text=" Add Event"
             className="btn-dark w-full block  "
             onClick={() => {
-              setActiveModal(true);
+              setActiveModal(true)
             }}
           />
           <div className="block py-4 text-slate-800 dark:text-slate-400 font-semibold text-xs uppercase mt-4">
@@ -118,9 +123,9 @@ const CalenderPage = () => {
                 value={selectedCategories.length === categories.length}
                 onChange={() => {
                   if (selectedCategories.length === categories.length) {
-                    setSelectedCategories([]);
+                    setSelectedCategories([])
                   } else {
-                    setSelectedCategories(categories.map((c) => c.value));
+                    setSelectedCategories(categories.map((c) => c.value))
                   }
                 }}
               />
@@ -146,9 +151,9 @@ const CalenderPage = () => {
               listPlugin,
             ]}
             headerToolbar={{
-              left: "prev,next today",
-              center: "title",
-              right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
             }}
             events={filteredEvents}
             editable={true}
@@ -175,7 +180,7 @@ const CalenderPage = () => {
         editItem={editItem}
       />
     </div>
-  );
-};
+  )
+}
 
-export default CalenderPage;
+export default CalenderPage

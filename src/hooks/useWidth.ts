@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function useWidth() {
-  const hasWindow = typeof window !== 'undefined'
   const [width, setWidth] = useState(1920)
-  //const [width, setWidth] = useState(window.innerWidth);
+  // const [width, setWidth] = useState(window.innerWidth);
 
   // breakpoints
   const [breakpoints, setBreakpoints] = useState({
@@ -27,5 +26,5 @@ export default function useWidth() {
     }
   }, [])
 
-  return { width, breakpoints }
+  return { width, breakpoints, setBreakpoints }
 }

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
 const Image = ({
-  wrapperClass = "custom-class",
+  wrapperClass = 'custom-class',
   src,
   className,
-  alt = "image-title",
+  alt = 'image-title',
 }) => {
   return (
     <div className={`relative ${wrapperClass}`}>
@@ -19,7 +19,7 @@ const Image = ({
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Image;
+export default Image

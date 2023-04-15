@@ -1,39 +1,39 @@
-import React from "react";
-import world from "@/constant/world-map.json";
-import { VectorMap } from "@south-paw/react-vector-maps";
+import React from 'react'
+import world from '@/constant/world-map.json'
+import { VectorMap } from '@south-paw/react-vector-maps'
 
 const slaes = [
   {
-    title: "Nevada",
-    amount: "$125k",
-    cls: "bg-primary-500 ring-primary-500",
+    title: 'Nevada',
+    amount: '$125k',
+    cls: 'bg-primary-500 ring-primary-500',
   },
   {
-    title: "Colorado",
-    amount: "$$325k",
-    cls: "bg-success-500 ring-success-500",
+    title: 'Colorado',
+    amount: '$$325k',
+    cls: 'bg-success-500 ring-success-500',
   },
   {
-    title: "Iowa",
-    amount: "$67",
-    cls: "bg-info-500 ring-info-500",
+    title: 'Iowa',
+    amount: '$67',
+    cls: 'bg-info-500 ring-info-500',
   },
   {
-    title: "Arkansas",
-    amount: "$354k",
-    cls: "bg-warning-500 ring-warning-500",
+    title: 'Arkansas',
+    amount: '$354k',
+    cls: 'bg-warning-500 ring-warning-500',
   },
   {
-    title: "Wyoming",
-    amount: "$195k",
-    cls: "bg-success-500 ring-success-500",
+    title: 'Wyoming',
+    amount: '$195k',
+    cls: 'bg-success-500 ring-success-500',
   },
   {
-    title: "Other countries",
-    amount: "$295k",
-    cls: "bg-secondary-500 ring-secondary-500",
+    title: 'Other countries',
+    amount: '$295k',
+    cls: 'bg-secondary-500 ring-secondary-500',
   },
-];
+]
 
 const MostSales = ({ filterMap }) => {
   return (
@@ -42,12 +42,12 @@ const MostSales = ({ filterMap }) => {
         <h4 className="text-slate-600 dark:text-slate-200 text-sm font-normal mb-[6px]">
           Total earnings
         </h4>
-        {filterMap === "usa" && (
+        {filterMap === 'usa' && (
           <div className="text-lg font-medium mb-[6px] dark:text-white text-slate-900">
             $12,65,64787.00
           </div>
         )}
-        {filterMap === "global" && (
+        {filterMap === 'global' && (
           <div className="text-lg font-medium mb-[6px] dark:text-white text-slate-900">
             $12,65.00
           </div>
@@ -78,7 +78,7 @@ const MostSales = ({ filterMap }) => {
         <VectorMap {...world} className="dash-codevmap" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MostSales;
+export default MostSales

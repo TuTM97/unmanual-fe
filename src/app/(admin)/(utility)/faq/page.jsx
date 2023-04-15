@@ -1,77 +1,78 @@
-"use client";
-import React, { Fragment } from "react";
-import Accordion from "@/components/ui/Accordion";
-import Card from "@/components/ui/Card";
-import Icon from "@/components/ui/Icon";
-import { Tab } from "@headlessui/react";
+'use client'
+
+import React, { Fragment } from 'react'
+import Accordion from '@/components/ui/Accordion'
+import Card from '@/components/ui/Card'
+import Icon from '@/components/ui/Icon'
+import { Tab } from '@headlessui/react'
 
 const faqmenus = [
   {
-    title: "Getting started",
+    title: 'Getting started',
   },
   {
-    title: "Privacy & security",
+    title: 'Privacy & security',
   },
   {
-    title: "Legal",
+    title: 'Legal',
   },
-];
+]
 const items = [
   {
-    title: "How does Dashcode work?",
+    title: 'How does Dashcode work?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Where i can learn more about using Dashcode?",
+    title: 'Where i can learn more about using Dashcode?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Why Dashcode is so important?",
+    title: 'Why Dashcode is so important?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Where can i find Dashcode?",
+    title: 'Where can i find Dashcode?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Why Dashcode is so important?",
+    title: 'Why Dashcode is so important?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
-];
+]
 const items2 = [
   {
-    title: "How does Dashcode work?",
+    title: 'How does Dashcode work?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Where i can learn more about using Dashcode?",
+    title: 'Where i can learn more about using Dashcode?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
-];
+]
 const items3 = [
   {
-    title: "How does Dashcode work?",
+    title: 'How does Dashcode work?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Where i can learn more about using Dashcode?",
+    title: 'Where i can learn more about using Dashcode?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Where can i find Dashcode?",
+    title: 'Where can i find Dashcode?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
-];
+]
 
 const FaqPage = () => {
   return (
@@ -88,8 +89,8 @@ const FaqPage = () => {
                         className={`focus:ring-0 focus:outline-none space-x-2 text-sm flex items-center w-full transition duration-150 px-3 py-4 rounded-[6px] rtl:space-x-reverse
                             ${
                               selected
-                                ? "bg-slate-100 dark:bg-slate-900 dark:text-white"
-                                : "bg-white dark:bg-slate-800 dark:text-slate-300"
+                                ? 'bg-slate-100 dark:bg-slate-900 dark:text-white'
+                                : 'bg-white dark:bg-slate-800 dark:text-slate-300'
                             }
                          `}
                         type="button"
@@ -99,8 +100,8 @@ const FaqPage = () => {
                               "text-lg",
                               ${
                                 selected
-                                  ? " opacity-100"
-                                  : "opacity-50 dark:opacity-100"
+                                  ? ' opacity-100'
+                                  : 'opacity-50 dark:opacity-100'
                               }
                         `}
                         ></span>
@@ -129,7 +130,7 @@ const FaqPage = () => {
         </div>
       </Tab.Group>
     </div>
-  );
-};
+  )
+}
 
-export default FaqPage;
+export default FaqPage

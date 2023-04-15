@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import React from "react";
-import Link from "next/link";
-import RegForm from "@/components/partials/auth/reg-from";
-import Social from "@/components/partials/auth/social";
-import useDarkmode from "@/hooks/useDarkMode";
-import { ToastContainer } from "react-toastify";
+import React from 'react'
+import Link from 'next/link'
+import RegForm from '@/components/partials/auth/reg-from'
+import Social from '@/components/partials/auth/social'
+import useDarkmode from '@/hooks/useDarkMode'
+import { ToastContainer } from 'react-toastify'
 
 // image import
 
 const Register2 = () => {
-  const [isDark] = useDarkmode();
+  const [isDark] = useDarkmode()
   return (
     <>
       <div className="loginwrapper">
@@ -23,8 +23,8 @@ const Register2 = () => {
                     <img
                       src={
                         isDark
-                          ? "/assets/images/logo/logo-white.svg"
-                          : "/assets/images/logo/logo.svg"
+                          ? '/assets/images/logo/logo-white.svg'
+                          : '/assets/images/logo/logo.svg'
                       }
                       alt=""
                       className="mx-auto"
@@ -79,7 +79,7 @@ const Register2 = () => {
               </div>
               <div>
                 <div className="black-500-title max-w-[525px] mx-auto pb-20 text-center">
-                  Unlock your Project{" "}
+                  Unlock your Project{' '}
                   <span className="text-white font-bold">performance</span>
                 </div>
               </div>
@@ -88,7 +88,7 @@ const Register2 = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Register2;
+export default Register2

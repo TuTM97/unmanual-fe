@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import React from "react";
-import Card from "@/components/ui/Card";
-import Icon from "@/components/ui/Icon";
-import TotalTable from "@/components/partials/table/TotalTable";
-import userDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import Card from '@/components/ui/Card'
+import Icon from '@/components/ui/Icon'
+import TotalTable from '@/components/partials/table/TotalTable'
+import userDarkMode from '@/hooks/useDarkMode'
 
 const InvoicePreviewPage = () => {
   const printPage = () => {
-    window?.print();
-  };
-  const [isDark] = userDarkMode();
+    window?.print()
+  }
+  const [isDark] = userDarkMode()
 
   return (
     <div>
@@ -53,8 +53,8 @@ const InvoicePreviewPage = () => {
             <img
               src={
                 isDark
-                  ? "/assets/images/logo/logo-white.svg"
-                  : "/assets/images/logo/logo.svg"
+                  ? '/assets/images/logo/logo-white.svg'
+                  : '/assets/images/logo/logo.svg'
               }
               alt=""
             />
@@ -118,7 +118,7 @@ const InvoicePreviewPage = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default InvoicePreviewPage;
+export default InvoicePreviewPage

@@ -1,76 +1,76 @@
-import React from "react";
-import Link from "next/link";
-import InputGroup from "@/components/ui/InputGroup";
-import Button from "@/components/ui/Button";
-import Icon from "@/components/ui/Icon";
+import React from 'react'
+import Link from 'next/link'
+import InputGroup from '@/components/ui/InputGroup'
+import Button from '@/components/ui/Button'
+import Icon from '@/components/ui/Icon'
 
 const category = [
   {
-    cta: "Graphic Designer (214) ",
+    cta: 'Graphic Designer (214) ',
   },
   {
-    cta: "Engineering Jobs (514) ",
+    cta: 'Engineering Jobs (514) ',
   },
   {
-    cta: "Mainframe Jobs (554)",
+    cta: 'Mainframe Jobs (554)',
   },
   {
-    cta: "Legal Jobs (457)",
+    cta: 'Legal Jobs (457)',
   },
   {
-    cta: "IT Jobs (1254) ",
+    cta: 'IT Jobs (1254) ',
   },
   {
-    cta: "R&D Jobs (554) ",
+    cta: 'R&D Jobs (554) ',
   },
   {
-    cta: "Government Jobs (350) ",
+    cta: 'Government Jobs (350) ',
   },
   {
-    cta: "PSL Jobs (221)",
+    cta: 'PSL Jobs (221)',
   },
-];
+]
 const posts = [
   {
-    img: "/assets/images/post/t-1.png",
+    img: '/assets/images/post/t-1.png',
   },
   {
-    img: "/assets/images/post/t-2.png",
+    img: '/assets/images/post/t-2.png',
   },
   {
-    img: "/assets/images/post/t-3.png",
+    img: '/assets/images/post/t-3.png',
   },
-];
+]
 const tags = [
   {
-    title: "Business",
-    link: "#",
+    title: 'Business',
+    link: '#',
   },
   {
-    title: "Consulting",
-    link: "#",
+    title: 'Consulting',
+    link: '#',
   },
   {
-    title: "Photographic",
-    link: "#",
+    title: 'Photographic',
+    link: '#',
   },
   {
-    title: "Investment",
-    link: "#",
+    title: 'Investment',
+    link: '#',
   },
   {
-    title: "Camera",
-    link: "#",
+    title: 'Camera',
+    link: '#',
   },
   {
-    title: "Assurance",
-    link: "#",
+    title: 'Assurance',
+    link: '#',
   },
   {
-    title: "Secutity",
-    link: "#",
+    title: 'Secutity',
+    link: '#',
   },
-];
+]
 const Sidebar = () => {
   return (
     <div className="space-y-5 divide-y divide-slate-100 dark:divide-slate-700 -mx-6">
@@ -175,7 +175,7 @@ const Sidebar = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

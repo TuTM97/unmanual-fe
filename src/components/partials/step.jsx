@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Icon from "@/components/ui/Icon";
-import Button from "@/components/ui/Button";
+import React, { useState } from 'react'
+import Icon from '@/components/ui/Icon'
+import Button from '@/components/ui/Button'
 
 const Step = () => {
-  const [stepNumber, setStepNumber] = useState(0);
+  const [stepNumber, setStepNumber] = useState(0)
   const steps = [
     {
       id: 1,
@@ -14,17 +14,17 @@ const Step = () => {
     {
       id: 3,
     },
-  ];
+  ]
   const handleNext = () => {
     if (stepNumber < steps.length - 1) {
-      setStepNumber(stepNumber + 1);
+      setStepNumber(stepNumber + 1)
     }
-  };
+  }
   const handlePrev = () => {
     if (stepNumber > 0) {
-      setStepNumber(stepNumber - 1);
+      setStepNumber(stepNumber - 1)
     }
-  };
+  }
   return (
     <div>
       <div className="mx-auto flex z-[5] items-center relative justify-center">
@@ -36,8 +36,8 @@ const Step = () => {
             <div
               className={`   ${
                 stepNumber >= i
-                  ? "bg-blue-500 text-white ring-primary-500 ring-offset-2"
-                  : "bg-white ring-primary-500 ring-opacity-70  text-primary-500 text-opacity-70"
+                  ? 'bg-blue-500 text-white ring-primary-500 ring-offset-2'
+                  : 'bg-white ring-primary-500 ring-opacity-70  text-primary-500 text-opacity-70'
               }  icon-box h-12 w-12 rounded-full flex flex-col items-center justify-center relative z-[66] ring-1 text-lg font-medium`}
             >
               {stepNumber <= i ? (
@@ -51,7 +51,7 @@ const Step = () => {
 
             <div
               className={`${
-                stepNumber >= i ? "bg-primary-500" : "bg-[#E0EAFF]"
+                stepNumber >= i ? 'bg-primary-500' : 'bg-[#E0EAFF]'
               } absolute top-1/2 h-[2px] w-full`}
             ></div>
 
@@ -69,7 +69,7 @@ const Step = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Step;
+export default Step

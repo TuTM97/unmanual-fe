@@ -5,7 +5,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // theme config import
 import themeConfig from '@/configs/themeConfig'
-import { ILayoutState } from './layout.interface'
+
+import type { ILayoutState } from './layout.interface'
 
 const initialDarkMode = () => {
   if (typeof window !== 'undefined') {

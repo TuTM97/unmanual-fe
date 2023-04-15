@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import Card from "@/components/ui/Card";
-import Alert from "@/components/ui/Alert";
-import Link from "next/link";
+import Card from '@/components/ui/Card'
+import Alert from '@/components/ui/Alert'
+import Link from 'next/link'
 
 const AlertPage = () => {
   return (
@@ -369,7 +369,7 @@ const AlertPage = () => {
       </Card>
       ;
     </div>
-  );
-};
+  )
+}
 
-export default AlertPage;
+export default AlertPage

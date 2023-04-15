@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import React from "react";
-import Link from "next/link";
-import ForgotPass from "@/components/partials/auth/forgot-pass";
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import Link from 'next/link'
+import ForgotPass from '@/components/partials/auth/forgot-pass'
+import useDarkMode from '@/hooks/useDarkMode'
 
 const ForgotPassPage = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
     <div className="loginwrapper">
       <div className="lg-inner-column">
@@ -16,8 +16,8 @@ const ForgotPassPage = () => {
               <img
                 src={
                   isDark
-                    ? "/assets/images/logo/logo-white.svg"
-                    : "/assets/images/logo/logo.svg"
+                    ? '/assets/images/logo/logo-white.svg'
+                    : '/assets/images/logo/logo.svg'
                 }
                 alt=""
                 className="mb-10"
@@ -25,7 +25,7 @@ const ForgotPassPage = () => {
             </Link>
 
             <h4>
-              Unlock your Project{" "}
+              Unlock your Project{' '}
               <span className="text-slate-800 dark:text-slate-400 font-bold">
                 performance
               </span>
@@ -47,8 +47,8 @@ const ForgotPassPage = () => {
                   <img
                     src={
                       isDark
-                        ? "/assets/images/logo/logo-white.svg"
-                        : "/assets/images/logo/logo.svg"
+                        ? '/assets/images/logo/logo-white.svg'
+                        : '/assets/images/logo/logo.svg'
                     }
                     alt=""
                     className="mx-auto"
@@ -84,7 +84,7 @@ const ForgotPassPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ForgotPassPage;
+export default ForgotPassPage

@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import React from "react";
-import Link from "next/link";
-import Social from "@/components/partials/auth/social";
-import LoginForm from "@/components/partials/auth//login-form";
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import Link from 'next/link'
+import Social from '@/components/partials/auth/social'
+import LoginForm from '@/components/partials/auth//login-form'
+import useDarkMode from '@/hooks/useDarkMode'
 
 const Login3 = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
     <>
       <div
@@ -31,8 +31,8 @@ const Login3 = () => {
                   <img
                     src={
                       isDark
-                        ? "/assets/images/logo/logo-white.svg"
-                        : "/assets/images/logo/logo.svg"
+                        ? '/assets/images/logo/logo-white.svg'
+                        : '/assets/images/logo/logo.svg'
                     }
                     alt=""
                     className="mx-auto"
@@ -71,7 +71,7 @@ const Login3 = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Login3;
+export default Login3

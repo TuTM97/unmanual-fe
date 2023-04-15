@@ -1,105 +1,106 @@
-"use client";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
-import Icon from "@/components/ui/Icon";
-import Link from "next/link";
+'use client'
+
+import Card from '@/components/ui/Card'
+import Button from '@/components/ui/Button'
+import Icon from '@/components/ui/Icon'
+import Link from 'next/link'
 
 const cardsColor1 = [
   {
-    title: "Primary Card",
-    bg: "bg-primary-500",
-    color: "text-primary-500",
+    title: 'Primary Card',
+    bg: 'bg-primary-500',
+    color: 'text-primary-500',
   },
   {
-    title: "Secondary Card ",
-    bg: "bg-secondary-500",
-    color: "text-secondary-500",
+    title: 'Secondary Card ',
+    bg: 'bg-secondary-500',
+    color: 'text-secondary-500',
   },
   {
-    title: "Success Card",
-    bg: "bg-success-500",
-    color: "text-success-500",
+    title: 'Success Card',
+    bg: 'bg-success-500',
+    color: 'text-success-500',
   },
   {
-    title: "Danger Card",
-    bg: "bg-danger-500",
-    color: "text-danger-500",
+    title: 'Danger Card',
+    bg: 'bg-danger-500',
+    color: 'text-danger-500',
   },
   {
-    title: "Warning Card",
-    bg: "bg-warning-500",
-    color: "text-warning-500",
+    title: 'Warning Card',
+    bg: 'bg-warning-500',
+    color: 'text-warning-500',
   },
   {
-    title: "Info Card",
-    bg: "bg-info-500",
-    color: "text-info-500",
+    title: 'Info Card',
+    bg: 'bg-info-500',
+    color: 'text-info-500',
   },
-];
+]
 const cardsColor2 = [
   {
-    title: "Primary Card",
-    ring: "ring-primary-500",
+    title: 'Primary Card',
+    ring: 'ring-primary-500',
   },
   {
-    title: "Secondary Card ",
-    ring: "ring-secondary-500",
+    title: 'Secondary Card ',
+    ring: 'ring-secondary-500',
   },
   {
-    title: "Success Card",
-    ring: "ring-success-500",
+    title: 'Success Card',
+    ring: 'ring-success-500',
   },
   {
-    title: "Danger Card",
-    ring: "ring-danger-500",
+    title: 'Danger Card',
+    ring: 'ring-danger-500',
   },
   {
-    title: "Warning Card",
-    ring: "ring-warning-500",
+    title: 'Warning Card',
+    ring: 'ring-warning-500',
   },
   {
-    title: "Info Card",
-    ring: "ring-info-500",
+    title: 'Info Card',
+    ring: 'ring-info-500',
   },
-];
+]
 const cards = [
   {
-    title: "Primary Card",
-    border: "border-primary-500",
-    color: "text-primary-500",
-    icon: "heroicons-outline:support",
+    title: 'Primary Card',
+    border: 'border-primary-500',
+    color: 'text-primary-500',
+    icon: 'heroicons-outline:support',
   },
   {
-    title: "Secondary Card ",
-    border: "border-secondary-500",
-    color: "text-secondary-500",
-    icon: "heroicons-outline:stop",
+    title: 'Secondary Card ',
+    border: 'border-secondary-500',
+    color: 'text-secondary-500',
+    icon: 'heroicons-outline:stop',
   },
   {
-    title: "Success Card",
-    border: "border-success-500",
-    color: "text-success-500",
-    icon: "heroicons-outline:badge-check",
+    title: 'Success Card',
+    border: 'border-success-500',
+    color: 'text-success-500',
+    icon: 'heroicons-outline:badge-check',
   },
   {
-    title: "Danger Card",
-    border: "border-danger-500",
-    color: "text-danger-500",
-    icon: "heroicons-outline:ban",
+    title: 'Danger Card',
+    border: 'border-danger-500',
+    color: 'text-danger-500',
+    icon: 'heroicons-outline:ban',
   },
   {
-    title: "Warning Card",
-    border: "border-warning-500",
-    color: "text-warning-500",
-    icon: "heroicons-outline:exclamation",
+    title: 'Warning Card',
+    border: 'border-warning-500',
+    color: 'text-warning-500',
+    icon: 'heroicons-outline:exclamation',
   },
   {
-    title: "Info Card",
-    border: "border-info-500",
-    color: "text-info-500",
-    icon: "heroicons-outline:information-circle",
+    title: 'Info Card',
+    border: 'border-info-500',
+    color: 'text-info-500',
+    icon: 'heroicons-outline:information-circle',
   },
-];
+]
 
 const CardPage = () => {
   return (
@@ -575,7 +576,7 @@ const CardPage = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CardPage;
+export default CardPage

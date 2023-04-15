@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import React from "react";
-import Link from "next/link";
-import RegForm from "@/components/partials/auth/reg-from";
-import Social from "@/components/partials/auth//social";
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import Link from 'next/link'
+import RegForm from '@/components/partials/auth/reg-from'
+import Social from '@/components/partials/auth//social'
+import useDarkMode from '@/hooks/useDarkMode'
 
 const Register3 = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
     <>
       <div
@@ -35,8 +35,8 @@ const Register3 = () => {
                   <img
                     src={
                       isDark
-                        ? "/assets/images/logo/logo-white.svg"
-                        : "/assets/images/logo/logo.svg"
+                        ? '/assets/images/logo/logo-white.svg'
+                        : '/assets/images/logo/logo.svg'
                     }
                     alt=""
                     className="mx-auto"
@@ -77,7 +77,7 @@ const Register3 = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Register3;
+export default Register3

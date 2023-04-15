@@ -1,11 +1,12 @@
-"use client";
-import Button from "@/components/ui/Button";
-import Icon from "@/components/ui/Icon";
-import Link from "next/link";
-import useDarkMode from "@/hooks/useDarkMode";
+'use client'
+
+import Button from '@/components/ui/Button'
+import Icon from '@/components/ui/Icon'
+import Link from 'next/link'
+import useDarkMode from '@/hooks/useDarkMode'
 
 const ComingSoonPage = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
     <div className="min-h-screen">
       <div className="xl:absolute left-0 top-0 w-full">
@@ -15,8 +16,8 @@ const ComingSoonPage = () => {
               <img
                 src={
                   isDark
-                    ? "assets/images/logo/logo-white.svg"
-                    : "/assets/images/logo/logo.svg"
+                    ? 'assets/images/logo/logo-white.svg'
+                    : '/assets/images/logo/logo.svg'
                 }
                 alt=""
               />
@@ -121,7 +122,7 @@ const ComingSoonPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ComingSoonPage;
+export default ComingSoonPage

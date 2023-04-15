@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import React from "react";
-import Lock from "@/components/partials/auth/lock";
-import Link from "next/link";
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import Lock from '@/components/partials/auth/lock'
+import Link from 'next/link'
+import useDarkMode from '@/hooks/useDarkMode'
 
 const LockScreen3 = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
     <div
       className="loginwrapper bg-cover bg-no-repeat bg-center"
@@ -33,8 +33,8 @@ const LockScreen3 = () => {
                 <img
                   src={
                     isDark
-                      ? "/assets/images/logo/logo-white.svg"
-                      : "/assets/images/logo/logo.svg"
+                      ? '/assets/images/logo/logo-white.svg'
+                      : '/assets/images/logo/logo.svg'
                   }
                   alt=""
                   className="mx-auto"
@@ -77,7 +77,7 @@ const LockScreen3 = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LockScreen3;
+export default LockScreen3

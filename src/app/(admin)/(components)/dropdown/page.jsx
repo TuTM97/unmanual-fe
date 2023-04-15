@@ -1,8 +1,9 @@
-"use client";
-import Card from "@/components/ui/Card";
-import Dropdown from "@/components/ui/Dropdown";
-import Button from "@/components/ui/Button";
-import SplitDropdown from "@/components/ui/Split-dropdown";
+'use client'
+
+import Card from '@/components/ui/Card'
+import Dropdown from '@/components/ui/Dropdown'
+import Button from '@/components/ui/Button'
+import SplitDropdown from '@/components/ui/Split-dropdown'
 
 const DropdownPage = () => {
   return (
@@ -539,7 +540,7 @@ const DropdownPage = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default DropdownPage;
+export default DropdownPage

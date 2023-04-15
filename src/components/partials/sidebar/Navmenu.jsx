@@ -1,52 +1,52 @@
-import { useRouter, usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import { Collapse } from "react-collapse";
-import Icon from "@/components/ui/Icon";
-import { toggleActiveChat } from "@/components/partials/app/chat/store";
-import { useDispatch } from "react-redux";
-import useMobileMenu from "@/hooks/useMobileMenu";
+import { useRouter, usePathname } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { Collapse } from 'react-collapse'
+import Icon from '@/components/ui/Icon'
+import { toggleActiveChat } from '@/components/partials/app/chat/store'
+import { useDispatch } from 'react-redux'
+import useMobileMenu from '@/hooks/useMobileMenu'
 
 const Navmenu = ({ menus }) => {
-  const router = useRouter();
-  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const router = useRouter()
+  const [activeSubmenu, setActiveSubmenu] = useState(null)
 
   const toggleSubmenu = (i) => {
     if (activeSubmenu === i) {
-      setActiveSubmenu(null);
+      setActiveSubmenu(null)
     } else {
-      setActiveSubmenu(i);
+      setActiveSubmenu(i)
     }
-  };
+  }
 
-  const location = usePathname();
-  const locationName = location.replace("/", "");
+  const location = usePathname()
+  const locationName = location.replace('/', '')
 
-  const { mobileMenu, setMobileMenu } = useMobileMenu();
-  const dispatch = useDispatch();
+  const { mobileMenu, setMobileMenu } = useMobileMenu()
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    let submenuIndex = null;
+    let submenuIndex = null
     menus.map((item, i) => {
-      if (!item.child) return;
+      if (!item.child) return
       if (item.link === locationName) {
-        submenuIndex = null;
+        submenuIndex = null
       } else {
         const ciIndex = item.child.findIndex(
           (ci) => ci.childlink === locationName
-        );
+        )
         if (ciIndex !== -1) {
-          submenuIndex = i;
+          submenuIndex = i
         }
       }
-    });
+    })
 
-    setActiveSubmenu(submenuIndex);
-    dispatch(toggleActiveChat(false));
+    setActiveSubmenu(submenuIndex)
+    dispatch(toggleActiveChat(false))
     if (mobileMenu) {
-      setMobileMenu(false);
+      setMobileMenu(false)
     }
-  }, [router, location]);
+  }, [router, location])
 
   return (
     <>
@@ -55,11 +55,11 @@ const Navmenu = ({ menus }) => {
           <li
             key={i}
             className={` single-sidebar-menu 
-              ${item.child ? "item-has-children" : ""}
-              ${activeSubmenu === i ? "open" : ""}
-              ${locationName === item.link ? "menu-item-active" : ""}`}
+              ${item.child ? 'item-has-children' : ''}
+              ${activeSubmenu === i ? 'open' : ''}
+              ${locationName === item.link ? 'menu-item-active' : ''}`}
           >
-            {/* single menu with no childred*/}
+            {/* single menu with no childred */}
             {!item.child && !item.isHeadr && (
               <Link className="menu-link" href={item.link}>
                 <span className="menu-icon flex-grow-0">
@@ -78,8 +78,8 @@ const Navmenu = ({ menus }) => {
               <div
                 className={`menu-link ${
                   activeSubmenu === i
-                    ? "parent_active not-collapsed"
-                    : "collapsed"
+                    ? 'parent_active not-collapsed'
+                    : 'collapsed'
                 }`}
                 onClick={() => toggleSubmenu(i)}
               >
@@ -92,7 +92,7 @@ const Navmenu = ({ menus }) => {
                 <div className="flex-0">
                   <div
                     className={`menu-arrow transform transition-all duration-300 ${
-                      activeSubmenu === i ? " rotate-90" : ""
+                      activeSubmenu === i ? ' rotate-90' : ''
                     }`}
                   >
                     <Icon icon="heroicons-outline:chevron-right" />
@@ -108,15 +108,15 @@ const Navmenu = ({ menus }) => {
                       <span
                         className={`${
                           locationName === subItem.childlink
-                            ? " text-black dark:text-white font-medium"
-                            : "text-slate-600 dark:text-slate-300"
+                            ? ' text-black dark:text-white font-medium'
+                            : 'text-slate-600 dark:text-slate-300'
                         } text-sm flex space-x-3 items-center transition-all duration-150`}
                       >
                         <span
                           className={`${
                             locationName === subItem.childlink
-                              ? " bg-slate-900 dark:bg-slate-300 ring-4 ring-opacity-[15%] ring-black-500 dark:ring-slate-300 dark:ring-opacity-20"
-                              : ""
+                              ? ' bg-slate-900 dark:bg-slate-300 ring-4 ring-opacity-[15%] ring-black-500 dark:ring-slate-300 dark:ring-opacity-20'
+                              : ''
                           } h-2 w-2 rounded-full border border-slate-600 dark:border-white inline-block flex-none`}
                         ></span>
                         <span className="flex-1">{subItem.childtitle}</span>
@@ -142,7 +142,7 @@ const Navmenu = ({ menus }) => {
         </li>
       </ul>
     </>
-  );
-};
+  )
+}
 
-export default Navmenu;
+export default Navmenu

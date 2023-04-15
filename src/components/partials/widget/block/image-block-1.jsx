@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const ImageBlock1 = () => {
   return (
@@ -18,7 +18,7 @@ const ImageBlock1 = () => {
         Now
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ImageBlock1;
+export default ImageBlock1

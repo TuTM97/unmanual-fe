@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
+import { createSlice } from '@reduxjs/toolkit'
+import { v4 as uuidv4 } from 'uuid'
 
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify'
 
 export const appKanbanSlice = createSlice({
-  name: "appkanban",
+  name: 'appkanban',
   initialState: {
     columModal: false,
     taskModal: false,
@@ -17,38 +17,38 @@ export const appKanbanSlice = createSlice({
     columns: [
       {
         id: uuidv4(),
-        name: "To Do",
-        color: "#4669FA",
+        name: 'To Do',
+        color: '#4669FA',
         tasks: [
           {
             id: uuidv4(),
             assignee: [
               {
-                image: "/assets/images/avatar/av-1.svg",
-                title: "Mahedi Amin",
+                image: '/assets/images/avatar/av-1.svg',
+                title: 'Mahedi Amin',
               },
               {
-                image: "/assets/images/avatar/av-2.svg",
-                title: "Sovo Haldar",
+                image: '/assets/images/avatar/av-2.svg',
+                title: 'Sovo Haldar',
               },
               {
-                image: "/assets/images/avatar/av-3.svg",
-                title: "Rakibul Islam",
+                image: '/assets/images/avatar/av-3.svg',
+                title: 'Rakibul Islam',
               },
             ],
-            name: "CRM Dashboard ",
-            des: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
-            startDate: "2022-10-03",
-            endDate: "2022-10-06",
+            name: 'CRM Dashboard ',
+            des: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+            startDate: '2022-10-03',
+            endDate: '2022-10-06',
             progress: 90,
             category: [
               {
-                value: "team",
-                label: "team",
+                value: 'team',
+                label: 'team',
               },
               {
-                value: "low",
-                label: "low",
+                value: 'low',
+                label: 'low',
               },
             ],
           },
@@ -56,31 +56,31 @@ export const appKanbanSlice = createSlice({
             id: uuidv4(),
             assignee: [
               {
-                image: "/assets/images/avatar/av-1.svg",
-                title: "Mahedi Amin",
+                image: '/assets/images/avatar/av-1.svg',
+                title: 'Mahedi Amin',
               },
               {
-                image: "/assets/images/avatar/av-2.svg",
-                title: "Sovo Haldar",
+                image: '/assets/images/avatar/av-2.svg',
+                title: 'Sovo Haldar',
               },
               {
-                image: "/assets/images/avatar/av-3.svg",
-                title: "Rakibul Islam",
+                image: '/assets/images/avatar/av-3.svg',
+                title: 'Rakibul Islam',
               },
             ],
-            name: "Dashcode Example Kanban",
-            des: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
-            startDate: "2022-10-03",
-            endDate: "2022-10-06",
+            name: 'Dashcode Example Kanban',
+            des: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+            startDate: '2022-10-03',
+            endDate: '2022-10-06',
             progress: 55,
             category: [
               {
-                value: "team",
-                label: "team",
+                value: 'team',
+                label: 'team',
               },
               {
-                value: "low",
-                label: "low",
+                value: 'low',
+                label: 'low',
               },
             ],
           },
@@ -88,38 +88,38 @@ export const appKanbanSlice = createSlice({
       },
       {
         id: uuidv4(),
-        name: "In Progress",
-        color: "#FA916B",
+        name: 'In Progress',
+        color: '#FA916B',
         tasks: [
           {
             id: uuidv4(),
             assignee: [
               {
-                image: "/assets/images/avatar/av-1.svg",
-                title: "Mahedi Amin",
+                image: '/assets/images/avatar/av-1.svg',
+                title: 'Mahedi Amin',
               },
               {
-                image: "/assets/images/avatar/av-2.svg",
-                title: "Sovo Haldar",
+                image: '/assets/images/avatar/av-2.svg',
+                title: 'Sovo Haldar',
               },
               {
-                image: "/assets/images/avatar/av-3.svg",
-                title: "Rakibul Islam",
+                image: '/assets/images/avatar/av-3.svg',
+                title: 'Rakibul Islam',
               },
             ],
-            name: "Business Dashboard ",
-            des: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
-            startDate: "2022-10-03",
-            endDate: "2022-10-06",
+            name: 'Business Dashboard ',
+            des: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+            startDate: '2022-10-03',
+            endDate: '2022-10-06',
             progress: 75,
             category: [
               {
-                value: "team",
-                label: "team",
+                value: 'team',
+                label: 'team',
               },
               {
-                value: "low",
-                label: "low",
+                value: 'low',
+                label: 'low',
               },
             ],
           },
@@ -127,38 +127,38 @@ export const appKanbanSlice = createSlice({
       },
       {
         id: uuidv4(),
-        name: "Done",
-        color: "#50C793",
+        name: 'Done',
+        color: '#50C793',
         tasks: [
           {
             id: uuidv4(),
             assignee: [
               {
-                image: "/assets/images/avatar/av-1.svg",
-                title: "Mahedi Amin",
+                image: '/assets/images/avatar/av-1.svg',
+                title: 'Mahedi Amin',
               },
               {
-                image: "/assets/images/avatar/av-2.svg",
-                title: "Sovo Haldar",
+                image: '/assets/images/avatar/av-2.svg',
+                title: 'Sovo Haldar',
               },
               {
-                image: "/assets/images/avatar/av-3.svg",
-                title: "Rakibul Islam",
+                image: '/assets/images/avatar/av-3.svg',
+                title: 'Rakibul Islam',
               },
             ],
-            name: "Management Dashboard ",
-            des: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
-            startDate: "2022-10-03",
-            endDate: "2022-10-06",
+            name: 'Management Dashboard ',
+            des: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+            startDate: '2022-10-03',
+            endDate: '2022-10-06',
             progress: 40,
             category: [
               {
-                value: "team",
-                label: "team",
+                value: 'team',
+                label: 'team',
               },
               {
-                value: "low",
-                label: "low",
+                value: 'low',
+                label: 'low',
               },
             ],
           },
@@ -169,32 +169,32 @@ export const appKanbanSlice = createSlice({
   },
   reducers: {
     sort: (state, action) => {
-      const { source, destination } = action.payload;
+      const { source, destination } = action.payload
       if (source.droppableId !== destination.droppableId) {
         const sourceColumn = state.columns.find(
           (column) => column.id === source.droppableId
-        );
+        )
         const destColumn = state.columns.find(
           (column) => column.id === destination.droppableId
-        );
+        )
 
-        const sourceItems = [...sourceColumn.tasks];
-        const destItems = [...destColumn.tasks];
+        const sourceItems = [...sourceColumn.tasks]
+        const destItems = [...destColumn.tasks]
 
-        const [removed] = sourceItems.splice(source.index, 1);
+        const [removed] = sourceItems.splice(source.index, 1)
 
-        destItems.splice(destination.index, 0, removed);
+        destItems.splice(destination.index, 0, removed)
 
-        sourceColumn.tasks = sourceItems;
-        destColumn.tasks = destItems;
+        sourceColumn.tasks = sourceItems
+        destColumn.tasks = destItems
       } else {
-        const items = state.columns;
-        const [reorderedItem] = items.splice(action.payload.source.index, 1);
-        items.splice(action.payload.destination.index, 0, reorderedItem);
+        const items = state.columns
+        const [reorderedItem] = items.splice(action.payload.source.index, 1)
+        items.splice(action.payload.destination.index, 0, reorderedItem)
       }
     },
     toggleColumnModal: (state, action) => {
-      state.columModal = action.payload;
+      state.columModal = action.payload
     },
     addColumnBoard: (state, action) => {
       state.columns.push({
@@ -202,35 +202,35 @@ export const appKanbanSlice = createSlice({
         name: action.payload.title,
         color: action.payload.color,
         tasks: [],
-      });
+      })
 
-      toast.success("Add Successfully", {
-        position: "top-right",
+      toast.success('Add Successfully', {
+        position: 'top-right',
         autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
-      });
+        theme: 'light',
+      })
     },
     deleteColumnBoard: (state, action) => {
       const index = state.columns.findIndex(
         (column) => column.id === action.payload
-      );
-      state.columns.splice(index, 1);
+      )
+      state.columns.splice(index, 1)
     },
     toggleTaskModal: (state, action) => {
-      const { columnId, open } = action.payload;
-      state.taskModal = open;
-      state.openTaskId = columnId;
+      const { columnId, open } = action.payload
+      state.taskModal = open
+      state.openTaskId = columnId
     },
     addTask: (state, action) => {
       const column = state.columns.find(
         (column) => column.id === state.openTaskId
-      );
-      column.tasks.push(action.payload);
+      )
+      column.tasks.push(action.payload)
     },
     deleteTask: (state, action) => {
       const column = state.columns.find(
@@ -238,30 +238,30 @@ export const appKanbanSlice = createSlice({
           item.tasks.findIndex(
             (innerItem) => innerItem.id === action.payload
           ) !== -1
-      );
+      )
 
       if (column) {
         const index = column.tasks.findIndex(
           (innerItem) => innerItem.id === action.payload
-        );
-        column.tasks.splice(index, 1);
-        toast.warning("Delete Successfully", {
-          position: "top-right",
+        )
+        column.tasks.splice(index, 1)
+        toast.warning('Delete Successfully', {
+          position: 'top-right',
           autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
-        });
+          theme: 'light',
+        })
       }
     },
     // toggleEditModal
     toggleEditModal: (state, action) => {
-      const { task, editModal } = action.payload;
-      state.editModal = editModal;
-      state.editItem = task;
+      const { task, editModal } = action.payload
+      state.editModal = editModal
+      state.editItem = task
     },
     updateTask: (state, action) => {
       // update task
@@ -270,28 +270,28 @@ export const appKanbanSlice = createSlice({
           item.tasks.findIndex(
             (innerItem) => innerItem.id === action.payload.id
           ) !== -1
-      );
+      )
 
       if (column) {
         const index = column.tasks.findIndex(
           (innerItem) => innerItem.id === action.payload.id
-        );
-        column.tasks[index] = action.payload;
+        )
+        column.tasks[index] = action.payload
 
-        toast.info("Edit Successfully", {
-          position: "top-right",
+        toast.info('Edit Successfully', {
+          position: 'top-right',
           autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "dark",
-        });
+          theme: 'dark',
+        })
       }
     },
   },
-});
+})
 
 export const {
   sort,
@@ -303,5 +303,5 @@ export const {
   deleteTask,
   toggleEditModal,
   updateTask,
-} = appKanbanSlice.actions;
-export default appKanbanSlice.reducer;
+} = appKanbanSlice.actions
+export default appKanbanSlice.reducer

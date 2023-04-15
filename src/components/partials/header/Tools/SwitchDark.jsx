@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import Icon from "@/components/ui/Icon";
+import React, { useEffect } from 'react'
+import Icon from '@/components/ui/Icon'
 
-import useDarkMode from "@/hooks/useDarkMode";
+import useDarkMode from '@/hooks/useDarkMode'
 
 const SwitchDark = () => {
-  const [isDark, setDarkMode] = useDarkMode();
+  const [isDark, setDarkMode] = useDarkMode()
 
   return (
     <span>
@@ -19,7 +19,7 @@ const SwitchDark = () => {
         )}
       </div>
     </span>
-  );
-};
+  )
+}
 
-export default SwitchDark;
+export default SwitchDark

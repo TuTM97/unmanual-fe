@@ -1,74 +1,74 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import Card from "@/components/ui/Card";
-import Radio from "@/components/ui/Radio";
+import React, { useState } from 'react'
+import Card from '@/components/ui/Card'
+import Radio from '@/components/ui/Radio'
 
 const RadioPage = () => {
-  const [value, setValue] = useState("A");
-  const [value2, setValue2] = useState("C");
-  const [selectColor, setSelectColor] = useState("primary-500");
-  const [selectOption, setSelectOption] = useState("Orange");
+  const [value, setValue] = useState('A')
+  const [value2, setValue2] = useState('C')
+  const [selectColor, setSelectColor] = useState('primary-500')
+  const [selectOption, setSelectOption] = useState('Orange')
   const handleChange = (e) => {
-    setValue(e.target.value);
-  };
+    setValue(e.target.value)
+  }
   const handleChange2 = (e) => {
-    setValue2(e.target.value);
-  };
+    setValue2(e.target.value)
+  }
 
   const handleColor = (e) => {
-    setSelectColor(e.target.value);
-  };
+    setSelectColor(e.target.value)
+  }
   const handleOption = (e) => {
-    setSelectOption(e.target.value);
-  };
+    setSelectOption(e.target.value)
+  }
   const options = [
     {
-      value: "Orange",
-      label: "Orange",
+      value: 'Orange',
+      label: 'Orange',
     },
     {
-      value: "Apple",
-      label: "Apple",
+      value: 'Apple',
+      label: 'Apple',
     },
     {
-      value: "Banana",
-      label: "Banana",
+      value: 'Banana',
+      label: 'Banana',
     },
-  ];
+  ]
 
   const colors = [
     {
-      value: "primary-500",
-      label: "Primary",
-      activeClass: "ring-primary-500 border-primary-500",
+      value: 'primary-500',
+      label: 'Primary',
+      activeClass: 'ring-primary-500 border-primary-500',
     },
     {
-      value: "secondary-500",
-      label: "Secondary",
-      activeClass: "ring-secondary-500 border-secondary-500",
+      value: 'secondary-500',
+      label: 'Secondary',
+      activeClass: 'ring-secondary-500 border-secondary-500',
     },
     {
-      value: "success-500",
-      label: "Success",
-      activeClass: "ring-success-500 border-success-500",
+      value: 'success-500',
+      label: 'Success',
+      activeClass: 'ring-success-500 border-success-500',
     },
     {
-      value: "danger-500",
-      label: "Danger",
-      activeClass: "ring-danger-500 border-danger-500",
+      value: 'danger-500',
+      label: 'Danger',
+      activeClass: 'ring-danger-500 border-danger-500',
     },
     {
-      value: "warning-500",
-      label: "Warning",
-      activeClass: "ring-warning-500 border-warning-500",
+      value: 'warning-500',
+      label: 'Warning',
+      activeClass: 'ring-warning-500 border-warning-500',
     },
     {
-      value: "info-500",
-      label: "Info",
-      activeClass: "ring-info-500 border-info-500",
+      value: 'info-500',
+      label: 'Info',
+      activeClass: 'ring-info-500 border-info-500',
     },
-  ];
+  ]
   return (
     <div className="space-y-5">
       <Card title="Basic Radio Buttons">
@@ -77,14 +77,14 @@ const RadioPage = () => {
             label="Checked"
             name="x"
             value="A"
-            checked={value === "A"}
+            checked={value === 'A'}
             onChange={handleChange}
           />
           <Radio
             label="UnChecked"
             name="x"
             value="B"
-            checked={value === "B"}
+            checked={value === 'B'}
             onChange={handleChange}
           />
           <Radio
@@ -92,7 +92,7 @@ const RadioPage = () => {
             disabled
             name="x2"
             value="C"
-            checked={value2 === "C"}
+            checked={value2 === 'C'}
             onChange={handleChange2}
           />
           <Radio
@@ -100,7 +100,7 @@ const RadioPage = () => {
             name="x2"
             disabled
             value="D"
-            checked={value2 === "D"}
+            checked={value2 === 'D'}
             onChange={handleChange2}
           />
         </div>
@@ -142,7 +142,7 @@ const RadioPage = () => {
         )}
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default RadioPage;
+export default RadioPage

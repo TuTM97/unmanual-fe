@@ -1,128 +1,135 @@
-"use client";
+'use client'
 
-import React, { useEffect, useState } from "react";
-import Card from "@/components/ui/Card";
-import Icon from "@/components/ui/Icon";
+import React, { useEffect, useState } from 'react'
+import Card from '@/components/ui/Card'
+import Icon from '@/components/ui/Icon'
 
-import Button from "@/components/ui/Button";
-import SimpleBar from "simplebar-react";
-import { useSelector, useDispatch } from "react-redux";
+import Button from '@/components/ui/Button'
+import SimpleBar from 'simplebar-react'
+import { useSelector, useDispatch } from 'react-redux'
 import {
   openAddModal,
   setFilter,
   setSearch,
   toggleMobileTodoSidebar,
-} from "@/components/partials/app/todo/store";
-import Todos from "@/components/partials/app/todo/Todos";
-import AddTodo from "@/components/partials/app/todo/AddTodo";
-import { ToastContainer } from "react-toastify";
-import EditTodoModal from "@/components/partials/app/todo/EditTodo";
-import Topfilter from "@/components/partials/app/todo/Topfilter";
-import BottomFilter from "@/components/partials/app/todo/BottomFilter";
-import ListLoading from "@/components/skeleton/ListLoading";
-import Badge from "@/components/ui/Badge";
-import TodoHeader from "@/components/partials/app/todo/TodoHeader";
-import useWidth from "@/hooks/useWidth";
+} from '@/components/partials/app/todo/store'
+import Todos from '@/components/partials/app/todo/Todos'
+import AddTodo from '@/components/partials/app/todo/AddTodo'
+import { ToastContainer } from 'react-toastify'
+import EditTodoModal from '@/components/partials/app/todo/EditTodo'
+import Topfilter from '@/components/partials/app/todo/Topfilter'
+import BottomFilter from '@/components/partials/app/todo/BottomFilter'
+import ListLoading from '@/components/skeleton/ListLoading'
+import Badge from '@/components/ui/Badge'
+import TodoHeader from '@/components/partials/app/todo/TodoHeader'
+import useWidth from '@/hooks/useWidth'
 
 const topfilterList = [
   {
-    value: "all",
-    name: "My Task",
-    icon: "uil:image-v",
+    value: 'all',
+    name: 'My Task',
+    icon: 'uil:image-v',
   },
   {
-    value: "fav",
-    name: "Starred",
-    icon: "heroicons:star",
+    value: 'fav',
+    name: 'Starred',
+    icon: 'heroicons:star',
   },
   {
-    value: "done",
-    name: "Completed",
-    icon: "heroicons:document-check",
+    value: 'done',
+    name: 'Completed',
+    icon: 'heroicons:document-check',
   },
   {
-    value: "trash",
-    name: "Trash",
-    icon: "heroicons:trash",
+    value: 'trash',
+    name: 'Trash',
+    icon: 'heroicons:trash',
   },
-];
+]
 
 const bottomfilterList = [
   {
-    name: "Team",
-    value: "team",
+    name: 'Team',
+    value: 'team',
   },
   {
-    name: "low",
-    value: "low",
+    name: 'low',
+    value: 'low',
   },
   {
-    name: "medium",
-    value: "medium",
+    name: 'medium',
+    value: 'medium',
   },
   {
-    name: "high",
-    value: "high",
+    name: 'high',
+    value: 'high',
   },
   {
-    name: "update",
-    value: "update",
+    name: 'update',
+    value: 'update',
   },
-];
+]
 
 const TodoPage = () => {
   const { todos, editModal, filter, todoSearch, mobileTodoSidebar } =
-    useSelector((state) => state.todo);
-  const { width, breakpoints } = useWidth();
-  const dispatch = useDispatch();
+    useSelector((state) => state.todo)
+  const { width, breakpoints } = useWidth()
+  const dispatch = useDispatch()
 
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false)
 
   const filteredTodos = todos
     // search filteredTodos
     .filter((todo) => {
       // filter based on searchTerm
       if (todoSearch) {
-        return todo.title.toLowerCase().includes(todoSearch.toLowerCase());
+        return todo.title.toLowerCase().includes(todoSearch.toLowerCase())
       }
-      return true;
+      return true
     })
     .filter((todo) => {
-      if (filter === "all") {
-        return todo;
-      } else if (filter === "fav") {
-        return todo.isfav;
-      } else if (filter === "done") {
-        return todo.isDone;
-      } else if (filter === "team") {
-        return todo.category.some((cat) => cat.value === "team");
-      } else if (filter === "low") {
-        return todo.category.some((cat) => cat.value === "low");
-      } else if (filter === "medium") {
-        return todo.category.some((cat) => cat.value === "medium");
-      } else if (filter === "high") {
-        return todo.category.some((cat) => cat.value === "high");
-      } else if (filter === "update") {
-        return todo.category.some((cat) => cat.value === "update");
+      if (filter === 'all') {
+        return todo
       }
-    });
+      if (filter === 'fav') {
+        return todo.isfav
+      }
+      if (filter === 'done') {
+        return todo.isDone
+      }
+      if (filter === 'team') {
+        return todo.category.some((cat) => cat.value === 'team')
+      }
+      if (filter === 'low') {
+        return todo.category.some((cat) => cat.value === 'low')
+      }
+      if (filter === 'medium') {
+        return todo.category.some((cat) => cat.value === 'medium')
+      }
+      if (filter === 'high') {
+        return todo.category.some((cat) => cat.value === 'high')
+      }
+      if (filter === 'update') {
+        return todo.category.some((cat) => cat.value === 'update')
+      }
+    })
 
   // search filteredTodos
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
     setTimeout(() => {
-      setLoading(false);
-    }, 500);
+      setLoading(false)
+    }, 500)
 
     if (width < breakpoints.lg && mobileTodoSidebar) {
-      dispatch(toggleMobileTodoSidebar(false));
+      dispatch(toggleMobileTodoSidebar(false))
     }
-  }, [filter]);
+  }, [filter])
 
   const handleFilter = (filter) => {
-    dispatch(setFilter(filter));
-  };
+    dispatch(setFilter(filter))
+  }
 
   return (
     <>
@@ -133,13 +140,13 @@ const TodoPage = () => {
           className={`transition-all duration-150 flex-none min-w-[260px] 
         ${
           width < breakpoints.lg
-            ? "absolute h-full top-0 md:w-[260px] w-[200px] z-[999]"
-            : "flex-none min-w-[260px]"
+            ? 'absolute h-full top-0 md:w-[260px] w-[200px] z-[999]'
+            : 'flex-none min-w-[260px]'
         }
         ${
           width < breakpoints.lg && mobileTodoSidebar
-            ? "left-0 "
-            : "-left-full "
+            ? 'left-0 '
+            : '-left-full '
         }
         `}
         >
@@ -223,7 +230,7 @@ const TodoPage = () => {
       <AddTodo />
       <EditTodoModal />
     </>
-  );
-};
+  )
+}
 
-export default TodoPage;
+export default TodoPage

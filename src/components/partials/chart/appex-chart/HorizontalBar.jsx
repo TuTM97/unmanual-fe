@@ -1,23 +1,24 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const ColumnChart = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   const series = [
     {
-      name: "Net Profit",
+      name: 'Net Profit',
       data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
     },
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
     },
     {
-      name: "Free Cash Flow",
+      name: 'Free Cash Flow',
       data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
     },
-  ];
+  ]
   const options = {
     chart: {
       toolbar: {
@@ -27,8 +28,8 @@ const ColumnChart = () => {
     plotOptions: {
       bar: {
         horizontal: false,
-        endingShape: "rounded",
-        columnWidth: "55%",
+        endingShape: 'rounded',
+        columnWidth: '55%',
       },
     },
     dataLabels: {
@@ -37,30 +38,30 @@ const ColumnChart = () => {
     stroke: {
       show: true,
       width: 10,
-      colors: ["transparent"],
+      colors: ['transparent'],
     },
     legend: {
       labels: {
-        colors: isDark ? "#CBD5E1" : "#475569",
+        colors: isDark ? '#CBD5E1' : '#475569',
       },
     },
 
     xaxis: {
       categories: [
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
       ],
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
       axisBorder: {
@@ -72,12 +73,12 @@ const ColumnChart = () => {
     },
     yaxis: {
       title: {
-        text: "$ (thousands)",
+        text: '$ (thousands)',
       },
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
@@ -86,24 +87,30 @@ const ColumnChart = () => {
     },
     tooltip: {
       y: {
-        formatter: function (val) {
-          return "$ " + val + " thousands";
+        formatter(val) {
+          return `$ ${val} thousands`
         },
       },
     },
 
     grid: {
       show: true,
-      borderColor: isDark ? "#334155" : "#e2e8f0",
-      position: "back",
+      borderColor: isDark ? '#334155' : '#e2e8f0',
+      position: 'back',
     },
-    colors: ["#4669FA", "#0CE7FA", "#FA916B"],
-  };
+    colors: ['#4669FA', '#0CE7FA', '#FA916B'],
+  }
   return (
     <div>
-      <Chart options={options} series={series} type="bar" height="350" width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="bar"
+        height="350"
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default ColumnChart;
+export default ColumnChart

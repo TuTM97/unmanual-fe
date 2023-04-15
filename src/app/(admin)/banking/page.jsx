@@ -1,51 +1,52 @@
-"use client";
-import React, { useState } from "react";
-import dynamic from "next/dynamic";
-import Card from "@/components/ui/Card";
-import Textinput from "@/components/ui/Textinput";
-import GroupChart5 from "@/components/partials/widget/chart/group-chart5";
-import Link from "next/link";
-import SimpleBar from "simplebar-react";
-import HistoryChart from "@/components/partials/widget/chart/history-chart";
-import AccountReceivable from "@/components/partials/widget/chart/account-receivable";
-import AccountPayable from "@/components/partials/widget/chart/account-payable";
+'use client'
+
+import React, { useState } from 'react'
+import dynamic from 'next/dynamic'
+import Card from '@/components/ui/Card'
+import Textinput from '@/components/ui/Textinput'
+import GroupChart5 from '@/components/partials/widget/chart/group-chart5'
+import Link from 'next/link'
+import SimpleBar from 'simplebar-react'
+import HistoryChart from '@/components/partials/widget/chart/history-chart'
+import AccountReceivable from '@/components/partials/widget/chart/account-receivable'
+import AccountPayable from '@/components/partials/widget/chart/account-payable'
+import TransactionsTable from '@/components/partials/table/transactions'
+import SelectMonth from '@/components/partials/SelectMonth'
+import HomeBredCurbs from '@/components/partials/HomeBredCurbs'
 
 const CardSlider = dynamic(
-  () => import("@/components/partials/widget/CardSlider"),
+  () => import('@/components/partials/widget/CardSlider'),
   {
     ssr: false,
   }
-);
-import TransactionsTable from "@/components/partials/table/transactions";
-import SelectMonth from "@/components/partials/SelectMonth";
-import HomeBredCurbs from "@/components/partials/HomeBredCurbs";
+)
 
 const users = [
   {
-    name: "Ab",
+    name: 'Ab',
   },
   {
-    name: "Bc",
+    name: 'Bc',
   },
   {
-    name: "Cd",
+    name: 'Cd',
   },
   {
-    name: "Df",
+    name: 'Df',
   },
   {
-    name: "Ab",
+    name: 'Ab',
   },
   {
-    name: "Sd",
+    name: 'Sd',
   },
   {
-    name: "Sg",
+    name: 'Sg',
   },
-];
+]
 
 const BankingPage = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0)
   return (
     <div className="space-y-5">
       <HomeBredCurbs title="Banking" />
@@ -102,8 +103,8 @@ const BankingPage = () => {
                         className={` h-[42px] w-[42px] cursor-pointer text-xl font-medium capitalize flex-none rounded-full bg-primary-500 text-white flex flex-col items-center justify-center
                      ${
                        activeIndex === i
-                         ? "ring-2 ring-primary-500 ring-offset-2 "
-                         : ""
+                         ? 'ring-2 ring-primary-500 ring-offset-2 '
+                         : ''
                      }
                       `}
                       >
@@ -179,7 +180,7 @@ const BankingPage = () => {
         </Card>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BankingPage;
+export default BankingPage

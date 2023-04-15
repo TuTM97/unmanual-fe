@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 const BalnkPage = () => {
   return (
@@ -7,7 +7,7 @@ const BalnkPage = () => {
         Blank Page
       </h4>
     </div>
-  );
-};
+  )
+}
 
-export default BalnkPage;
+export default BalnkPage

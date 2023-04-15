@@ -1,26 +1,26 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards } from "swiper";
-import "swiper/css";
-import "swiper/css/effect-cards";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { EffectCards } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/effect-cards'
 
 const cardLists = [
   {
-    bg: "from-[#1EABEC] to-primary-500 ",
-    cardNo: "****  ****  **** 3945",
+    bg: 'from-[#1EABEC] to-primary-500 ',
+    cardNo: '****  ****  **** 3945',
   },
   {
-    bg: "from-[#4C33F7] to-[#801FE0] ",
-    cardNo: "****  ****  **** 3945",
+    bg: 'from-[#4C33F7] to-[#801FE0] ',
+    cardNo: '****  ****  **** 3945',
   },
   {
-    bg: "from-[#FF9838] to-[#008773]",
-    cardNo: "****  ****  **** 3945",
+    bg: 'from-[#FF9838] to-[#008773]',
+    cardNo: '****  ****  **** 3945',
   },
-];
+]
 const CardSlider = () => {
   return (
     <div className=" relative">
-      <Swiper effect={"cards"} grabCursor={true} modules={[EffectCards]}>
+      <Swiper effect={'cards'} grabCursor={true} modules={[EffectCards]}>
         {cardLists.map((item, i) => (
           <SwiperSlide key={i}>
             <div
@@ -46,7 +46,7 @@ const CardSlider = () => {
         ))}
       </Swiper>
     </div>
-  );
-};
+  )
+}
 
-export default CardSlider;
+export default CardSlider

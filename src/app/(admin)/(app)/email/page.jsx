@@ -1,113 +1,117 @@
-"use client";
+'use client'
 
-import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-import { topFilterLists, bottomFilterLists } from "@/constant/data";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
-import SimpleBar from "simplebar-react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
+import { topFilterLists, bottomFilterLists } from '@/constant/data'
+import Card from '@/components/ui/Card'
+import Button from '@/components/ui/Button'
+import SimpleBar from 'simplebar-react'
+import { useSelector, useDispatch } from 'react-redux'
 import {
   toggleMobileEmailSidebar,
   toggleEmailModal,
   setFilter,
   setSearch,
-} from "@/components/partials/app/email/store";
-import { ToastContainer } from "react-toastify";
-import Badge from "@/components/ui/Badge";
-import useWidth from "@/hooks/useWidth";
+} from '@/components/partials/app/email/store'
+import { ToastContainer } from 'react-toastify'
+import Badge from '@/components/ui/Badge'
+import useWidth from '@/hooks/useWidth'
+
 const ComposeEmail = dynamic(
-  () => import("@/components/partials/app/email/ComposeEmail"),
+  () => import('@/components/partials/app/email/ComposeEmail'),
   {
     ssr: false,
   }
-);
-const Emails = dynamic(() => import("@/components/partials/app/email/Emails"), {
+)
+const Emails = dynamic(() => import('@/components/partials/app/email/Emails'), {
   ssr: false,
-});
-const ListLoading = dynamic(() => import("@/components/skeleton/ListLoading"), {
+})
+const ListLoading = dynamic(() => import('@/components/skeleton/ListLoading'), {
   ssr: false,
-});
+})
 
 const Topfilter = dynamic(
-  () => import("@/components/partials/app/email/Topfilter"),
+  () => import('@/components/partials/app/email/Topfilter'),
   {
     ssr: false,
   }
-);
+)
 
 const BottomFilter = dynamic(
-  () => import("@/components/partials/app/email/BottomFilter"),
+  () => import('@/components/partials/app/email/BottomFilter'),
   {
     ssr: false,
   }
-);
+)
 
 const EmailHeader = dynamic(
-  () => import("@/components/partials/app/email/EmailHeader"),
+  () => import('@/components/partials/app/email/EmailHeader'),
   {
     ssr: false,
   }
-);
+)
 const EmailDetails = dynamic(
-  () => import("@/components/partials/app/email/EmailDetails"),
+  () => import('@/components/partials/app/email/EmailDetails'),
   {
     ssr: false,
   }
-);
+)
 
 const EmailPage = () => {
-  const { width, breakpoints } = useWidth();
-  const dispatch = useDispatch();
+  const { width, breakpoints } = useWidth()
+  const dispatch = useDispatch()
 
   const { mobileEmailSidebar, emails, search, filter, singleModal } =
-    useSelector((state) => state.email);
+    useSelector((state) => state.email)
 
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false)
   const filteredEmails = emails
     .filter((email) => {
       if (search) {
-        return email.title.toLowerCase().includes(search.toLowerCase());
+        return email.title.toLowerCase().includes(search.toLowerCase())
       }
-      return true;
+      return true
     })
     .filter((email) => {
-      if (filter === "all") {
-        return email;
-      } else if (filter === "fav") {
-        return email.isfav;
-      } else if (filter === "sent") {
-        return email.sent;
-      } else if (filter === "personal") {
-        return email.personal;
-      } else if (filter === "business") {
-        return email.business;
-      } else if (filter === "drafts") {
-        return email.draft;
-      } else if (
-        filter === "spam" ||
-        filter === "social" ||
-        filter === "promotions"
-      ) {
-        return email.isspam;
-      } else if (filter === "trash") {
-        return email.isdelate;
+      if (filter === 'all') {
+        return email
       }
-    });
+      if (filter === 'fav') {
+        return email.isfav
+      }
+      if (filter === 'sent') {
+        return email.sent
+      }
+      if (filter === 'personal') {
+        return email.personal
+      }
+      if (filter === 'business') {
+        return email.business
+      }
+      if (filter === 'drafts') {
+        return email.draft
+      }
+      if (filter === 'spam' || filter === 'social' || filter === 'promotions') {
+        return email.isspam
+      }
+      if (filter === 'trash') {
+        return email.isdelate
+      }
+    })
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
     setTimeout(() => {
-      setLoading(false);
-    }, 500);
+      setLoading(false)
+    }, 500)
     if (width < breakpoints.lg && mobileEmailSidebar) {
-      dispatch(toggleMobileEmailSidebar(false));
+      dispatch(toggleMobileEmailSidebar(false))
     }
-  }, [filter, breakpoints.lg]);
+  }, [filter, breakpoints.lg])
 
   const handleFilter = (filter) => {
-    dispatch(setFilter(filter));
-  };
+    dispatch(setFilter(filter))
+  }
 
   return (
     <>
@@ -118,13 +122,13 @@ const EmailPage = () => {
           className={`transition-all duration-150 flex-none min-w-[260px] 
         ${
           width < breakpoints.lg
-            ? "absolute h-full top-0 md:w-[260px] w-[200px] z-[999]"
-            : "flex-none min-w-[260px]"
+            ? 'absolute h-full top-0 md:w-[260px] w-[200px] z-[999]'
+            : 'flex-none min-w-[260px]'
         }
         ${
           width < breakpoints.lg && mobileEmailSidebar
-            ? "left-0 "
-            : "-left-full "
+            ? 'left-0 '
+            : '-left-full '
         }
         `}
         >
@@ -205,7 +209,7 @@ const EmailPage = () => {
       </div>
       <ComposeEmail />
     </>
-  );
-};
+  )
+}
 
-export default EmailPage;
+export default EmailPage

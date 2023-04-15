@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { useDropzone } from "react-dropzone";
+import React, { useState } from 'react'
+import { useDropzone } from 'react-dropzone'
 
 const DropZone = () => {
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState([])
   const { getRootProps, getInputProps, isDragAccept } = useDropzone({
     accept: {
-      "image/*": [],
+      'image/*': [],
     },
     onDrop: (acceptedFiles) => {
       setFiles(
@@ -14,14 +14,14 @@ const DropZone = () => {
             preview: URL.createObjectURL(file),
           })
         )
-      );
+      )
     },
-  });
+  })
   return (
     <div>
       <div className="w-full text-center border-dashed border border-secondary-500 rounded-md py-[52px] flex flex-col justify-center items-center">
         {files.length === 0 && (
-          <div {...getRootProps({ className: "dropzone" })}>
+          <div {...getRootProps({ className: 'dropzone' })}>
             <input className="hidden" {...getInputProps()} />
             <img
               src="/assets/images/svg/upload.svg"
@@ -48,7 +48,7 @@ const DropZone = () => {
                   alt=""
                   className=" object-contain h-full w-full block rounded-md"
                   onLoad={() => {
-                    URL.revokeObjectURL(file.preview);
+                    URL.revokeObjectURL(file.preview)
                   }}
                 />
               </div>
@@ -57,7 +57,7 @@ const DropZone = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DropZone;
+export default DropZone

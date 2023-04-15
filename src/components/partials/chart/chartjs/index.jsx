@@ -1,11 +1,11 @@
-import React from "react";
-import Card from "@/components/ui/Card";
-import BarChart from "./Bar";
-import HorizontalBar from "./HorizontalBar";
-import BarStacked from "./BarStacked";
-import LineChart from "./LineChart";
-import RadarChart from "./RadarChart";
-import PollerAreaChart from "./PollerAreaChart";
+import React from 'react'
+import Card from '@/components/ui/Card'
+import BarChart from './Bar'
+import HorizontalBar from './HorizontalBar'
+import BarStacked from './BarStacked'
+import LineChart from './LineChart'
+import RadarChart from './RadarChart'
+import PollerAreaChart from './PollerAreaChart'
 
 const ChartJs = () => {
   return (
@@ -29,7 +29,7 @@ const ChartJs = () => {
         <PollerAreaChart />
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default ChartJs;
+export default ChartJs

@@ -1,5 +1,5 @@
-import React from "react";
-import Icon from "@/components/ui/Icon";
+import React from 'react'
+import Icon from '@/components/ui/Icon'
 
 const Swicth = ({
   prevIcon,
@@ -9,9 +9,9 @@ const Swicth = ({
   disabled,
   value,
   onChange,
-  activeClass = "bg-slate-900 dark:bg-slate-900",
-  wrapperClass = " ",
-  labelClass = "text-slate-500 dark:text-slate-400 text-sm leading-6",
+  activeClass = 'bg-slate-900 dark:bg-slate-900',
+  wrapperClass = ' ',
+  labelClass = 'text-slate-500 dark:text-slate-400 text-sm leading-6',
   badge,
 }) => {
   return (
@@ -19,10 +19,8 @@ const Swicth = ({
       <label
         className={
           `flex items-center ${
-            disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer "
-          }` +
-          "" +
-          wrapperClass
+            disabled ? ' cursor-not-allowed opacity-50' : 'cursor-pointer '
+          }` + `${wrapperClass}`
         }
         id={id}
       >
@@ -36,7 +34,7 @@ const Swicth = ({
         />
         <div
           className={`relative inline-flex h-6 w-[46px] ltr:mr-3 rtl:ml-3 items-center rounded-full transition-all duration-150
-          ${value ? activeClass : "bg-secondary-500"}
+          ${value ? activeClass : 'bg-secondary-500'}
           `}
         >
           {badge && value && (
@@ -62,8 +60,8 @@ const Swicth = ({
             className={`inline-block h-5 w-5 transform rounded-full bg-white transition-all duration-150 
           ${
             value
-              ? "ltr:translate-x-6 rtl:-translate-x-6"
-              : "ltr:translate-x-[2px] rtl:-translate-x-[2px]"
+              ? 'ltr:translate-x-6 rtl:-translate-x-6'
+              : 'ltr:translate-x-[2px] rtl:-translate-x-[2px]'
           }
           `}
           />
@@ -71,7 +69,7 @@ const Swicth = ({
         {label && <span className={labelClass}>{label}</span>}
       </label>
     </div>
-  );
-};
+  )
+}
 
-export default Swicth;
+export default Swicth

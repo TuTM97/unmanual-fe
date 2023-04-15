@@ -1,23 +1,23 @@
-import React from "react";
-import Card from "@/components/ui/Card";
-import Textinput from "@/components/ui/Textinput";
-import Icon from "@/components/ui/Icon";
-import Button from "@/components/ui/Button";
-import { useForm, useFieldArray } from "react-hook-form";
+import React from 'react'
+import Card from '@/components/ui/Card'
+import Textinput from '@/components/ui/Textinput'
+import Icon from '@/components/ui/Icon'
+import Button from '@/components/ui/Button'
+import { useForm, useFieldArray } from 'react-hook-form'
 
 const Repeater = () => {
   const { register, control, handleSubmit, reset, trigger, setError } = useForm(
     {
       defaultValues: {
-        test: [{ firstName: "Bill", lastName: "Luo", phone: "123456" }],
+        test: [{ firstName: 'Bill', lastName: 'Luo', phone: '123456' }],
       },
     }
-  );
+  )
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "test",
-  });
-  const index = 1;
+    name: 'test',
+  })
+  const index = 1
   return (
     <div>
       <div className="bg-slate-50 dark:bg-slate-800 -mx-6 px-6 py-6">
@@ -87,7 +87,7 @@ const Repeater = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Repeater;
+export default Repeater

@@ -1,50 +1,50 @@
-import React, { useState } from "react";
-import Checkbox from "@/components/ui/Checkbox";
-import Icon from "@/components/ui/Icon";
+import React, { useState } from 'react'
+import Checkbox from '@/components/ui/Checkbox'
+import Icon from '@/components/ui/Icon'
 
 const TaskLists = () => {
   const [lists, setLists] = useState([
     {
       id: 1,
-      image: "/assets/images/users/user-1.jpg",
-      title: "Amet minim mollit non deserunt ullam.",
+      image: '/assets/images/users/user-1.jpg',
+      title: 'Amet minim mollit non deserunt ullam.',
       isDone: false,
     },
     {
       id: 2,
-      image: "/assets/images/users/user-2.jpg",
-      title: "Amet minim mollit non deserunt ullam.",
+      image: '/assets/images/users/user-2.jpg',
+      title: 'Amet minim mollit non deserunt ullam.',
       isDone: false,
     },
     {
       id: 3,
-      image: "/assets/images/users/user-3.jpg",
-      title: "Amet minim mollit non deserunt ullam.",
+      image: '/assets/images/users/user-3.jpg',
+      title: 'Amet minim mollit non deserunt ullam.',
       isDone: false,
     },
     {
       id: 4,
-      image: "/assets/images/users/user-4.jpg",
-      title: "Amet minim mollit non deserunt ullam.",
+      image: '/assets/images/users/user-4.jpg',
+      title: 'Amet minim mollit non deserunt ullam.',
       isDone: false,
     },
     {
       id: 5,
-      image: "/assets/images/users/user-5.jpg",
-      title: "Amet minim mollit non deserunt ullam.",
+      image: '/assets/images/users/user-5.jpg',
+      title: 'Amet minim mollit non deserunt ullam.',
       isDone: false,
     },
     {
       id: 6,
-      image: "/assets/images/users/user-6.jpg",
-      title: "Amet minim mollit non deserunt ullam.",
+      image: '/assets/images/users/user-6.jpg',
+      title: 'Amet minim mollit non deserunt ullam.',
       isDone: false,
     },
-  ]);
+  ])
 
   const deleteItem = (id) => {
-    setLists(lists.filter((item) => item.id !== id));
-  };
+    setLists(lists.filter((item) => item.id !== id))
+  }
 
   return (
     <div>
@@ -64,12 +64,12 @@ const TaskLists = () => {
                         ? { ...list, isDone: !list.isDone }
                         : list
                     )
-                  );
+                  )
                 }}
               />
               <div
                 className={`${
-                  item.isDone ? " opacity-20" : " opacity-100"
+                  item.isDone ? ' opacity-20' : ' opacity-100'
                 }  h-8 w-8 rounded-full text-white`}
               >
                 <img
@@ -81,11 +81,11 @@ const TaskLists = () => {
             </div>
             <div
               className={`flex-1 flex  ${
-                item.isDone ? "line-through dark:text-white" : ""
+                item.isDone ? 'line-through dark:text-white' : ''
               }`}
             >
               <span className="flex-1 text-sm text-slate-600 dark:text-slate-300">
-                {item.title.slice(0, 20) + "..."}
+                {`${item.title.slice(0, 20)}...`}
               </span>
               <span className="flex-none space-x-2 text-base text-secondary-500 rtl:space-x-reverse">
                 {item.isDone === false && (
@@ -106,7 +106,7 @@ const TaskLists = () => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default TaskLists;
+export default TaskLists

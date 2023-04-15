@@ -1,82 +1,82 @@
-import React, { useState } from "react";
-import Select, { components } from "react-select";
-import Modal from "@/components/ui/Modal";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleTaskModal, addTask } from "./store";
-import Textinput from "@/components/ui/Textinput";
-import Textarea from "@/components/ui/Textarea";
-import Flatpickr from "react-flatpickr";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { v4 as uuidv4 } from "uuid";
-import FormGroup from "@/components/ui/FormGroup";
+import React, { useState } from 'react'
+import Select, { components } from 'react-select'
+import Modal from '@/components/ui/Modal'
+import { useSelector, useDispatch } from 'react-redux'
+import Textinput from '@/components/ui/Textinput'
+import Textarea from '@/components/ui/Textarea'
+import Flatpickr from 'react-flatpickr'
+import { useForm, Controller } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import { v4 as uuidv4 } from 'uuid'
+import FormGroup from '@/components/ui/FormGroup'
+import { toggleTaskModal, addTask } from './store'
 
 const styles = {
   multiValue: (base, state) => {
-    return state.data.isFixed ? { ...base, opacity: "0.5" } : base;
+    return state.data.isFixed ? { ...base, opacity: '0.5' } : base
   },
   multiValueLabel: (base, state) => {
     return state.data.isFixed
-      ? { ...base, color: "#626262", paddingRight: 6 }
-      : base;
+      ? { ...base, color: '#626262', paddingRight: 6 }
+      : base
   },
   multiValueRemove: (base, state) => {
-    return state.data.isFixed ? { ...base, display: "none" } : base;
+    return state.data.isFixed ? { ...base, display: 'none' } : base
   },
   option: (provided, state) => ({
     ...provided,
-    fontSize: "14px",
+    fontSize: '14px',
   }),
-};
+}
 
 const assigneeOptions = [
   {
-    value: "mahedi",
-    label: "Mahedi Amin",
-    image: "/assets/images/avatar/av-1.svg",
+    value: 'mahedi',
+    label: 'Mahedi Amin',
+    image: '/assets/images/avatar/av-1.svg',
   },
   {
-    value: "sovo",
-    label: "Sovo Haldar",
-    image: "/assets/images/avatar/av-2.svg",
+    value: 'sovo',
+    label: 'Sovo Haldar',
+    image: '/assets/images/avatar/av-2.svg',
   },
   {
-    value: "rakibul",
-    label: "Rakibul Islam",
-    image: "/assets/images/avatar/av-3.svg",
+    value: 'rakibul',
+    label: 'Rakibul Islam',
+    image: '/assets/images/avatar/av-3.svg',
   },
   {
-    value: "pritom",
-    label: "Pritom Miha",
-    image: "/assets/images/avatar/av-4.svg",
+    value: 'pritom',
+    label: 'Pritom Miha',
+    image: '/assets/images/avatar/av-4.svg',
   },
-];
+]
 const options = [
   {
-    value: "team",
-    label: "team",
+    value: 'team',
+    label: 'team',
   },
   {
-    value: "low",
-    label: "low",
+    value: 'low',
+    label: 'low',
   },
   {
-    value: "medium",
-    label: "medium",
+    value: 'medium',
+    label: 'medium',
   },
   {
-    value: "high",
-    label: "high",
+    value: 'high',
+    label: 'high',
   },
   {
-    value: "update",
-    label: "update",
+    value: 'update',
+    label: 'update',
   },
-];
+]
 
 const OptionComponent = ({ data, ...props }) => {
-  //const Icon = data.icon;
+  // const Icon = data.icon;
 
   return (
     <components.Option {...props}>
@@ -93,30 +93,30 @@ const OptionComponent = ({ data, ...props }) => {
         <span className="flex-1">{data.label}</span>
       </span>
     </components.Option>
-  );
-};
+  )
+}
 
 const AddTaskModal = () => {
-  const { taskModal } = useSelector((state) => state.kanban);
-  const dispatch = useDispatch();
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const { taskModal } = useSelector((state) => state.kanban)
+  const dispatch = useDispatch()
+  const [startDate, setStartDate] = useState(new Date())
+  const [endDate, setEndDate] = useState(new Date())
 
   const FormValidationSchema = yup
     .object({
-      title: yup.string().required("Title is required"),
-      assign: yup.mixed().required("Assignee is required"),
-      tags: yup.mixed().required("Tag is required"),
+      title: yup.string().required('Title is required'),
+      assign: yup.mixed().required('Assignee is required'),
+      tags: yup.mixed().required('Tag is required'),
       startDate: yup
         .date()
-        .required("Start date is required")
-        .min(new Date(), "Start date must be greater than today"),
+        .required('Start date is required')
+        .min(new Date(), 'Start date must be greater than today'),
       endDate: yup
         .date()
-        .required("End date is required")
-        .min(new Date(), "End date must be greater than today"),
+        .required('End date is required')
+        .min(new Date(), 'End date must be greater than today'),
     })
-    .required();
+    .required()
 
   const {
     register,
@@ -126,8 +126,8 @@ const AddTaskModal = () => {
     handleSubmit,
   } = useForm({
     resolver: yupResolver(FormValidationSchema),
-    mode: "all",
-  });
+    mode: 'all',
+  })
 
   const onSubmit = (data) => {
     dispatch(
@@ -137,19 +137,19 @@ const AddTaskModal = () => {
         assignee: data.assign,
         // get only data value from startDate and endDate
         category: null,
-        startDate: startDate.toISOString().split("T")[0],
-        endDate: endDate.toISOString().split("T")[0],
-        des: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+        startDate: startDate.toISOString().split('T')[0],
+        endDate: endDate.toISOString().split('T')[0],
+        des: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
         progress: Math.floor(Math.random() * (100 - 10 + 1) + 10),
       })
-    );
+    )
     dispatch(
       toggleTaskModal({
         open: false,
       })
-    );
-    reset();
-  };
+    )
+    reset()
+  }
 
   return (
     <div>
@@ -189,12 +189,12 @@ const AddTaskModal = () => {
                     placeholder="yyyy, dd M"
                     value={startDate}
                     onChange={(date) => {
-                      field.onChange(date);
+                      field.onChange(date)
                     }}
                     options={{
                       altInput: true,
-                      altFormat: "F j, Y",
-                      dateFormat: "Y-m-d",
+                      altFormat: 'F j, Y',
+                      dateFormat: 'Y-m-d',
                     }}
                   />
                 )}
@@ -215,19 +215,19 @@ const AddTaskModal = () => {
                     placeholder="yyyy, dd M"
                     value={endDate}
                     onChange={(date) => {
-                      field.onChange(date);
+                      field.onChange(date)
                     }}
                     options={{
                       altInput: true,
-                      altFormat: "F j, Y",
-                      dateFormat: "Y-m-d",
+                      altFormat: 'F j, Y',
+                      dateFormat: 'Y-m-d',
                     }}
                   />
                 )}
               />
             </FormGroup>
           </div>
-          <div className={errors.assign ? "has-error" : ""}>
+          <div className={errors.assign ? 'has-error' : ''}>
             <label className="form-label" htmlFor="icon_s">
               Assignee
             </label>
@@ -256,7 +256,7 @@ const AddTaskModal = () => {
             )}
           </div>
 
-          <div className={errors.tags ? "has-error" : ""}>
+          <div className={errors.tags ? 'has-error' : ''}>
             <label className="form-label" htmlFor="icon_s">
               Tag
             </label>
@@ -289,7 +289,7 @@ const AddTaskModal = () => {
         </form>
       </Modal>
     </div>
-  );
-};
+  )
+}
 
-export default AddTaskModal;
+export default AddTaskModal

@@ -1,11 +1,11 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import useWidth from "@/hooks/useWidth";
-import { toggleMobileChatSidebar } from "./store";
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import useWidth from '@/hooks/useWidth'
+import { toggleMobileChatSidebar } from './store'
 
 const Blank = () => {
-  const { width, breakpoints } = useWidth();
-  const dispatch = useDispatch();
+  const { width, breakpoints } = useWidth()
+  const dispatch = useDispatch()
   return (
     <div className="h-full flex flex-col items-center justify-center xl:space-y-2 space-y-6">
       <img src="/assets/images/svg/blank.svg" alt="" />
@@ -16,7 +16,7 @@ const Blank = () => {
       <p className="text-sm text-slate-500 lg:pt-0 pt-4">
         {width > breakpoints.lg ? (
           <span>
-            {"don't"} worry, just take a deep breath & say {"Hello"}
+            {"don't"} worry, just take a deep breath & say {'Hello'}
           </span>
         ) : (
           <span
@@ -28,7 +28,7 @@ const Blank = () => {
         )}
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default Blank;
+export default Blank

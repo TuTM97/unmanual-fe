@@ -1,10 +1,10 @@
-"use client";
+'use client'
 
-import React, { useState, useRef } from "react";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
-import Modal from "@/components/ui/Modal";
-import Textinput from "@/components/ui/Textinput";
+import React, { useState, useRef } from 'react'
+import Card from '@/components/ui/Card'
+import Button from '@/components/ui/Button'
+import Modal from '@/components/ui/Modal'
+import Textinput from '@/components/ui/Textinput'
 
 const ModalPage = () => {
   return (
@@ -21,7 +21,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -47,7 +47,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -73,7 +73,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -99,7 +99,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -129,7 +129,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-primary "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -155,7 +155,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-secondary "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -181,7 +181,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-success "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -207,7 +207,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-info "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -233,7 +233,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-warning "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -259,7 +259,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="bg-slate-600 text-white"
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -289,7 +289,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -315,7 +315,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -341,7 +341,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -367,7 +367,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -393,7 +393,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -422,7 +422,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -450,7 +450,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -530,7 +530,7 @@ const ModalPage = () => {
                 text="Accept"
                 className="btn-dark "
                 onClick={() => {
-                  alert("use Control Modal");
+                  alert('use Control Modal')
                 }}
               />
             }
@@ -602,7 +602,7 @@ const ModalPage = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default ModalPage;
+export default ModalPage

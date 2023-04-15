@@ -1,44 +1,46 @@
-"use client";
-import React, { Fragment } from "react";
-import Card from "@/components/ui/Card";
-import Icon from "@/components/ui/Icon";
-import { Tab, Disclosure, Transition } from "@headlessui/react";
-import Accordion from "@/components/ui/Accordion";
+'use client'
+
+import React, { Fragment } from 'react'
+import Card from '@/components/ui/Card'
+import Icon from '@/components/ui/Icon'
+import { Tab, Disclosure, Transition } from '@headlessui/react'
+import Accordion from '@/components/ui/Accordion'
+
 const buttons = [
   {
-    title: "Home",
-    icon: "heroicons-outline:home",
+    title: 'Home',
+    icon: 'heroicons-outline:home',
   },
   {
-    title: "Profile",
-    icon: "heroicons-outline:user",
+    title: 'Profile',
+    icon: 'heroicons-outline:user',
   },
   {
-    title: "Messages",
-    icon: "heroicons-outline:chat-alt-2",
+    title: 'Messages',
+    icon: 'heroicons-outline:chat-alt-2',
   },
   {
-    title: "Settings",
-    icon: "heroicons-outline:cog",
+    title: 'Settings',
+    icon: 'heroicons-outline:cog',
   },
-];
+]
 const items = [
   {
-    title: "How does Dashcode work?",
+    title: 'How does Dashcode work?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Where i can learn more about using Dashcode?",
+    title: 'Where i can learn more about using Dashcode?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Why Dashcode is so important?",
+    title: 'Why Dashcode is so important?',
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
-];
+]
 const TabAccrodain = () => {
   return (
     <div className="grid xl:grid-cols-2 grid-cols-1 gap-6">
@@ -57,8 +59,8 @@ const TabAccrodain = () => {
               
               ${
                 selected
-                  ? "text-primary-500 before:w-full"
-                  : "text-slate-500 before:w-0 dark:text-slate-300"
+                  ? 'text-primary-500 before:w-full'
+                  : 'text-slate-500 before:w-0 dark:text-slate-300'
               }
               `}
                   >
@@ -115,8 +117,8 @@ const TabAccrodain = () => {
               
               ${
                 selected
-                  ? "text-primary-500 before:w-full"
-                  : "text-slate-500 before:w-0 dark:text-slate-300"
+                  ? 'text-primary-500 before:w-full'
+                  : 'text-slate-500 before:w-0 dark:text-slate-300'
               }
               `}
                   >
@@ -174,8 +176,8 @@ const TabAccrodain = () => {
                         className={` text-sm font-medium md:block inline-block mb-4 last:mb-0 capitalize ring-0 foucs:ring-0 focus:outline-none px-6 rounded-md py-2 transition duration-150
                 ${
                   selected
-                    ? "text-white bg-primary-500 "
-                    : "text-slate-500 bg-white dark:bg-slate-700 dark:text-slate-300"
+                    ? 'text-white bg-primary-500 '
+                    : 'text-slate-500 bg-white dark:bg-slate-700 dark:text-slate-300'
                 }
               `}
                       >
@@ -233,8 +235,8 @@ const TabAccrodain = () => {
               
               ${
                 selected
-                  ? "text-white bg-primary-500 "
-                  : "text-slate-500 bg-white dark:bg-slate-700 dark:text-slate-300"
+                  ? 'text-white bg-primary-500 '
+                  : 'text-slate-500 bg-white dark:bg-slate-700 dark:text-slate-300'
               }
               `}
                   >
@@ -283,7 +285,7 @@ const TabAccrodain = () => {
         </Card>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TabAccrodain;
+export default TabAccrodain

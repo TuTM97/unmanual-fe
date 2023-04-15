@@ -1,15 +1,15 @@
-import React from "react";
-import Textinput from "@/components/ui/Textinput";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import React from 'react'
+import Textinput from '@/components/ui/Textinput'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 const FormValidationSchema = yup
   .object({
-    password: yup.string().required("Password is Required"),
-    email: yup.string().email("Invalid email").required("Email is Required"),
+    password: yup.string().required('Password is Required'),
+    email: yup.string().email('Invalid email').required('Email is Required'),
   })
-  .required();
+  .required()
 
 const Simple = () => {
   const {
@@ -18,12 +18,12 @@ const Simple = () => {
     handleSubmit,
   } = useForm({
     resolver: yupResolver(FormValidationSchema),
-    mode: "all",
-  });
+    mode: 'all',
+  })
 
   const onSubmit = (data) => {
-    //console.log(data);
-  };
+    // console.log(data);
+  }
 
   return (
     <div>
@@ -48,7 +48,7 @@ const Simple = () => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Simple;
+export default Simple

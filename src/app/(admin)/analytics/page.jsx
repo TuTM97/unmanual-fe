@@ -1,25 +1,26 @@
-"use client";
-import dynamic from "next/dynamic";
-import React, { useState } from "react";
-import Card from "@/components/ui/Card";
-import ImageBlock1 from "@/components/partials/widget/block/image-block-1";
-import GroupChart1 from "@/components/partials/widget/chart/group-chart-1";
-import RevenueBarChart from "@/components/partials/widget/chart/revenue-bar-chart";
-import RadialsChart from "@/components/partials/widget/chart/radials";
-import SelectMonth from "@/components/partials/SelectMonth";
-import CompanyTable from "@/components/partials/table/company-table";
-import RecentActivity from "@/components/partials/widget/recent-activity";
-import RadarChart from "@/components/partials/widget/chart/radar-chart";
-import HomeBredCurbs from "@/components/partials/HomeBredCurbs";
+'use client'
+
+import dynamic from 'next/dynamic'
+import React, { useState } from 'react'
+import Card from '@/components/ui/Card'
+import ImageBlock1 from '@/components/partials/widget/block/image-block-1'
+import GroupChart1 from '@/components/partials/widget/chart/group-chart-1'
+import RevenueBarChart from '@/components/partials/widget/chart/revenue-bar-chart'
+import RadialsChart from '@/components/partials/widget/chart/radials'
+import SelectMonth from '@/components/partials/SelectMonth'
+import CompanyTable from '@/components/partials/table/company-table'
+import RecentActivity from '@/components/partials/widget/recent-activity'
+import RadarChart from '@/components/partials/widget/chart/radar-chart'
+import HomeBredCurbs from '@/components/partials/HomeBredCurbs'
 
 const MostSales = dynamic(
-  () => import("@/components/partials/widget/most-sales"),
+  () => import('@/components/partials/widget/most-sales'),
   {
     ssr: false,
   }
-);
+)
 const Dashboard = () => {
-  const [filterMap, setFilterMap] = useState("usa");
+  const [filterMap, setFilterMap] = useState('usa')
   return (
     <div>
       <HomeBredCurbs title="Dashboard" />
@@ -66,24 +67,24 @@ const Dashboard = () => {
                 <span
                   className={` flex-1 text-sm font-normal px-3 py-1 transition-all duration-150 rounded cursor-pointer
                 ${
-                  filterMap === "global"
-                    ? "bg-slate-900 text-white dark:bg-slate-700 dark:text-slate-300"
-                    : "dark:text-slate-300"
+                  filterMap === 'global'
+                    ? 'bg-slate-900 text-white dark:bg-slate-700 dark:text-slate-300'
+                    : 'dark:text-slate-300'
                 }  
                 `}
-                  onClick={() => setFilterMap("global")}
+                  onClick={() => setFilterMap('global')}
                 >
                   Global
                 </span>
                 <span
                   className={` flex-1 text-sm font-normal px-3 py-1 rounded transition-all duration-150 cursor-pointer
                   ${
-                    filterMap === "usa"
-                      ? "bg-slate-900 text-white dark:bg-slate-700 dark:text-slate-300"
-                      : "dark:text-slate-300"
+                    filterMap === 'usa'
+                      ? 'bg-slate-900 text-white dark:bg-slate-700 dark:text-slate-300'
+                      : 'dark:text-slate-300'
                   }
               `}
-                  onClick={() => setFilterMap("usa")}
+                  onClick={() => setFilterMap('usa')}
                 >
                   USA
                 </span>
@@ -131,7 +132,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

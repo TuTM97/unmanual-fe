@@ -1,18 +1,19 @@
-import React from "react";
-import Dropdown from "@/components/ui/Dropdown";
-import Icon from "@/components/ui/Icon";
-import { Menu } from "@headlessui/react";
+import React from 'react'
+import Dropdown from '@/components/ui/Dropdown'
+import Icon from '@/components/ui/Icon'
+import { Menu } from '@headlessui/react'
+
 const actions = [
   {
-    name: "Last 28 Days",
+    name: 'Last 28 Days',
   },
   {
-    name: " Last Month ",
+    name: ' Last Month ',
   },
   {
-    name: "  Last Year ",
+    name: '  Last Year ',
   },
-];
+]
 const SelectMonth = () => {
   return (
     <>
@@ -40,7 +41,7 @@ const SelectMonth = () => {
         </div>
       </Dropdown>
     </>
-  );
-};
+  )
+}
 
-export default SelectMonth;
+export default SelectMonth

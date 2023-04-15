@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux'
 import { handleSkin } from '@/redux/layout'
+
 import { useAppDispatch, useAppSelector } from './useRedux'
 
 const useSkin = () => {

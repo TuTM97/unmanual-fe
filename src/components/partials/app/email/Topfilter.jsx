@@ -1,5 +1,6 @@
-import React from "react";
-import Icon from "@/components/ui/Icon";
+import React from 'react'
+import Icon from '@/components/ui/Icon'
+
 const Topfilter = ({ filter, item, onClick }) => {
   return (
     <li>
@@ -8,8 +9,8 @@ const Topfilter = ({ filter, item, onClick }) => {
         className={` flex items-center cursor-pointer px-2 py-3 rounded
                    ${
                      filter === item.value
-                       ? "bg-slate-100 text-slate-900 dark:bg-slate-700 dark:text-slate-200"
-                       : "  text-slate-600 dark:text-slate-300 "
+                       ? 'bg-slate-100 text-slate-900 dark:bg-slate-700 dark:text-slate-200'
+                       : '  text-slate-600 dark:text-slate-300 '
                    }
                       `}
       >
@@ -18,8 +19,8 @@ const Topfilter = ({ filter, item, onClick }) => {
             className={` text-xl
                         ${
                           filter === item.value
-                            ? " text-slate-900 dark:text-slate-100"
-                            : " text-slate-400 dark:text-slate-400"
+                            ? ' text-slate-900 dark:text-slate-100'
+                            : ' text-slate-400 dark:text-slate-400'
                         }
                 `}
           >
@@ -28,7 +29,7 @@ const Topfilter = ({ filter, item, onClick }) => {
           <span
             className={` capitalize text-sm
                         ${
-                          filter === item.value ? " font-medium" : "font-normal"
+                          filter === item.value ? ' font-medium' : 'font-normal'
                         }
                       `}
           >
@@ -40,7 +41,7 @@ const Topfilter = ({ filter, item, onClick }) => {
         </span>
       </label>
     </li>
-  );
-};
+  )
+}
 
-export default Topfilter;
+export default Topfilter

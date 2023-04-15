@@ -1,26 +1,27 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
-import useRtl from "@/hooks/useRtl";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+import useRtl from '@/hooks/useRtl'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const RevenueBarChart = ({ height = 400 }) => {
-  const [isDark] = useDarkMode();
-  const [isRtl] = useRtl();
+  const [isDark] = useDarkMode()
+  const [isRtl] = useRtl()
   const series = [
     {
-      name: "Net Profit",
+      name: 'Net Profit',
       data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
     },
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
     },
     {
-      name: "Free Cash Flow",
+      name: 'Free Cash Flow',
       data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
     },
-  ];
+  ]
   const options = {
     chart: {
       toolbar: {
@@ -30,16 +31,16 @@ const RevenueBarChart = ({ height = 400 }) => {
     plotOptions: {
       bar: {
         horizontal: false,
-        endingShape: "rounded",
-        columnWidth: "45%",
+        endingShape: 'rounded',
+        columnWidth: '45%',
       },
     },
     legend: {
       show: true,
-      position: "top",
-      horizontalAlign: "right",
-      fontSize: "12px",
-      fontFamily: "Inter",
+      position: 'top',
+      horizontalAlign: 'right',
+      fontSize: '12px',
+      fontFamily: 'Inter',
       offsetY: -30,
       markers: {
         width: 8,
@@ -49,7 +50,7 @@ const RevenueBarChart = ({ height = 400 }) => {
         radius: 12,
       },
       labels: {
-        colors: isDark ? "#CBD5E1" : "#475569",
+        colors: isDark ? '#CBD5E1' : '#475569',
       },
       itemMargin: {
         horizontal: 18,
@@ -57,17 +58,17 @@ const RevenueBarChart = ({ height = 400 }) => {
       },
     },
     title: {
-      text: "Revenue Report",
-      align: "left",
+      text: 'Revenue Report',
+      align: 'left',
 
-      offsetX: isRtl ? "0%" : 0,
+      offsetX: isRtl ? '0%' : 0,
       offsetY: 13,
       floating: false,
       style: {
-        fontSize: "20px",
-        fontWeight: "500",
-        fontFamily: "Inter",
-        color: isDark ? "#fff" : "#0f172a",
+        fontSize: '20px',
+        fontWeight: '500',
+        fontFamily: 'Inter',
+        color: isDark ? '#fff' : '#0f172a',
       },
     },
     dataLabels: {
@@ -76,33 +77,33 @@ const RevenueBarChart = ({ height = 400 }) => {
     stroke: {
       show: true,
       width: 2,
-      colors: ["transparent"],
+      colors: ['transparent'],
     },
     yaxis: {
-      opposite: isRtl ? true : false,
+      opposite: !!isRtl,
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
     xaxis: {
       categories: [
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
       ],
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
       axisBorder: {
@@ -118,41 +119,41 @@ const RevenueBarChart = ({ height = 400 }) => {
     },
     tooltip: {
       y: {
-        formatter: function (val) {
-          return "$ " + val + " thousands";
+        formatter(val) {
+          return `$ ${val} thousands`
         },
       },
     },
-    colors: ["#4669FA", "#0CE7FA", "#FA916B"],
+    colors: ['#4669FA', '#0CE7FA', '#FA916B'],
     grid: {
       show: true,
-      borderColor: isDark ? "#334155" : "#E2E8F0",
+      borderColor: isDark ? '#334155' : '#E2E8F0',
       strokeDashArray: 10,
-      position: "back",
+      position: 'back',
     },
     responsive: [
       {
         breakpoint: 600,
         options: {
           legend: {
-            position: "bottom",
+            position: 'bottom',
             offsetY: 8,
-            horizontalAlign: "center",
+            horizontalAlign: 'center',
           },
           plotOptions: {
             bar: {
-              columnWidth: "80%",
+              columnWidth: '80%',
             },
           },
         },
       },
     ],
-  };
+  }
   return (
     <div>
       <Chart options={options} series={series} type="bar" height={height} />
     </div>
-  );
-};
+  )
+}
 
-export default RevenueBarChart;
+export default RevenueBarChart

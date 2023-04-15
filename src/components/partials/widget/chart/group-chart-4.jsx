@@ -1,41 +1,41 @@
-import React from "react";
-import Icon from "@/components/ui/Icon";
+import React from 'react'
+import Icon from '@/components/ui/Icon'
 
 const statistics = [
   {
-    title: "Total Task",
-    count: "64",
-    bg: "bg-info-500",
-    text: "text-info-500",
-    percent: "25.67% ",
-    icon: "heroicons-outline:menu-alt-1",
+    title: 'Total Task',
+    count: '64',
+    bg: 'bg-info-500',
+    text: 'text-info-500',
+    percent: '25.67% ',
+    icon: 'heroicons-outline:menu-alt-1',
   },
   {
-    title: "Completed ",
-    count: "45",
+    title: 'Completed ',
+    count: '45',
 
-    bg: "bg-warning-500",
-    text: "text-warning-500",
-    percent: "8.67%",
-    icon: "heroicons-outline:chart-pie",
+    bg: 'bg-warning-500',
+    text: 'text-warning-500',
+    percent: '8.67%',
+    icon: 'heroicons-outline:chart-pie',
   },
   {
-    title: "Hours",
-    count: "190",
-    bg: "bg-primary-500",
-    text: "text-primary-500",
-    percent: "1.67%  ",
-    icon: "heroicons-outline:clock",
+    title: 'Hours',
+    count: '190',
+    bg: 'bg-primary-500',
+    text: 'text-primary-500',
+    percent: '1.67%  ',
+    icon: 'heroicons-outline:clock',
   },
   {
-    title: "Spendings",
-    count: "$3,564",
-    bg: "bg-success-500",
-    text: "text-success-500",
-    percent: "11.67%  ",
-    icon: "heroicons-outline:calculator",
+    title: 'Spendings',
+    count: '$3,564',
+    bg: 'bg-success-500',
+    text: 'text-success-500',
+    percent: '11.67%  ',
+    icon: 'heroicons-outline:calculator',
   },
-];
+]
 const GroupChart4 = () => {
   return (
     <>
@@ -58,7 +58,7 @@ const GroupChart4 = () => {
         </div>
       ))}
     </>
-  );
-};
+  )
+}
 
-export default GroupChart4;
+export default GroupChart4

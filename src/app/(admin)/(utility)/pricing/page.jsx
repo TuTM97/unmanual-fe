@@ -1,79 +1,80 @@
-"use client";
-import React, { useState } from "react";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
+'use client'
+
+import React, { useState } from 'react'
+import Card from '@/components/ui/Card'
+import Button from '@/components/ui/Button'
 
 const tables = [
   {
-    title: "Advanced",
-    price_Yearly: "$96",
-    price_Monthly: "$26",
-    button: "Buy now",
-    bg: "bg-warning-500",
-    img: "/assets/images/all-img/big-shap1.png",
+    title: 'Advanced',
+    price_Yearly: '$96',
+    price_Monthly: '$26',
+    button: 'Buy now',
+    bg: 'bg-warning-500',
+    img: '/assets/images/all-img/big-shap1.png',
   },
   {
-    title: "Business",
-    price_Yearly: "$196",
-    price_Monthly: "$20",
-    button: "Buy now",
-    bg: "bg-info-500",
-    ribon: "Most popular",
-    img: "/assets/images/all-img/big-shap2.png",
+    title: 'Business',
+    price_Yearly: '$196',
+    price_Monthly: '$20',
+    button: 'Buy now',
+    bg: 'bg-info-500',
+    ribon: 'Most popular',
+    img: '/assets/images/all-img/big-shap2.png',
   },
   {
-    title: "Basic",
-    price_Yearly: "$26",
-    price_Monthly: "$16",
-    button: "Try it free",
-    bg: "bg-success-500",
-    img: "/assets/images/all-img/big-shap3.png",
+    title: 'Basic',
+    price_Yearly: '$26',
+    price_Monthly: '$16',
+    button: 'Try it free',
+    bg: 'bg-success-500',
+    img: '/assets/images/all-img/big-shap3.png',
   },
   {
-    title: "Got a large team?",
-    price_Yearly: "$126",
-    price_Monthly: "$16",
-    button: "Request a quote",
-    bg: "bg-primary-500",
-    img: "/assets/images/all-img/big-shap4.png",
+    title: 'Got a large team?',
+    price_Yearly: '$126',
+    price_Monthly: '$16',
+    button: 'Request a quote',
+    bg: 'bg-primary-500',
+    img: '/assets/images/all-img/big-shap4.png',
   },
-];
+]
 const tables2 = [
   {
-    title: "Advanced",
-    price_Yearly: "$96",
-    price_Monthly: "$26",
-    button: "Buy now",
-    bg: "bg-white",
+    title: 'Advanced',
+    price_Yearly: '$96',
+    price_Monthly: '$26',
+    button: 'Buy now',
+    bg: 'bg-white',
   },
   {
-    title: "Business",
-    price_Yearly: "$196",
-    price_Monthly: "$20",
-    button: "Buy now",
-    bg: "bg-slate-900",
-    ribon: "Most popular",
+    title: 'Business',
+    price_Yearly: '$196',
+    price_Monthly: '$20',
+    button: 'Buy now',
+    bg: 'bg-slate-900',
+    ribon: 'Most popular',
   },
   {
-    title: "Basic",
-    price_Yearly: "$26",
-    price_Monthly: "$16",
-    button: "Try it free",
-    bg: "bg-white",
+    title: 'Basic',
+    price_Yearly: '$26',
+    price_Monthly: '$16',
+    button: 'Try it free',
+    bg: 'bg-white',
   },
   {
-    title: "Got a large team?",
-    price_Yearly: "$126",
-    price_Monthly: "$16",
-    button: "Request a quote",
-    bg: "bg-white",
+    title: 'Got a large team?',
+    price_Yearly: '$126',
+    price_Monthly: '$16',
+    button: 'Request a quote',
+    bg: 'bg-white',
   },
-];
+]
 const PricingPage = () => {
-  const [check, setCheck] = useState(true);
+  const [check, setCheck] = useState(true)
   const toggle = () => {
-    setCheck(!check);
-  };
+    setCheck(!check)
+  }
 
   return (
     <div>
@@ -86,8 +87,8 @@ const PricingPage = () => {
               <span
                 className={` ${
                   check
-                    ? "bg-slate-900 dark:bg-slate-900 text-white"
-                    : "dark:text-slate-300"
+                    ? 'bg-slate-900 dark:bg-slate-900 text-white'
+                    : 'dark:text-slate-300'
                 } 
                 px-[18px] py-1 transition duration-100 rounded`}
               >
@@ -97,8 +98,8 @@ const PricingPage = () => {
                 className={`
               ${
                 !check
-                  ? "bg-slate-900 dark:bg-slate-900 text-white"
-                  : " dark:text-slate-300"
+                  ? 'bg-slate-900 dark:bg-slate-900 text-white'
+                  : ' dark:text-slate-300'
               }
                 px-[18px] py-1 transition duration-100 rounded
                 `}
@@ -128,7 +129,7 @@ const PricingPage = () => {
                   <div className="space-x-4 relative flex items-center mb-5 rtl:space-x-reverse">
                     {check ? (
                       <span className="text-[32px] leading-10 font-medium">
-                        {item.price_Yearly}{" "}
+                        {item.price_Yearly}{' '}
                       </span>
                     ) : (
                       <span className="text-[32px] leading-10 font-medium">
@@ -181,9 +182,9 @@ const PricingPage = () => {
                 <h4
                   className={` 
              ${
-               item.bg === "bg-slate-900"
-                 ? "text-slate-100"
-                 : "text-slate-900 dark:text-slate-300"
+               item.bg === 'bg-slate-900'
+                 ? 'text-slate-100'
+                 : 'text-slate-900 dark:text-slate-300'
              }
              text-xl mb-5 `}
                 >
@@ -192,15 +193,15 @@ const PricingPage = () => {
                 <div
                   className={`
              ${
-               item.bg === "bg-slate-900"
-                 ? "text-slate-100"
-                 : "text-slate-900 dark:text-slate-300"
+               item.bg === 'bg-slate-900'
+                 ? 'text-slate-100'
+                 : 'text-slate-900 dark:text-slate-300'
              }
                 space-x-4 relative flex items-center mb-5 rtl:space-x-reverse`}
                 >
                   {check ? (
                     <span className="text-[32px] leading-10 font-medium">
-                      {item.price_Yearly}{" "}
+                      {item.price_Yearly}{' '}
                     </span>
                   ) : (
                     <span className="text-[32px] leading-10 font-medium">
@@ -215,9 +216,9 @@ const PricingPage = () => {
                 <p
                   className={` text-sm
              ${
-               item.bg === "bg-slate-900"
-                 ? "text-slate-100"
-                 : "text-slate-500 dark:text-slate-300"
+               item.bg === 'bg-slate-900'
+                 ? 'text-slate-100'
+                 : 'text-slate-500 dark:text-slate-300'
              }
                 `}
                 >
@@ -228,9 +229,9 @@ const PricingPage = () => {
                 <p
                   className={`
               ${
-                item.bg === "bg-slate-900"
-                  ? "text-slate-100"
-                  : "text-slate-600 dark:text-slate-300"
+                item.bg === 'bg-slate-900'
+                  ? 'text-slate-100'
+                  : 'text-slate-600 dark:text-slate-300'
               }
                 text-sm leading-5
                 `}
@@ -242,9 +243,9 @@ const PricingPage = () => {
                   <Button
                     text={item.button}
                     className={` w-full ${
-                      item.bg === "bg-slate-900"
-                        ? "text-slate-100 border-slate-300 border"
-                        : "btn-outline-dark dark:border-slate-400"
+                      item.bg === 'bg-slate-900'
+                        ? 'text-slate-100 border-slate-300 border'
+                        : 'btn-outline-dark dark:border-slate-400'
                     }`}
                   />
                 </div>
@@ -254,7 +255,7 @@ const PricingPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PricingPage;
+export default PricingPage

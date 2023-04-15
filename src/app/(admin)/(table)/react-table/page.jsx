@@ -1,6 +1,7 @@
-"use client";
-import ExampleOne from "@/components/partials/table/ExampleOne";
-import ExampleTwo from "@/components/partials/table/ExampleTwo";
+'use client'
+
+import ExampleOne from '@/components/partials/table/ExampleOne'
+import ExampleTwo from '@/components/partials/table/ExampleTwo'
 
 const TableAdvancedPage = () => {
   return (
@@ -8,7 +9,7 @@ const TableAdvancedPage = () => {
       <ExampleOne />
       <ExampleTwo />
     </div>
-  );
-};
+  )
+}
 
-export default TableAdvancedPage;
+export default TableAdvancedPage

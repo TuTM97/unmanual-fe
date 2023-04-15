@@ -1,45 +1,45 @@
 const activity = [
   {
     id: 1,
-    img: "/assets/images/users/user-1.jpg",
+    img: '/assets/images/users/user-1.jpg',
   },
   {
     id: 2,
-    img: "/assets/images/users/user-2.jpg",
+    img: '/assets/images/users/user-2.jpg',
   },
   {
     id: 3,
-    img: "/assets/images/users/user-3.jpg",
+    img: '/assets/images/users/user-3.jpg',
   },
   {
     id: 4,
-    img: "/assets/images/users/user-4.jpg",
+    img: '/assets/images/users/user-4.jpg',
   },
   {
     id: 5,
-    img: "/assets/images/users/user-5.jpg",
+    img: '/assets/images/users/user-5.jpg',
   },
   {
     id: 6,
-    img: "/assets/images/users/user-6.jpg",
+    img: '/assets/images/users/user-6.jpg',
   },
   {
     id: 7,
-    img: "/assets/images/users/user-1.jpg",
+    img: '/assets/images/users/user-1.jpg',
   },
   {
     id: 6,
-    img: "/assets/images/users/user-2.jpg",
+    img: '/assets/images/users/user-2.jpg',
   },
   {
     id: 7,
-    img: "/assets/images/users/user-3.jpg",
+    img: '/assets/images/users/user-3.jpg',
   },
   {
     id: 8,
-    img: "/assets/images/users/user-4.jpg",
+    img: '/assets/images/users/user-4.jpg',
   },
-];
+]
 
 const RecentActivity = () => {
   return (
@@ -73,7 +73,7 @@ const RecentActivity = () => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default RecentActivity;
+export default RecentActivity

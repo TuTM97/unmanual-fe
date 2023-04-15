@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import Card from "@/components/ui/Card";
-import Grid from "@/components/skeleton/Grid";
-import SkeletionTable from "@/components/skeleton/Table";
-import ListLoading from "@/components/skeleton/ListLoading";
+import Card from '@/components/ui/Card'
+import Grid from '@/components/skeleton/Grid'
+import SkeletionTable from '@/components/skeleton/Table'
+import ListLoading from '@/components/skeleton/ListLoading'
 
 const placeholder = () => {
   return (
@@ -18,7 +18,7 @@ const placeholder = () => {
         <ListLoading count={3} />
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default placeholder;
+export default placeholder

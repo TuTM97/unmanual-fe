@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import Icon from "@/components/ui/Icon";
+import React, { useState, useEffect } from 'react'
+import Icon from '@/components/ui/Icon'
 
 const Pagination = ({
   totalPages,
   currentPage,
   handlePageChange,
   text,
-  className = "custom-class",
+  className = 'custom-class',
 }) => {
-  const [pages, setPages] = useState([]);
+  const [pages, setPages] = useState([])
   const rangeStart = useEffect(() => {
-    let pages = [];
+    const pages = []
     for (let i = 1; i <= totalPages; i++) {
-      pages.push(i);
+      pages.push(i)
     }
-    setPages(pages);
-  }, [totalPages]);
+    setPages(pages)
+  }, [totalPages])
 
   return (
     <div className={className}>
@@ -43,7 +43,7 @@ const Pagination = ({
         {pages.map((page) => (
           <li key={page}>
             <button
-              className={`${page === currentPage ? "active" : ""} page-link`}
+              className={`${page === currentPage ? 'active' : ''} page-link`}
               onClick={() => handlePageChange(page)}
               disabled={page === currentPage}
             >
@@ -73,7 +73,7 @@ const Pagination = ({
         </li>
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination

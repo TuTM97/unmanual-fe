@@ -1,13 +1,14 @@
-"use client";
-import Link from "next/link";
-import LoginForm from "@/components/partials/auth/login-form";
-import Social from "@/components/partials/auth/social";
-import useDarkMode from "@/hooks/useDarkMode";
+'use client'
+
+import Link from 'next/link'
+import LoginForm from '@/components/partials/auth/login-form'
+import Social from '@/components/partials/auth/social'
+import useDarkMode from '@/hooks/useDarkMode'
 
 // image import
 
 const Login = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   return (
     <>
       <div className="loginwrapper">
@@ -18,15 +19,15 @@ const Login = () => {
                 <img
                   src={
                     isDark
-                      ? "/assets/images/logo/logo-white.svg"
-                      : "/assets/images/logo/logo.svg"
+                      ? '/assets/images/logo/logo-white.svg'
+                      : '/assets/images/logo/logo.svg'
                   }
                   alt=""
                   className="mb-10"
                 />
               </Link>
               <h4>
-                Unlock your Project{" "}
+                Unlock your Project{' '}
                 <span className="text-slate-800 dark:text-slate-400 font-bold">
                   performance
                 </span>
@@ -48,8 +49,8 @@ const Login = () => {
                     <img
                       src={
                         isDark
-                          ? "/assets/images/logo/logo-white.svg"
-                          : "/assets/images/logo/logo.svg"
+                          ? '/assets/images/logo/logo-white.svg'
+                          : '/assets/images/logo/logo.svg'
                       }
                       alt=""
                       className="mx-auto"
@@ -72,7 +73,7 @@ const Login = () => {
                   <Social />
                 </div>
                 <div className="md:max-w-[345px] mx-auto font-normal text-slate-500 dark:text-slate-400 mt-12 uppercase text-sm">
-                  Don’t have an account?{" "}
+                  Don’t have an account?{' '}
                   <Link
                     href="/register"
                     className="text-slate-900 dark:text-white font-medium hover:underline"
@@ -89,7 +90,7 @@ const Login = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

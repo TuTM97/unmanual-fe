@@ -1,20 +1,20 @@
-import React from "react";
-import Textinput from "@/components/ui/Textinput";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import React from 'react'
+import Textinput from '@/components/ui/Textinput'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 const FormValidationSchema = yup
   .object({
-    password: yup.string().required("Password is Required"),
-    email: yup.string().email("Invalid email").required("Email is Required"),
-    username: yup.string().required("Username is Required"),
+    password: yup.string().required('Password is Required'),
+    email: yup.string().email('Invalid email').required('Email is Required'),
+    username: yup.string().required('Username is Required'),
     confirmpassword: yup
       .string()
       .required()
-      .oneOf([yup.ref("password")]),
+      .oneOf([yup.ref('password')]),
   })
-  .required();
+  .required()
 
 const MultiValidation = () => {
   const {
@@ -23,12 +23,12 @@ const MultiValidation = () => {
     handleSubmit,
   } = useForm({
     resolver: yupResolver(FormValidationSchema),
-    mode: "all",
-  });
+    mode: 'all',
+  })
 
   const onSubmit = (data) => {
-    //console.log(data);
-  };
+    // console.log(data);
+  }
 
   return (
     <div>
@@ -72,7 +72,7 @@ const MultiValidation = () => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default MultiValidation;
+export default MultiValidation

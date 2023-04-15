@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from "react";
-import { recentOrder } from "@/constant/table-data";
+import React, { useState, useMemo } from 'react'
+import { recentOrder } from '@/constant/table-data'
 
-import Icon from "@/components/ui/Icon";
+import Icon from '@/components/ui/Icon'
 
 import {
   useTable,
@@ -9,12 +9,12 @@ import {
   useSortBy,
   useGlobalFilter,
   usePagination,
-} from "react-table";
+} from 'react-table'
 
 const COLUMNS = [
   {
-    Header: "user",
-    accessor: "user",
+    Header: 'user',
+    accessor: 'user',
     Cell: (row) => {
       return (
         <div>
@@ -35,54 +35,54 @@ const COLUMNS = [
             </div>
           </div>
         </div>
-      );
+      )
     },
   },
 
   {
-    Header: "invoice",
-    accessor: "invoice",
+    Header: 'invoice',
+    accessor: 'invoice',
     Cell: (row) => {
-      return <span>{row?.cell?.value}</span>;
+      return <span>{row?.cell?.value}</span>
     },
   },
   {
-    Header: "price",
-    accessor: "price",
+    Header: 'price',
+    accessor: 'price',
     Cell: (row) => {
-      return <span>{row?.cell?.value}</span>;
+      return <span>{row?.cell?.value}</span>
     },
   },
   {
-    Header: "status",
-    accessor: "status",
+    Header: 'status',
+    accessor: 'status',
     Cell: (row) => {
       return (
         <span className="block w-full">
           <span
             className={` inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 ${
-              row?.cell?.value === "paid"
-                ? "text-success-500 bg-success-500"
-                : ""
+              row?.cell?.value === 'paid'
+                ? 'text-success-500 bg-success-500'
+                : ''
             } 
             ${
-              row?.cell?.value === "due"
-                ? "text-warning-500 bg-warning-500"
-                : ""
+              row?.cell?.value === 'due'
+                ? 'text-warning-500 bg-warning-500'
+                : ''
             }
             ${
-              row?.cell?.value === "cancled"
-                ? "text-danger-500 bg-danger-500"
-                : ""
+              row?.cell?.value === 'cancled'
+                ? 'text-danger-500 bg-danger-500'
+                : ''
             }
                 ${
-                  row?.cell?.value === "pending"
-                    ? "text-danger-500 bg-danger-500"
-                    : ""
+                  row?.cell?.value === 'pending'
+                    ? 'text-danger-500 bg-danger-500'
+                    : ''
                 } ${
-              row?.cell?.value === "shipped"
-                ? "text-primary-500 bg-primary-500"
-                : ""
+              row?.cell?.value === 'shipped'
+                ? 'text-primary-500 bg-primary-500'
+                : ''
             }
             
              `}
@@ -90,14 +90,14 @@ const COLUMNS = [
             {row?.cell?.value}
           </span>
         </span>
-      );
+      )
     },
   },
-];
+]
 
 const RecentOrderTable = () => {
-  const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => recentOrder, []);
+  const columns = useMemo(() => COLUMNS, [])
+  const data = useMemo(() => recentOrder, [])
 
   const tableInstance = useTable(
     {
@@ -112,7 +112,7 @@ const RecentOrderTable = () => {
     useSortBy,
     usePagination,
     useRowSelect
-  );
+  )
   const {
     getTableProps,
     getTableBodyProps,
@@ -130,9 +130,9 @@ const RecentOrderTable = () => {
     setPageSize,
     setGlobalFilter,
     prepareRow,
-  } = tableInstance;
+  } = tableInstance
 
-  const { pageIndex, pageSize } = state;
+  const { pageIndex, pageSize } = state
 
   return (
     <>
@@ -147,27 +147,27 @@ const RecentOrderTable = () => {
                 <thead className="bg-slate-200 dark:bg-slate-700">
                   {headerGroups.map((headerGroup) => {
                     const { key, ...restHeaderGroupProps } =
-                      headerGroup.getHeaderGroupProps();
-                    <tr key={key} {...restHeaderGroupProps}>
+                      headerGroup.getHeaderGroupProps()
+                    ;<tr key={key} {...restHeaderGroupProps}>
                       {headerGroup.headers.map((column) => {
-                        const { key, ...restColumn } = column.getHeaderProps();
-                        <th
+                        const { key, ...restColumn } = column.getHeaderProps()
+                        ;<th
                           key={key}
                           {...restColumn}
                           scope="col"
                           className=" table-th "
                         >
-                          {column.render("Header")}
+                          {column.render('Header')}
                           <span>
                             {column.isSorted
                               ? column.isSortedDesc
-                                ? " 🔽"
-                                : " 🔼"
-                              : ""}
+                                ? ' 🔽'
+                                : ' 🔼'
+                              : ''}
                           </span>
-                        </th>;
+                        </th>
                       })}
-                    </tr>;
+                    </tr>
                   })}
                 </thead>
                 <tbody
@@ -175,24 +175,24 @@ const RecentOrderTable = () => {
                   {...getTableBodyProps}
                 >
                   {page.map((row) => {
-                    prepareRow(row);
-                    const { key, ...restRowProps } = row.getRowProps();
+                    prepareRow(row)
+                    const { key, ...restRowProps } = row.getRowProps()
                     return (
                       <tr key={key} {...restRowProps}>
                         {row.cells.map((cell) => {
-                          const { key, ...restCellProps } = cell.getCellProps();
+                          const { key, ...restCellProps } = cell.getCellProps()
                           return (
                             <td
                               key={key}
                               {...restCellProps}
                               className="table-td"
                             >
-                              {cell.render("Cell")}
+                              {cell.render('Cell')}
                             </td>
-                          );
+                          )
                         })}
                       </tr>
-                    );
+                    )
                   })}
                 </tbody>
               </table>
@@ -204,7 +204,7 @@ const RecentOrderTable = () => {
             <li className="text-xl leading-4 text-slate-900 dark:text-white rtl:rotate-180">
               <button
                 className={` ${
-                  !canPreviousPage ? "opacity-50 cursor-not-allowed" : ""
+                  !canPreviousPage ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 onClick={() => previousPage()}
                 disabled={!canPreviousPage}
@@ -219,8 +219,8 @@ const RecentOrderTable = () => {
                   aria-current="page"
                   className={` ${
                     pageIdx === pageIndex
-                      ? "bg-slate-900 dark:bg-slate-600  dark:text-slate-200 text-white font-medium "
-                      : "bg-slate-100 dark:bg-slate-700 dark:text-slate-400 text-slate-900  font-normal  "
+                      ? 'bg-slate-900 dark:bg-slate-600  dark:text-slate-200 text-white font-medium '
+                      : 'bg-slate-100 dark:bg-slate-700 dark:text-slate-400 text-slate-900  font-normal  '
                   }    text-sm rounded leading-[16px] flex h-6 w-6 items-center justify-center transition-all duration-150`}
                   onClick={() => gotoPage(pageIdx)}
                 >
@@ -231,7 +231,7 @@ const RecentOrderTable = () => {
             <li className="text-xl leading-4 text-slate-900 dark:text-white rtl:rotate-180">
               <button
                 className={` ${
-                  !canNextPage ? "opacity-50 cursor-not-allowed" : ""
+                  !canNextPage ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 onClick={() => nextPage()}
                 disabled={!canNextPage}
@@ -243,7 +243,7 @@ const RecentOrderTable = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default RecentOrderTable;
+export default RecentOrderTable

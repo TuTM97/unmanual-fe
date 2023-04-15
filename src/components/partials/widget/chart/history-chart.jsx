@@ -1,21 +1,22 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { colors } from "@/constant/data";
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import { colors } from '@/constant/data'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const HistoryChart = ({ height = 360 }) => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   const series = [
     {
-      name: "Earnings",
+      name: 'Earnings',
       data: [31, 40, 28, 51, 42, 109, 100],
     },
     {
-      name: "Expenses",
+      name: 'Expenses',
       data: [11, 32, 45, 32, 34, 52, 41],
     },
-  ];
+  ]
   const options = {
     chart: {
       toolbar: {
@@ -31,20 +32,20 @@ const HistoryChart = ({ height = 360 }) => {
       enabled: false,
     },
     stroke: {
-      curve: "straight",
+      curve: 'straight',
       width: 2,
     },
     colors: [colors.primary, colors.warning],
     tooltip: {
-      theme: "dark",
+      theme: 'dark',
     },
     legend: {
       offsetY: 4,
       show: true,
-      fontSize: "12px",
-      fontFamily: "Inter",
+      fontSize: '12px',
+      fontFamily: 'Inter',
       labels: {
-        colors: isDark ? "#CBD5E1" : "#475569",
+        colors: isDark ? '#CBD5E1' : '#475569',
       },
       markers: {
         width: 6,
@@ -60,12 +61,12 @@ const HistoryChart = ({ height = 360 }) => {
     },
     grid: {
       show: true,
-      borderColor: isDark ? "#334155" : "#e2e8f0",
+      borderColor: isDark ? '#334155' : '#e2e8f0',
       strokeDashArray: 10,
-      position: "back",
+      position: 'back',
     },
     fill: {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
         shadeIntensity: 0.3,
         opacityFrom: 0.4,
@@ -76,21 +77,21 @@ const HistoryChart = ({ height = 360 }) => {
     yaxis: {
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
     xaxis: {
-      type: "datetime",
+      type: 'datetime',
       categories: [
-        "2018-09-19T00:00:00.000Z",
-        "2018-09-19T01:30:00.000Z",
-        "2018-09-19T02:30:00.000Z",
-        "2018-09-19T03:30:00.000Z",
-        "2018-09-19T04:30:00.000Z",
-        "2018-09-19T05:30:00.000Z",
-        "2018-09-19T06:30:00.000Z",
+        '2018-09-19T00:00:00.000Z',
+        '2018-09-19T01:30:00.000Z',
+        '2018-09-19T02:30:00.000Z',
+        '2018-09-19T03:30:00.000Z',
+        '2018-09-19T04:30:00.000Z',
+        '2018-09-19T05:30:00.000Z',
+        '2018-09-19T06:30:00.000Z',
       ],
       axisBorder: {
         show: false,
@@ -100,17 +101,23 @@ const HistoryChart = ({ height = 360 }) => {
       },
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
-  };
+  }
   return (
     <>
-      <Chart options={options} series={series} type="area" height={height} width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="area"
+        height={height}
+        width="100%"
+      />
     </>
-  );
-};
+  )
+}
 
-export default HistoryChart;
+export default HistoryChart

@@ -1,20 +1,20 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import Card from "@/components/ui/Card";
-import Switch from "@/components/ui/Switch";
+import React, { useState } from 'react'
+import Card from '@/components/ui/Card'
+import Switch from '@/components/ui/Switch'
 
 const SwitchPage = () => {
-  const [checked, setChecked] = useState(true);
-  const [checked2, setChecked2] = useState(false);
-  const [checked3, setChecked3] = useState(false);
-  const [checked4, setChecked4] = useState(true);
-  const [checked5, setChecked5] = useState(true);
-  const [checked6, setChecked6] = useState(true);
-  const [checked7, setChecked7] = useState(true);
-  const [checked8, setChecked8] = useState(true);
-  const [checked9, setChecked9] = useState(true);
-  const [checked10, setChecked10] = useState(true);
+  const [checked, setChecked] = useState(true)
+  const [checked2, setChecked2] = useState(false)
+  const [checked3, setChecked3] = useState(false)
+  const [checked4, setChecked4] = useState(true)
+  const [checked5, setChecked5] = useState(true)
+  const [checked6, setChecked6] = useState(true)
+  const [checked7, setChecked7] = useState(true)
+  const [checked8, setChecked8] = useState(true)
+  const [checked9, setChecked9] = useState(true)
+  const [checked10, setChecked10] = useState(true)
 
   return (
     <div className=" space-y-5">
@@ -189,7 +189,7 @@ const SwitchPage = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default SwitchPage;
+export default SwitchPage

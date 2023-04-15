@@ -1,8 +1,9 @@
-"use client";
-import ProgressBar from "@/components/ui/ProgressBar";
-import Bar from "@/components/ui/ProgressBar/Bar";
-import Card from "@/components/ui/Card";
-import Step from "@/components/partials/step";
+'use client'
+
+import ProgressBar from '@/components/ui/ProgressBar'
+import Bar from '@/components/ui/ProgressBar/Bar'
+import Card from '@/components/ui/Card'
+import Step from '@/components/partials/step'
 
 const ProgressbarPage = () => {
   return (
@@ -54,7 +55,7 @@ const ProgressbarPage = () => {
             className="bg-slate-900 "
             striped
             backClass="h-3 rounded-[999px]"
-          />{" "}
+          />{' '}
           <ProgressBar
             value={30}
             className="bg-primary-500 "
@@ -182,7 +183,7 @@ const ProgressbarPage = () => {
         <Step />
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default ProgressbarPage;
+export default ProgressbarPage

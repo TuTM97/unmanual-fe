@@ -1,35 +1,35 @@
 const products = [
   {
-    img: "/assets/images/all-img/p-1.png",
-    price: "$150.00",
-    title: "Car engine oil",
+    img: '/assets/images/all-img/p-1.png',
+    price: '$150.00',
+    title: 'Car engine oil',
   },
   {
-    img: "/assets/images/all-img/p-2.png",
-    price: "$150.00",
-    title: "Car engine oil",
+    img: '/assets/images/all-img/p-2.png',
+    price: '$150.00',
+    title: 'Car engine oil',
   },
   {
-    img: "/assets/images/all-img/p-3.png",
-    price: "$150.00",
-    title: "Car engine oil",
+    img: '/assets/images/all-img/p-3.png',
+    price: '$150.00',
+    title: 'Car engine oil',
   },
   {
-    img: "/assets/images/all-img/p-4.png",
-    price: "$150.00",
-    title: "Car engine oil",
+    img: '/assets/images/all-img/p-4.png',
+    price: '$150.00',
+    title: 'Car engine oil',
   },
   {
-    img: "/assets/images/all-img/p-5.png",
-    price: "$150.00",
-    title: "Car engine oil",
+    img: '/assets/images/all-img/p-5.png',
+    price: '$150.00',
+    title: 'Car engine oil',
   },
   {
-    img: "/assets/images/all-img/p-6.png",
-    price: "$150.00",
-    title: "Car engine oil",
+    img: '/assets/images/all-img/p-6.png',
+    price: '$150.00',
+    title: 'Car engine oil',
   },
-];
+]
 const Products = () => {
   return (
     <div className="grid md:grid-cols-3 grid-cols-1 gap-5">
@@ -56,7 +56,7 @@ const Products = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Products;
+export default Products

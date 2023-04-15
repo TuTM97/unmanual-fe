@@ -1,8 +1,9 @@
-"use client";
-import Link from "next/link";
-import Icon from "@/components/ui/Icon";
-import Card from "@/components/ui/Card";
-import BasicArea from "@/components/partials/chart/appex-chart/BasicArea";
+'use client'
+
+import Link from 'next/link'
+import Icon from '@/components/ui/Icon'
+import Card from '@/components/ui/Card'
+import BasicArea from '@/components/partials/chart/appex-chart/BasicArea'
 
 const profile = () => {
   return (
@@ -129,7 +130,7 @@ const profile = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default profile;
+export default profile

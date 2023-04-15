@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 
 const Fileinput = ({
   name,
-  label = "Browse",
+  label = 'Browse',
   onChange,
-  placeholder = "Choose a file or drop it here...",
+  placeholder = 'Choose a file or drop it here...',
   multiple,
   preview,
-  className = "custom-class",
+  className = 'custom-class',
   id,
   selectedFile,
   badge,
@@ -34,7 +34,7 @@ const Fileinput = ({
                 {selectedFile && (
                   <span
                     className={
-                      badge ? " badge-title" : "text-slate-900 dark:text-white"
+                      badge ? ' badge-title' : 'text-slate-900 dark:text-white'
                     }
                   >
                     {selectedFile.name}
@@ -51,12 +51,12 @@ const Fileinput = ({
                 {selectedFiles.length > 0 && (
                   <span
                     className={
-                      badge ? " badge-title" : "text-slate-900 dark:text-white"
+                      badge ? ' badge-title' : 'text-slate-900 dark:text-white'
                     }
                   >
                     {selectedFiles.length > 0
-                      ? selectedFiles.length + " files selected"
-                      : ""}
+                      ? `${selectedFiles.length} files selected`
+                      : ''}
                   </span>
                 )}
                 {selectedFiles.length === 0 && (
@@ -71,7 +71,7 @@ const Fileinput = ({
           {!multiple && preview && selectedFile && (
             <div className="w-[200px] h-[200px] mx-auto mt-6  ">
               <img
-                src={selectedFile ? URL.createObjectURL(selectedFile) : ""}
+                src={selectedFile ? URL.createObjectURL(selectedFile) : ''}
                 className="w-full  h-full block rounded object-contain border p-2  border-slate-200"
                 alt={selectedFile?.name}
               />
@@ -85,7 +85,7 @@ const Fileinput = ({
                   key={index}
                 >
                   <img
-                    src={file ? URL.createObjectURL(file) : ""}
+                    src={file ? URL.createObjectURL(file) : ''}
                     className="object-cover w-full h-full rounded"
                     alt={file?.name}
                   />
@@ -96,7 +96,7 @@ const Fileinput = ({
         </label>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Fileinput;
+export default Fileinput

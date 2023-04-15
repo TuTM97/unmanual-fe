@@ -1,6 +1,7 @@
-"use client";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
+'use client'
+
+import Card from '@/components/ui/Card'
+import Button from '@/components/ui/Button'
 
 const button = () => {
   return (
@@ -246,7 +247,7 @@ const button = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default button;
+export default button

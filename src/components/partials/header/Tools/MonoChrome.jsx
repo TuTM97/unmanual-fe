@@ -1,8 +1,9 @@
-import React from "react";
-import useMonoChrome from "@/hooks/useMonoChrome";
-import Icon from "@/components/ui/Icon";
+import React from 'react'
+import useMonoChrome from '@/hooks/useMonoChrome'
+import Icon from '@/components/ui/Icon'
+
 const MonoChrome = () => {
-  const [isMonoChrome, setMonoChrome] = useMonoChrome();
+  const [isMonoChrome, setMonoChrome] = useMonoChrome()
   return (
     <span>
       <div
@@ -12,7 +13,7 @@ const MonoChrome = () => {
         <Icon icon="mdi:palette-outline" />
       </div>
     </span>
-  );
-};
+  )
+}
 
-export default MonoChrome;
+export default MonoChrome

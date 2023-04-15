@@ -1,55 +1,56 @@
-import React from "react";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const Bubble = () => {
-  const [isDark] = useDarkMode();
+  const [isDark] = useDarkMode()
   function generateData(baseval, count, yrange) {
-    var i = 0;
-    var series = [];
+    let i = 0
+    const series = []
     while (i < count) {
-      //var x =Math.floor(Math.random() * (750 - 1 + 1)) + 1;;
-      var y =
-        Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
-      var z = Math.floor(Math.random() * (75 - 15 + 1)) + 15;
+      // var x =Math.floor(Math.random() * (750 - 1 + 1)) + 1;;
+      const y =
+        Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
+      const z = Math.floor(Math.random() * (75 - 15 + 1)) + 15
 
-      series.push([baseval, y, z]);
-      baseval += 86400000;
-      i++;
+      series.push([baseval, y, z])
+      baseval += 86400000
+      i++
     }
-    return series;
+    return series
   }
   const series = [
     {
-      name: "Product1",
-      data: generateData(new Date("11 Feb 2017 GMT").getTime(), 20, {
+      name: 'Product1',
+      data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
         min: 10,
         max: 60,
       }),
     },
     {
-      name: "Product2",
-      data: generateData(new Date("11 Feb 2017 GMT").getTime(), 20, {
+      name: 'Product2',
+      data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
         min: 10,
         max: 60,
       }),
     },
     {
-      name: "Product3",
-      data: generateData(new Date("11 Feb 2017 GMT").getTime(), 20, {
+      name: 'Product3',
+      data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
         min: 10,
         max: 60,
       }),
     },
     {
-      name: "Product4",
-      data: generateData(new Date("11 Feb 2017 GMT").getTime(), 20, {
+      name: 'Product4',
+      data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
         min: 10,
         max: 60,
       }),
     },
-  ];
+  ]
   const options = {
     chart: {
       toolbar: {
@@ -61,23 +62,23 @@ const Bubble = () => {
     },
 
     fill: {
-      type: "gradient",
+      type: 'gradient',
     },
     legend: {
       labels: {
-        colors: isDark ? "#CBD5E1" : "#475569",
+        colors: isDark ? '#CBD5E1' : '#475569',
       },
     },
 
     xaxis: {
       tickAmount: 12,
-      type: "datetime",
+      type: 'datetime',
 
       labels: {
         rotate: 0,
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
       axisBorder: {
@@ -89,29 +90,35 @@ const Bubble = () => {
     },
     grid: {
       show: true,
-      borderColor: isDark ? "#334155" : "#e2e8f0",
-      position: "back",
+      borderColor: isDark ? '#334155' : '#e2e8f0',
+      position: 'back',
     },
 
     yaxis: {
       max: 70,
       labels: {
         style: {
-          colors: isDark ? "#CBD5E1" : "#475569",
-          fontFamily: "Inter",
+          colors: isDark ? '#CBD5E1' : '#475569',
+          fontFamily: 'Inter',
         },
       },
     },
     theme: {
-      palette: "palette2",
+      palette: 'palette2',
     },
-    colors: ["#4669FA", "#FA916B", "#50C793", "#0CE7FA"],
-  };
+    colors: ['#4669FA', '#FA916B', '#50C793', '#0CE7FA'],
+  }
   return (
     <div>
-      <Chart options={options} series={series} type="bubble" height="350" width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="bubble"
+        height="350"
+        width="100%"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default Bubble;
+export default Bubble

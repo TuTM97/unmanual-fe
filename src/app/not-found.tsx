@@ -1,29 +1,29 @@
-import React from "react";
-import Link from "next/link";
+import Link from 'next/link'
+import React from 'react'
 
 const PageNotFound = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center text-center py-20 bg-slate-900">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-slate-900 py-20 text-center">
       <img src="/assets/images/all-img/404-2.svg" alt="" />
-      <div className="max-w-[546px] mx-auto w-full mt-12">
-        <h4 className="text-white text-[40px] leading-[50px] mb-4">
+      <div className="mx-auto mt-12 w-full max-w-[546px]">
+        <h4 className="mb-4 text-[40px] leading-[50px] text-white">
           Page not found
         </h4>
-        <div className="text-white text-base font-normal mb-10">
+        <div className="mb-10 text-base font-normal text-white">
           The page you are looking for might have been removed had its name
           changed or is temporarily unavailable.
         </div>
       </div>
-      <div className="max-w-[300px] mx-auto w-full">
+      <div className="mx-auto w-full max-w-[300px]">
         <Link
           href="/analytics"
-          className="btn bg-white hover:bg-opacity-75 transition-all duration-150 block text-center"
+          className="btn block bg-white text-center transition-all duration-150 hover:bg-opacity-75"
         >
           Go to homepage
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PageNotFound;
+export default PageNotFound

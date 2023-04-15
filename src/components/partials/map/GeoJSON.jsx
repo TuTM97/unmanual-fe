@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
-import L, { divIcon } from "leaflet";
-import seg from "./seg.json";
-import ecomp from "./ecomp.json";
+import React, { useEffect, useState } from 'react'
+import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet'
+import L, { divIcon } from 'leaflet'
+import seg from './seg.json'
+import ecomp from './ecomp.json'
+
 const GeoJSONMap = () => {
-  const position = [37.5004851, -96.2261503];
+  const position = [37.5004851, -96.2261503]
   const setColor = ({ properties }) => {
-    return { weight: 1 };
-  };
+    return { weight: 1 }
+  }
 
   const customMarkerIcon = (name) =>
     divIcon({
       html: name,
-      className: "icon",
-    });
+      className: 'icon',
+    })
   const setIcon = ({ properties }, latlng) => {
-    return L.marker(latlng, { icon: customMarkerIcon(properties.Name) });
-  };
+    return L.marker(latlng, { icon: customMarkerIcon(properties.Name) })
+  }
   return (
     <div className="w-full h-[300px]">
       <MapContainer
@@ -27,7 +28,7 @@ const GeoJSONMap = () => {
         minZoom={3}
         animate={true}
         scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%" }}
+        style={{ height: '100%', width: '100%' }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -37,7 +38,7 @@ const GeoJSONMap = () => {
         <GeoJSON data={ecomp} pointToLayer={setIcon} />
       </MapContainer>
     </div>
-  );
-};
+  )
+}
 
-export default GeoJSONMap;
+export default GeoJSONMap

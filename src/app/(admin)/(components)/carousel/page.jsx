@@ -1,11 +1,13 @@
-"use client";
-import dynamic from "next/dynamic";
-const Carousel = dynamic(() => import("@/components/ui/Carousel"), {
-  ssr: false,
-});
+'use client'
 
-import { SwiperSlide } from "swiper/react";
-import Card from "@/components/ui/Card";
+import dynamic from 'next/dynamic'
+
+import { SwiperSlide } from 'swiper/react'
+import Card from '@/components/ui/Card'
+
+const Carousel = dynamic(() => import('@/components/ui/Carousel'), {
+  ssr: false,
+})
 
 const carousel = () => {
   return (
@@ -143,7 +145,7 @@ const carousel = () => {
           pagination={true}
           navigation={true}
           className="main-caro"
-          effect={"fade"}
+          effect={'fade'}
         >
           <SwiperSlide>
             <div
@@ -172,7 +174,7 @@ const carousel = () => {
         </Carousel>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default carousel;
+export default carousel

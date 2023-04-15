@@ -1,27 +1,28 @@
-import React from "react";
-import { colors } from "@/constant/data";
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import useDarkMode from "@/hooks/useDarkMode";
+import React from 'react'
+import { colors } from '@/constant/data'
+import dynamic from 'next/dynamic'
+import useDarkMode from '@/hooks/useDarkMode'
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const Calculation = ({ height = 335 }) => {
-  const [isDark] = useDarkMode();
-  const series = [44, 55, 30];
+  const [isDark] = useDarkMode()
+  const series = [44, 55, 30]
 
   const options = {
-    labels: ["70% Sent", "18% Opend", "12% Rejected"],
+    labels: ['70% Sent', '18% Opend', '12% Rejected'],
     dataLabels: {
       enabled: true,
     },
 
-    colors: [colors.success, colors.warning, "#A3A1FB"],
+    colors: [colors.success, colors.warning, '#A3A1FB'],
     legend: {
-      position: "bottom",
-      fontSize: "12px",
-      fontFamily: "Inter",
+      position: 'bottom',
+      fontSize: '12px',
+      fontFamily: 'Inter',
       fontWeight: 400,
       labels: {
-        colors: isDark ? "#CBD5E1" : "#475569",
+        colors: isDark ? '#CBD5E1' : '#475569',
       },
       markers: {
         width: 6,
@@ -41,18 +42,24 @@ const Calculation = ({ height = 335 }) => {
         breakpoint: 480,
         options: {
           legend: {
-            position: "bottom",
+            position: 'bottom',
           },
         },
       },
     ],
-  };
+  }
 
   return (
     <>
-      <Chart options={options} series={series} type="pie" height={height} width="100%"  />
+      <Chart
+        options={options}
+        series={series}
+        type="pie"
+        height={height}
+        width="100%"
+      />
     </>
-  );
-};
+  )
+}
 
-export default Calculation;
+export default Calculation

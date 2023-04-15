@@ -1,61 +1,61 @@
-import ProgressBar from "@/components/ui/ProgressBar";
+import ProgressBar from '@/components/ui/ProgressBar'
 
 const Customer = () => {
   const customers = [
     {
-      title: "Nicole Kidman",
-      img: "/assets/images/all-img/cus-1.png",
+      title: 'Nicole Kidman',
+      img: '/assets/images/all-img/cus-1.png',
       value: 70,
-      bg: "before:bg-info-500",
-      barColor: "bg-info-500",
+      bg: 'before:bg-info-500',
+      barColor: 'bg-info-500',
       number: 2,
     },
     {
-      title: "Monica Bellucci",
-      img: "/assets/images/all-img/cus-2.png",
+      title: 'Monica Bellucci',
+      img: '/assets/images/all-img/cus-2.png',
       value: 80,
-      bg: "before:bg-warning-500",
-      barColor: "bg-warning-500",
+      bg: 'before:bg-warning-500',
+      barColor: 'bg-warning-500',
       active: true,
       number: 1,
     },
     {
-      title: "Pamela Anderson",
-      img: "/assets/images/all-img/cus-3.png",
+      title: 'Pamela Anderson',
+      img: '/assets/images/all-img/cus-3.png',
       value: 65,
-      bg: "before:bg-success-500",
-      barColor: "bg-success-500",
+      bg: 'before:bg-success-500',
+      barColor: 'bg-success-500',
       number: 3,
     },
-  ];
+  ]
   const customers2 = [
     {
-      title: "Dianne Russell",
-      img: "/assets/images/users/user-1.jpg",
+      title: 'Dianne Russell',
+      img: '/assets/images/users/user-1.jpg',
       value: 60,
-      bg: "before:bg-info-500",
-      barColor: "bg-info-500",
+      bg: 'before:bg-info-500',
+      barColor: 'bg-info-500',
       number: 4,
     },
     {
-      title: "Robert De Niro",
-      img: "/assets/images/users/user-2.jpg",
+      title: 'Robert De Niro',
+      img: '/assets/images/users/user-2.jpg',
       value: 50,
-      bg: "before:bg-warning-500",
-      barColor: "bg-warning-500",
+      bg: 'before:bg-warning-500',
+      barColor: 'bg-warning-500',
 
       number: 5,
     },
     {
-      title: "De Niro",
-      img: "/assets/images/users/user-3.jpg",
+      title: 'De Niro',
+      img: '/assets/images/users/user-3.jpg',
       value: 60,
-      bg: "before:bg-warning-500",
-      barColor: "bg-warning-500",
+      bg: 'before:bg-warning-500',
+      barColor: 'bg-warning-500',
 
       number: 6,
     },
-  ];
+  ]
   return (
     <div className="pb-2">
       <div className="grid md:grid-cols-3 grid-cols-1 gap-5">
@@ -66,7 +66,7 @@ const Customer = () => {
           >
             <div
               className={`${
-                item.active ? "ring-2 ring-[#FFC155]" : ""
+                item.active ? 'ring-2 ring-[#FFC155]' : ''
               } h-[70px] w-[70px] rounded-full mx-auto mb-4 relative`}
             >
               {item.active && (
@@ -107,7 +107,7 @@ const Customer = () => {
           >
             <div
               className={`${
-                item.active ? "ring-2 ring-[#FFC155]" : ""
+                item.active ? 'ring-2 ring-[#FFC155]' : ''
               } h-10 w-10 rounded-full relative`}
             >
               {item.active && (
@@ -141,7 +141,7 @@ const Customer = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Customer;
+export default Customer

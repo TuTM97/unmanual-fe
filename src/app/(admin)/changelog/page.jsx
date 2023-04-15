@@ -1,81 +1,83 @@
-"use client";
-import Card from "@/components/ui/Card";
-import Badge from "@/components/ui/Badge";
-import Icon from "@/components/ui/Icon";
-import { Disclosure } from "@headlessui/react";
+'use client'
+
+import Card from '@/components/ui/Card'
+import Badge from '@/components/ui/Badge'
+import Icon from '@/components/ui/Icon'
+import { Disclosure } from '@headlessui/react'
+
 const items = [
   {
-    version: "Version 2.0.1",
-    date: "1 February 2023",
+    version: 'Version 2.0.1',
+    date: '1 February 2023',
     changes: [
       {
-        name: "Monochrome mode",
-        tag: "added",
+        name: 'Monochrome mode',
+        tag: 'added',
       },
       {
-        name: "Axios configuration",
-        tag: "fixed",
+        name: 'Axios configuration',
+        tag: 'fixed',
       },
       {
-        name: "Other minor issues",
-        tag: "fixed",
+        name: 'Other minor issues',
+        tag: 'fixed',
       },
     ],
   },
   {
-    version: "Version 2.0.0",
-    date: "24 January 2023",
+    version: 'Version 2.0.0',
+    date: '24 January 2023',
     changes: [
       {
-        name: "Change log page added.",
-        tag: "added",
+        name: 'Change log page added.',
+        tag: 'added',
       },
       {
-        name: "Badge added in sidebar.",
-        tag: "added",
+        name: 'Badge added in sidebar.',
+        tag: 'added',
       },
       {
-        name: "Vuex replaced with pinia",
-        tag: "update",
+        name: 'Vuex replaced with pinia',
+        tag: 'update',
       },
       {
-        name: "Webpack replaced with Vite.",
-        tag: "update",
+        name: 'Webpack replaced with Vite.',
+        tag: 'update',
       },
       {
-        name: "Other minor issues",
-        tag: "fixed",
+        name: 'Other minor issues',
+        tag: 'fixed',
       },
     ],
   },
   {
-    version: "Version 1.0.1 ",
-    date: "3 January 2023",
+    version: 'Version 1.0.1 ',
+    date: '3 January 2023',
     changes: [
       {
-        name: "RTL version added.",
-        tag: "added",
+        name: 'RTL version added.',
+        tag: 'added',
       },
       {
-        name: "Sidebar updated.",
-        tag: "update",
+        name: 'Sidebar updated.',
+        tag: 'update',
       },
       {
-        name: "Other minor issues",
-        tag: "fixed",
+        name: 'Other minor issues',
+        tag: 'fixed',
       },
     ],
   },
   {
-    version: "Version 1.0.0 ",
-    date: "29 December 2022",
+    version: 'Version 1.0.0 ',
+    date: '29 December 2022',
     changes: [
       {
-        name: "Initial Release",
+        name: 'Initial Release',
       },
     ],
   },
-];
+]
 const ChangelogPage = () => {
   return (
     <div className="grid grid-cols-12 gap-5">
@@ -99,7 +101,7 @@ const ChangelogPage = () => {
                         </span>
                         <span
                           className={` ${
-                            open && "rotate-180 transform"
+                            open && 'rotate-180 transform'
                           }  transition-all duration-150 text-xl`}
                         >
                           <Icon icon="heroicons:chevron-down-solid" />
@@ -117,13 +119,13 @@ const ChangelogPage = () => {
                                   <span
                                     className={` px-2 rounded-full text-xs capitalize
                                     ${
-                                      data.tag === "added"
-                                        ? "bg-indigo-100 text-indigo-500"
-                                        : data.tag === "update"
-                                        ? "bg-yellow-100 text-yellow-500"
-                                        : data.tag === "fixed"
-                                        ? "bg-red-100 text-red-500"
-                                        : ""
+                                      data.tag === 'added'
+                                        ? 'bg-indigo-100 text-indigo-500'
+                                        : data.tag === 'update'
+                                        ? 'bg-yellow-100 text-yellow-500'
+                                        : data.tag === 'fixed'
+                                        ? 'bg-red-100 text-red-500'
+                                        : ''
                                     }
                                     `}
                                   >
@@ -160,7 +162,7 @@ const ChangelogPage = () => {
         </Card>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ChangelogPage;
+export default ChangelogPage
