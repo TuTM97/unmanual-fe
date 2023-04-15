@@ -18,6 +18,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@utils/*": ["./src/utils/*"],
+      "@types/*": ["./src/types/*"],
       "@/public/*": ["./public/*"]
     },
     "plugins": [

@@ -13,6 +13,8 @@ import type { Locales } from '@/i18n/config'
 import { supportedLocales } from '@/i18n/config'
 import { store } from '@/redux/store'
 import { AppConfig } from '@/utils/AppConfig'
+
+import SupabaseProvider from './supabase-provider'
 // Root metadata
 // https://beta.nextjs.org/docs/api-reference/metadata
 // export const metadata = {
@@ -44,7 +46,9 @@ export default function RootLayout({ children, params }: IRootLayoutProps) {
   return (
     <html lang={params.lang || AppConfig.locale}>
       <body>
-        <Provider store={store}>{children}</Provider>
+        <SupabaseProvider>
+          <Provider store={store}>{children}</Provider>
+        </SupabaseProvider>
       </body>
     </html>
   )
