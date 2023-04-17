@@ -6,11 +6,13 @@ import useDarkMode from '@/hooks/useDarkMode'
 import RegForm from '@/components/partials/auth/reg-from'
 import Social from '@/components/partials/auth/social'
 import Image from 'next/image'
+import { ToastContainer } from 'react-toastify'
 
 const Register = () => {
   const [isDark] = useDarkMode()
   return (
     <>
+      <ToastContainer />
       <div className="loginwrapper">
         <div className="lg-inner-column">
           <div className="left-column relative z-[1]">

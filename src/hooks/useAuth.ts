@@ -1,5 +1,7 @@
 'use client'
 
+import { toast } from 'react-toastify'
+
 import { useSupabase } from '@/components/supabase/supabase-provider'
 
 const useAuth = () => {
@@ -48,9 +50,30 @@ const useAuth = () => {
         data: metadata,
       },
     })
+    if (data.user) {
+      toast.success('User registered successfully', {
+        position: 'top-right',
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      })
+    }
 
     if (error) {
-      console.log({ error })
+      toast.error(error.message, {
+        position: 'top-right',
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      })
     }
 
     return data
