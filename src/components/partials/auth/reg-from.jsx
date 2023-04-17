@@ -8,10 +8,12 @@ import { useRouter } from 'next/navigation'
 import Checkbox from '@/components/ui/Checkbox'
 import { useDispatch, useSelector } from 'react-redux'
 import { handleRegister } from './store'
+import useAuth from '@/hooks/useAuth'
 
 const schema = yup
   .object({
-    name: yup.string().required('Name is Required'),
+    firstName: yup.string().required('First name is Required'),
+    lastName: yup.string().required('Last name is Required'),
     email: yup.string().email('Invalid email').required('Email is Required'),
     password: yup
       .string()
@@ -27,6 +29,7 @@ const schema = yup
 
 const RegForm = () => {
   const dispatch = useDispatch()
+  const { handleEmailSignup } = useAuth()
 
   const [checked, setChecked] = useState(false)
   const {
@@ -42,20 +45,36 @@ const RegForm = () => {
 
   const onSubmit = (data) => {
     dispatch(handleRegister(data))
-    setTimeout(() => {
-      router.push('/')
-    }, 1500)
+    handleEmailSignup({
+      email: data.email,
+      password: data.password,
+      metadata: {
+        first_name: data.firstName,
+        last_name: data.lastName,
+      },
+    })
+    // setTimeout(() => {
+    //   router.push('/')
+    // }, 1500)
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 ">
       <Textinput
-        name="name"
-        label="name"
+        name="firstName"
+        label="first name"
         type="text"
-        placeholder=" Enter your name"
+        placeholder=" Enter your first name"
         register={register}
-        error={errors.name}
-      />{' '}
+        error={errors.firstName}
+      />
+      <Textinput
+        name="lastName"
+        label="last name"
+        type="text"
+        placeholder=" Enter your last name"
+        register={register}
+        error={errors.lastName}
+      />
       <Textinput
         name="email"
         label="email"
@@ -66,7 +85,7 @@ const RegForm = () => {
       />
       <Textinput
         name="password"
-        label="passwrod"
+        label="password"
         type="password"
         placeholder=" Enter your password"
         register={register}

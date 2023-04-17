@@ -24,7 +24,7 @@
     "serve-storybook": "run-s storybook:*",
     "test-storybook:ci": "start-server-and-test serve-storybook http://localhost:6006 test-storybook",
     "postbuild": "next-sitemap",
-    "update-types": "npx supabase gen types typescript --project-id hzafhqkehkewlidslssc > src/types/supabase/index.ts"
+    "update-types": "npx supabase gen types typescript --project-id hzafhqkehkewlidslssc > src/interfaces/supabase/index.ts"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.5",

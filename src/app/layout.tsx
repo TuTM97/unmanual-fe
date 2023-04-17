@@ -14,7 +14,7 @@ import { supportedLocales } from '@/i18n/config'
 import { store } from '@/redux/store'
 import { AppConfig } from '@/utils/AppConfig'
 
-import SupabaseProvider from './supabase-provider'
+import SupabaseProvider from '../components/supabase/supabase-provider'
 // Root metadata
 // https://beta.nextjs.org/docs/api-reference/metadata
 // export const metadata = {

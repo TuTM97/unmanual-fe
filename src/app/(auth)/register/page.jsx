@@ -5,6 +5,7 @@ import Link from 'next/link'
 import useDarkMode from '@/hooks/useDarkMode'
 import RegForm from '@/components/partials/auth/reg-from'
 import Social from '@/components/partials/auth/social'
+import Image from 'next/image'
 
 const Register = () => {
   const [isDark] = useDarkMode()
@@ -15,7 +16,9 @@ const Register = () => {
           <div className="left-column relative z-[1]">
             <div className="max-w-[520px] pt-20 ltr:pl-20 rtl:pr-20">
               <Link href="/">
-                <img
+                <Image
+                  width={140}
+                  height={32}
                   src={
                     isDark
                       ? '/assets/images/logo/logo-white.svg'
