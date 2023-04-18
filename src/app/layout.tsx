@@ -42,7 +42,10 @@ interface IRootLayoutProps {
   }
 }
 
-export default function RootLayout({ children, params }: IRootLayoutProps) {
+export default async function RootLayout({
+  children,
+  params,
+}: IRootLayoutProps) {
   return (
     <html lang={params.lang || AppConfig.locale}>
       <body>

@@ -2,10 +2,11 @@
 
 import React from 'react'
 
-import useDarkMode from '@/hooks/useDarkMode'
+// import useDarkMode from '@/hooks/useDarkMode'
 
 const Loading = () => {
-  const [isDark] = useDarkMode()
+  // const [isDark] = useDarkMode()
+  const isDark = false
   return (
     <div className="app_height flex flex-col items-center justify-center">
       <div className="mb-3">

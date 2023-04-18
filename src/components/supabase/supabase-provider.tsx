@@ -31,6 +31,7 @@ export default function SupabaseProvider({
       subscription.unsubscribe()
     }
   }, [router, supabase])
+
   return (
     <Context.Provider value={{ supabase }}>
       <>{children}</>
