@@ -18,6 +18,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@utils/*": ["./src/utils/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
       "@/public/*": ["./public/*"]
     },
     "plugins": [

@@ -13,6 +13,7 @@ import Settings from '@/components/partials/settings'
 import Sidebar from '@/components/partials/sidebar'
 // import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import MobileMenu from '@/components/partials/sidebar/MobileMenu'
+import { useSupabase } from '@/components/supabase/supabase-provider'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import useContentWidth from '@/hooks/useContentWidth'
 import useDarkMode from '@/hooks/useDarkMode'
@@ -20,7 +21,6 @@ import useMenuHidden from '@/hooks/useMenuHidden'
 import useMenulayout from '@/hooks/useMenulayout'
 import useMobileMenu from '@/hooks/useMobileMenu'
 import useNavbarType from '@/hooks/useNavbarType'
-import { useAppSelector } from '@/hooks/useRedux'
 import useRtl from '@/hooks/useRtl'
 import useSidebar from '@/hooks/useSidebar'
 import useSkin from '@/hooks/useSkin'
@@ -37,16 +37,30 @@ export default function RootLayout({ children }: IRootLayoutProps) {
   const [isDark] = useDarkMode()
   const [skin] = useSkin()
   const [navbarType] = useNavbarType()
+  const { supabase } = useSupabase()
+  const location = usePathname()
 
   const router = useRouter()
-  const { isAuth } = useAppSelector((state) => state.auth)
 
   useEffect(() => {
-    if (!isAuth) {
-      router.push('/')
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      // On sign out
+      if (event === 'SIGNED_OUT') router.push('/')
+
+      // Check auth
+      if (!session) {
+        console.log(location)
+        // @ts-ignore
+        router.push('/')
+      }
+    })
+
+    return () => {
+      subscription.unsubscribe()
     }
-  }, [isAuth])
-  const location = usePathname()
+  }, [router, supabase, location])
 
   // content width
   const [contentWidth] = useContentWidth()

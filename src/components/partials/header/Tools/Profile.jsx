@@ -3,8 +3,8 @@ import Dropdown from '@/components/ui/Dropdown'
 import Icon from '@/components/ui/Icon'
 import { Menu, Transition } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux'
-import { handleLogout } from '@/components/partials/auth/store'
 import { useRouter } from 'next/navigation'
+import useAuth from '@/hooks/useAuth'
 
 const ProfileLabel = () => {
   return (
@@ -33,6 +33,7 @@ const ProfileLabel = () => {
 const Profile = () => {
   const dispatch = useDispatch()
   const router = useRouter()
+  const { handleLogout } = useAuth()
 
   const ProfileMenu = [
     {
@@ -89,7 +90,8 @@ const Profile = () => {
       label: 'Logout',
       icon: 'heroicons-outline:login',
       action: () => {
-        dispatch(handleLogout(false))
+        handleLogout()
+        // dispatch(handleLogout(false))
       },
     },
   ]
